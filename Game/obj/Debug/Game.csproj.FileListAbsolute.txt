@@ -1,0 +1,7 @@
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\Engine.dll
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\ship.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\Game.exe
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\Game.pdb
+E:\Ian\Documents\UADE\PrograOO\Game\obj\Debug\Game.csprojAssemblyReference.cache
+E:\Ian\Documents\UADE\PrograOO\Game\obj\Debug\Game.exe
+E:\Ian\Documents\UADE\PrograOO\Game\obj\Debug\Game.pdb
