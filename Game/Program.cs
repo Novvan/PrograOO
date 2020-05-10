@@ -31,7 +31,7 @@ namespace Game
         }
         static void Init()
         {
-            UserPlayer = new Player(500,500,0);
+            UserPlayer = new Player(500,500);
         }
 
         private static void P_Input()
