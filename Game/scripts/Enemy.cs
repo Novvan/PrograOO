@@ -16,5 +16,14 @@ namespace Game.scripts
         private float angle;
         private float offsetX;
         private float offsetY;
+        public Enemy(float x, float y)
+        {
+            this.x = x;
+            this.y = y;
+        }
+        public void render()
+        {
+            Engine.Draw(image, x, y, scaleX, scaleY, angle, offsetX, offsetY);
+        }
     }
 }
