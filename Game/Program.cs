@@ -41,7 +41,11 @@ namespace Game
 
         private static void P_Update()
         {
-            angle += 90;
+            if (Engine.GetKey(Keys.P))
+            {
+                GameManager.Instance.NewKill(1);
+            }
+            Engine.Debug(GameManager.Instance.Kills);
         }
 
         private static void P_Render()
@@ -54,12 +58,10 @@ namespace Game
         }
         static void CalculateDeltaTime()
         {
-            //TimeSpan currentTime = DateTime.Now - startTime;
-            //float currentTimeInSeconds = (float) currentTime.TotalSeconds;
             float currentTime = (float)(DateTime.Now - startTime).TotalMilliseconds;
             deltaTime = currentTime - lastTime; //La diferencia de esto seria el delta time
             lastTime = currentTime;
-            Engine.Debug("DeltaTime:" + deltaTime);
+            //Engine.Debug("DeltaTime:" + deltaTime);
         }
     }
 }

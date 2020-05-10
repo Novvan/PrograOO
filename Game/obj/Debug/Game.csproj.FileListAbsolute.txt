@@ -110,3 +110,96 @@ C:\Users\Admin\Desktop\Facultad\2020\Introduccion a Objetos\BoxHead\SpaceGame\Ga
 C:\Users\Admin\Desktop\Facultad\2020\Introduccion a Objetos\BoxHead\SpaceGame\Game\bin\Debug\textures\assets\Player\player (7).png
 C:\Users\Admin\Desktop\Facultad\2020\Introduccion a Objetos\BoxHead\SpaceGame\Game\bin\Debug\textures\assets\Player\player (8).png
 C:\Users\Admin\Desktop\Facultad\2020\Introduccion a Objetos\BoxHead\SpaceGame\Game\bin\Debug\textures\assets\Player\player (9).png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\Engine.dll
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Map.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Player\player (1).png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Player\player (10).png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Player\player (11).png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Player\player (12).png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Player\player (13).png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Player\player (14).png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Player\player (15).png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Player\player (16).png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Player\player (17).png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Player\player (18).png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Player\player (19).png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Player\player (2).png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Player\player (20).png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Player\player (3).png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Player\player (4).png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Player\player (5).png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Player\player (6).png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Player\player (7).png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Player\player (8).png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Player\player (9).png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Normal\attack01_0000.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Normal\attack01_0001.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Normal\attack01_0002.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Normal\attack01_0003.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Normal\attack01_0004.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Normal\attack01_0005.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Normal\attack01_0006.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Normal\attack01_0007.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Normal\attack01_0008.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Normal\attack01_0009.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Normal\attack01_0010.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Normal\attack01_0011.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Normal\attack01_0012.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Normal\attack01_0013.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Normal\attack01_0014.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Normal\attack01_0015.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Normal\attack01_0016.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Normal\attack01_0017.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Normal\attack01_0018.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Normal\attack01_0019.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-attack_0.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-attack_1.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-attack_2.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-attack_3.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-attack_4.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-attack_5.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-attack_6.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-attack_7.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-attack_8.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-idle_0.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-idle_1.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-idle_10.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-idle_11.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-idle_12.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-idle_13.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-idle_14.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-idle_15.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-idle_16.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-idle_2.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-idle_3.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-idle_4.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-idle_5.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-idle_6.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-idle_7.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-idle_8.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-idle_9.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-move_0.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-move_1.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-move_10.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-move_11.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-move_12.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-move_13.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-move_14.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-move_15.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-move_16.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-move_2.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-move_3.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-move_4.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-move_5.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-move_6.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-move_7.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-move_8.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-move_9.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\bkg.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\spaceship.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\ship.png
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\Game.exe
+E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\Game.pdb
+E:\Ian\Documents\UADE\PrograOO\Game\obj\Debug\Game.csprojAssemblyReference.cache
+E:\Ian\Documents\UADE\PrograOO\Game\obj\Debug\Game.exe
+E:\Ian\Documents\UADE\PrograOO\Game\obj\Debug\Game.pdb
