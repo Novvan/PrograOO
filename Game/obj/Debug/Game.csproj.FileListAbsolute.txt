@@ -206,7 +206,6 @@ D:\PrograOO\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
 D:\PrograOO\Game\obj\Debug\Game.exe
 D:\PrograOO\Game\obj\Debug\Game.pdb
 =======
-<<<<<<< HEAD
 C:\Users\Federico\Documents\GitHub\Orientacion a Objetos\Game\bin\Debug\Engine.dll
 C:\Users\Federico\Documents\GitHub\Orientacion a Objetos\Game\bin\Debug\textures\assets\Map.png
 C:\Users\Federico\Documents\GitHub\Orientacion a Objetos\Game\bin\Debug\textures\assets\Player\player (1).png
@@ -301,7 +300,6 @@ C:\Users\Federico\Documents\GitHub\Orientacion a Objetos\Game\obj\Debug\Game.csp
 C:\Users\Federico\Documents\GitHub\Orientacion a Objetos\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
 C:\Users\Federico\Documents\GitHub\Orientacion a Objetos\Game\obj\Debug\Game.exe
 C:\Users\Federico\Documents\GitHub\Orientacion a Objetos\Game\obj\Debug\Game.pdb
-=======
 E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\Engine.dll
 E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Map.png
 E:\Ian\Documents\UADE\PrograOO\Game\bin\Debug\textures\assets\Player\player (1).png

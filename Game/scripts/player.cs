@@ -14,7 +14,7 @@ namespace Game.scripts
         private float y;
         private float life;
         private float speed = 300f;
-        private float angle = 0f;
+        public float angle = 0f;
         private float scale = 0.5f;
         private Texture texture;
         private string texturePath = "textures/assets/Player/player (1).png";
@@ -40,20 +40,23 @@ namespace Game.scripts
         public void MoveRight()
         {
             x += speed * Program.deltaTime;
+            
         }
         public void MoveLeft()
         {
             x -= speed * Program.deltaTime;
-            
+                       
             
         }
         public void MoveUp()
         {
             y -= speed * Program.deltaTime;
+            
         }
         public void MoveDown()
         {
             y += speed * Program.deltaTime;
+            
         }
         public void Update()
         {
@@ -62,7 +65,7 @@ namespace Game.scripts
 
         public void Render()
         {
-            Engine.Draw(texture, x, y, scale, scale, OffsetX, OffsetY);
+            Engine.Draw(texture, x, y, scale, scale, angle, OffsetX, OffsetY);
         }
     }
 }

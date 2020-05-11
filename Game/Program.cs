@@ -10,6 +10,7 @@ namespace Game
         static DateTime startTime;
         static float lastFrameTime;
         static Player player;
+        
        
         
         
@@ -39,7 +40,8 @@ namespace Game
         {
             if (Engine.GetKey(Keys.D))
             {
-                player.MoveRight();
+                player.MoveRight();               
+                
             }
 
             if (Engine.GetKey(Keys.A))
@@ -50,12 +52,13 @@ namespace Game
 
             if (Engine.GetKey(Keys.S))
             {
-                player.MoveDown();
+                player.MoveDown();                
             }
 
             if (Engine.GetKey(Keys.W))
             {
-                player.MoveUp();
+                player.MoveUp();               
+
             }
         }
 
