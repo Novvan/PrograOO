@@ -10,6 +10,6 @@ namespace Game.scripts
     {
         private LifeController lifeController;
 
-        public Enemy();
+        //public Enemy();
     }
 }

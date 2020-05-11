@@ -395,3 +395,4 @@ E:\Ian\Documents\UADE\PrograOO\Game\obj\Debug\Game.exe
 E:\Ian\Documents\UADE\PrograOO\Game\obj\Debug\Game.pdb
 >>>>>>> 56d741a9a49ce6b9ea816ba4c72549478ba3bf9b
 >>>>>>> a8087509e84c68998f55b6b5265f2918f0127125
+D:\PrograOO\Game\bin\Debug\textures\assets\Player\player.png

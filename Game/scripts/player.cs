@@ -6,20 +6,23 @@ using System.Threading.Tasks;
 
 namespace Game.scripts
 {
-       public class Player
+    public class Player
     {
-
 
         private float x;
         private float y;
         private Vector2 position;
         private LifeController lifeController;
         private float speed = 300f;
-        private float angle = 0f;
+        private float angle = 0;
         private float scale = 0.5f;
         private Texture texture;
+<<<<<<< HEAD
         private string texturePath = "textures/assets/Player/player (1).png";
         private SpawnPoint spawnPoint;
+=======
+        private string texturePath = "textures/assets/Player/player.png";
+>>>>>>> 90ca0422a0e3ed3d2ff25341ccd081647863d30d
 
         public float Width => texture.Width * scale;
         public float Height => texture.Height * scale;
@@ -48,20 +51,27 @@ namespace Game.scripts
         public void MoveRight()
         {
             x += speed * Program.deltaTime;
+            angle = 0f;
+            Engine.Debug(angle);
+
         }
         public void MoveLeft()
         {
             x -= speed * Program.deltaTime;
-            
-            
+            angle = 180f;
+            Engine.Debug(angle);
         }
         public void MoveUp()
         {
             y -= speed * Program.deltaTime;
+            angle = 270f;
+            Engine.Debug(angle);
         }
         public void MoveDown()
         {
             y += speed * Program.deltaTime;
+            angle = 90f;
+            Engine.Debug("Angulo : " + angle);
         }
         public void Update()
         {
@@ -70,7 +80,7 @@ namespace Game.scripts
 
         public void Render()
         {
-            Engine.Draw(texture, x, y, scale, scale, angle, OffsetX,OffsetY);
+            Engine.Draw(texture, x, y, scale, scale, angle, OffsetX, OffsetY);
         }
     }
 }
