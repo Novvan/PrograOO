@@ -41,9 +41,10 @@
     <Compile Include="Program.cs" />
     <Compile Include="scripts\Enemy.cs" />
     <Compile Include="scripts\GameManager.cs" />
+    <Compile Include="scripts\GameObject.cs" />
     <Compile Include="scripts\LifeController.cs" />
+    <Compile Include="scripts\Menu.cs" />
     <Compile Include="scripts\Player.cs" />
-    <Compile Include="scripts\RegularEnemy.cs" />
     <Compile Include="scripts\SpawnPoint.cs" />
     <Compile Include="scripts\Vector2.cs" />
   </ItemGroup>
@@ -250,6 +251,21 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="textures\bkg.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\Menu\menuscreen.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\Menu\play.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\Menu\quit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\Menu\yellowplay.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\Menu\yellowquit.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="textures\spaceship.png">
