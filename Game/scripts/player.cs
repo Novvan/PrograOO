@@ -17,12 +17,11 @@ namespace Game.scripts
         private float angle = 0;
         private float scale = 0.5f;
         private Texture texture;
-<<<<<<< HEAD
-        private string texturePath = "textures/assets/Player/player (1).png";
-        private SpawnPoint spawnPoint;
-=======
         private string texturePath = "textures/assets/Player/player.png";
->>>>>>> 90ca0422a0e3ed3d2ff25341ccd081647863d30d
+        private SpawnPoint spawnPoint;
+
+        
+
 
         public float Width => texture.Width * scale;
         public float Height => texture.Height * scale;

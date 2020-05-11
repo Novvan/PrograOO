@@ -10,13 +10,14 @@ namespace Game
         static DateTime startTime;
         static float lastFrameTime;
         static Player player;
-<<<<<<< HEAD
+        static int width = 1600;
+        static int height = 900;
+
         private static SpawnPoint spawnPoint;
-=======
+
         
        
->>>>>>> 90ca0422a0e3ed3d2ff25341ccd081647863d30d
-        
+   
         
 
         static void Main(string[] args)
@@ -35,10 +36,11 @@ namespace Game
         }
         static void Init()
         {
-            Engine.Initialize();
+            Engine.Initialize("BoxHead", width, height, false);
 
-            spawnPoint = new SpawnPoint(new Vector2(100, 100));
-            player = new Player(100, 200, 0);
+
+            spawnPoint = new SpawnPoint(new Vector2(5, 5));
+            player = new Player(width/2, height/2, 0);
             startTime = DateTime.Now;
         }
 
@@ -103,7 +105,7 @@ namespace Game
             float currentTime = (float)(DateTime.Now - startTime).TotalSeconds;
             deltaTime = currentTime - lastFrameTime; 
             lastFrameTime = currentTime;
-           // Engine.Debug("DeltaTime:" + deltaTime);
+            //Engine.Debug("DeltaTime:" + deltaTime);
 
         }
     }
