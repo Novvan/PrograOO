@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace Game.scripts
 {
-       public class Player
+    public class Player
     {
-        
+
         private float x;
         private float y;
         private LifeController lifeController;
         private float speed = 300f;
-        private float angle = 0f;
+        private float angle = 0;
         private float scale = 0.5f;
         private Texture texture;
-        private string texturePath = "textures/assets/Player/player (1).png";
+        private string texturePath = "textures/assets/Player/player.png";
 
         public float Width => texture.Width * scale;
         public float Height => texture.Height * scale;
@@ -41,49 +41,35 @@ namespace Game.scripts
         {
             x += speed * Program.deltaTime;
             angle = 0f;
-<<<<<<< HEAD
-            
-=======
->>>>>>> 05febb91e671efb6a6e9cc21c3a0ec60339e9fbe
+            Engine.Debug(angle);
+
         }
         public void MoveLeft()
         {
             x -= speed * Program.deltaTime;
             angle = 180f;
-<<<<<<< HEAD
-                       
-            
-=======
->>>>>>> 05febb91e671efb6a6e9cc21c3a0ec60339e9fbe
+            Engine.Debug(angle);
         }
         public void MoveUp()
         {
             y -= speed * Program.deltaTime;
-            angle = 90f;
-<<<<<<< HEAD
-            
-            
-=======
-
->>>>>>> 05febb91e671efb6a6e9cc21c3a0ec60339e9fbe
+            angle = 270f;
+            Engine.Debug(angle);
         }
         public void MoveDown()
         {
             y += speed * Program.deltaTime;
-            angle = 270f;
-<<<<<<< HEAD
-=======
-
->>>>>>> 05febb91e671efb6a6e9cc21c3a0ec60339e9fbe
+            angle = 90f;
+            Engine.Debug("Angulo : " + angle);
         }
         public void Update()
         {
-            
+
         }
 
         public void Render()
         {
-            Engine.Draw(texture, x, y, scale, scale, angle, OffsetX,OffsetY);
+            Engine.Draw(texture, x, y, scale, scale, angle, OffsetX, OffsetY);
         }
     }
 }

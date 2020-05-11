@@ -24,9 +24,9 @@ namespace Game
             while (true)
             {
                 CalculateDeltaTime();
-                P_Input();
-                P_Update();
-                P_Render();
+                Input();
+                Update();
+                Render();
             }
         }
         static void Init()
@@ -36,26 +36,19 @@ namespace Game
             startTime = DateTime.Now;
         }
 
-        private static void P_Input()
+        private static void Input()
         {
             if (Engine.GetKey(Keys.D))
             {
                 player.MoveRight();
-<<<<<<< HEAD
-                
-                
-=======
->>>>>>> 05febb91e671efb6a6e9cc21c3a0ec60339e9fbe
+
             }
 
             if (Engine.GetKey(Keys.A))
             {
-                player.MoveLeft();
-<<<<<<< HEAD
+                player.MoveLeft();              
                 
-                
-=======
->>>>>>> 05febb91e671efb6a6e9cc21c3a0ec60339e9fbe
+
             }
 
             if (Engine.GetKey(Keys.S))
@@ -67,11 +60,10 @@ namespace Game
             if (Engine.GetKey(Keys.W))
             {
                 player.MoveUp();
-<<<<<<< HEAD
+
                
 
-=======
->>>>>>> 05febb91e671efb6a6e9cc21c3a0ec60339e9fbe
+
             }
 
             if (Engine.GetKey(Keys.Q))
@@ -81,7 +73,7 @@ namespace Game
             }
         }
 
-        private static void P_Update()
+        private static void Update()
         {
             player.Update();
             if (Engine.GetKey(Keys.P))
@@ -91,11 +83,11 @@ namespace Game
             Engine.Debug(GameManager.Instance.Kills);
         }
 
-        private static void P_Render()
+        private static void Render()
         {
-            //Engine.Debug("render");
+            
             Engine.Clear();
-            Engine.Draw("textures/assets/Map.png", 0, 0, 1, 1);
+            Engine.Draw("textures/assets/Map.png");
             player.Render();
             
             Engine.Show();
@@ -105,7 +97,7 @@ namespace Game
             float currentTime = (float)(DateTime.Now - startTime).TotalSeconds;
             deltaTime = currentTime - lastFrameTime; 
             lastFrameTime = currentTime;
-            Engine.Debug("DeltaTime:" + deltaTime);
+           // Engine.Debug("DeltaTime:" + deltaTime);
 
         }
     }
