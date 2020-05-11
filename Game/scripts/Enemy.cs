@@ -23,7 +23,11 @@ namespace Game.scripts
         }
         public void render()
         {
+            Engine.Clear();
+
             Engine.Draw(image, x, y, scaleX, scaleY, angle, offsetX, offsetY);
+
+            Engine.Show();
         }
     }
 }
