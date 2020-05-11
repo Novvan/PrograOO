@@ -6,30 +6,28 @@ using System.Threading.Tasks;
 
 namespace Game.scripts
 {
-    public class Player
+    public class Player : GameObject
     {
+        //private float angle = 0;
+        //private float scale = 0.5f;
+        // private string texturePath = "textures/assets/Player/player.png";
         private float x;
-        private float y;
-        private Vector2 position;
+        private float y;           
         private LifeController lifeController;
-        private float speed = 300f;
-        private float angle = 0;
-        private float scale = 0.5f;
-        private Texture texture;
-        private string texturePath = "textures/assets/Player/player.png";
+        private float speed = 300f;                   
         private SpawnPoint spawnPoint;
+        
+        
 
 
-        public float Width => texture.Width * scale;
-        public float Height => texture.Height * scale;
-        public float OffsetX => Width / 2;
-        public float OffsetY => Height / 2;
 
         public LifeController LifeController
         {
             get => lifeController;
             set => lifeController = value;
         }
+
+        
 
         public float X
         {
@@ -43,14 +41,10 @@ namespace Game.scripts
             set => y = value;
         }
 
-        public Player(float initialX, float initialY, float angle)
+       
+        public Player(Vector2 initialPosition, string texturePath, float angle, float scaleX, float scaleY, float speed) : base(initialPosition, texturePath, angle, scaleX, scaleY)
         {
-            x = initialX;
-            y = initialY;
-
-            texture = Engine.GetTexture(texturePath);
-
-            lifeController = new LifeController(100);
+            lifeController = new LifeController(100);  
         }
 
         public void AssignSpawnpoint(SpawnPoint newSpawnpoint)
@@ -60,39 +54,41 @@ namespace Game.scripts
 
         public void MoveRight()
         {
-            x += speed * Program.deltaTime;
-            angle = 0f;
+           position . x += speed * Program.deltaTime;
+            
             //Engine.Debug(angle);
         }
 
         public void MoveLeft()
         {
-            x -= speed * Program.deltaTime;
-            angle = 180f;
+            position . x -= speed * Program.deltaTime;
+           
             //Engine.Debug(angle);
         }
 
         public void MoveUp()
         {
-            y -= speed * Program.deltaTime;
-            angle = 270f;
+            position . y -= speed * Program.deltaTime;
+           
             //Engine.Debug(angle);
         }
 
         public void MoveDown()
         {
-            y += speed * Program.deltaTime;
-            angle = 90f;
+            position . y += speed * Program.deltaTime;
+            
             //Engine.Debug(angle);
         }
 
-        public void Update()
+        //Override es para tener algo propio del player (clase hijo)
+        public override void Update()
         {
         }
 
-        public void Render()
+        public override void Render()
         {
-            Engine.Draw(texture, x, y, scale, scale, angle, OffsetX, OffsetY);
+            //Base.Render es para heredar el render de la clase padre
+            base.Render();    
         }
     }
-}
+}    
