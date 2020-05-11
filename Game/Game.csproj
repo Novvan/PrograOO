@@ -43,11 +43,15 @@
     <Compile Include="scripts\GameManager.cs" />
     <Compile Include="scripts\LifeController.cs" />
     <Compile Include="scripts\Player.cs" />
+    <Compile Include="scripts\RegularEnemy.cs" />
     <Compile Include="scripts\SpawnPoint.cs" />
     <Compile Include="scripts\Vector2.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Engine.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\assets\gameover.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="textures\assets\Map.png">
