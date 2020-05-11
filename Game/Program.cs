@@ -31,7 +31,7 @@ namespace Game
         {
             Engine.Initialize("BoxHead", width, height, false);
 
-
+            
             spawnPoint = new SpawnPoint(new Vector2(5, 5));
             player = new Player(width / 2, height / 2, 0);
             startTime = DateTime.Now;
@@ -68,13 +68,10 @@ namespace Game
 
         private static void Update()
         {
-            player.Update();
-            if (Engine.GetKey(Keys.P))
+            if (GameManager.Instance.Enemies.Length == 0)
             {
-                GameManager.Instance.NewKill(1);
+                GameManager.Instance.NewWave();   
             }
-
-            Engine.Debug(GameManager.Instance.Kills);
         }
 
         private static void Render()
