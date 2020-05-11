@@ -6,37 +6,45 @@ using System.Threading.Tasks;
 
 namespace Game.scripts
 {
-    public class Enemy
+    public class Enemy : GameObject
     {
-        private float _enemX;
-        private float _enemY;
-        private float _enemAngle;
-        private Texture _texture;
-        private string _texturePath;
-        private float _scale;
-        private LifeController _lifeController;
-
-        private float _width => _texture.Width * _scale;
-        private float _height => _texture.Height * _scale;
-        private float _offsetX => _width / 2;
-        private float _offsetY => _height / 2;
-
-        public LifeController EnemyLifeController
+        private float x;
+        private float y;
+        private LifeController lifeController;
+        private float speed = 300f;
+        private SpawnPoint spawnPoint;
+        private bool _isAlive;
+        public LifeController LifeController
         {
-            get => _lifeController;
-            set => _lifeController = value;
+            get => lifeController;
+            set => lifeController = value;
+        }
+        public float X
+        {
+            get => x;
+            set => x = value;
+        }
+        public float Y
+        {
+            get => y;
+            set => y = value;
         }
 
-        public float EnemX
+        public Enemy(Vector2 initialPosition, string texturePath, float angle, float scaleX, float scaleY, float speed)
+            : base(initialPosition, texturePath, angle, scaleX, scaleY)
         {
-            get => _enemX;
-            set => _enemX = value;
+            lifeController = new LifeController(100);
         }
-
-        public float EnemY
+        public void AssignSpawnpoint(SpawnPoint newSpawnpoint)
         {
-            get => _enemY;
-            set => _enemY = value;
+            spawnPoint = newSpawnpoint;
+        }
+        public override void Update()
+        {
+        }
+        public override void Render()
+        {
+            base.Render();
         }
     }
 }

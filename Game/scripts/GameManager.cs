@@ -9,7 +9,7 @@ namespace Game.scripts
 {
     public class GameManager
     {
-        private Enemy[] _enemies;
+        private List<Enemy> _enemies = new List<Enemy>();
         private static GameManager _instance;
         private float _gameModifier;
         private float _wave = 0;
@@ -34,8 +34,6 @@ namespace Game.scripts
             set => _gameModifier = value;
         }
 
-        public Enemy[] Enemies => _enemies;
-
         public float Wave
         {
             get => _wave;
@@ -43,15 +41,24 @@ namespace Game.scripts
 
         public void SpawnEnemies()
         {
-            while (Enemies.Length <= _maxEnemies * _wave)
+            while (_enemies.Count <= _maxEnemies * _wave)
             {
-
+                Random rnd = new Random();
+                int _randomY = rnd.Next(0, 900);
+                int _randomX = rnd.Next(0, 1600);
+                float _scale = 0.5f;
+                Vector2 position = new Vector2(_randomX, _randomY);
+                
+                for (int i = 0; i <= _maxEnemies*_wave; i++ )
+                {
+                    _enemies.Add(Enemy(position,"Game/textures/assets/Zombie Normal/attack01_0019.png",0,_scale,_scale,100));
+                }
             }
         }
 
         public void NewWave()
         {
-            if (Enemies.Length == 0)
+            if (_enemies.Count == 0)
             {
                 _wave++;
                 SpawnEnemies();
