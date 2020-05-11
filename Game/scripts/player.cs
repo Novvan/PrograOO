@@ -8,6 +8,7 @@ namespace Game.scripts
 {
     public class Player : GameObject
     {
+        
         private float x;
         private float y;
         // private float angle = 0;

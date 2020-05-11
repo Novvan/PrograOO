@@ -68,10 +68,10 @@ namespace Game
 
         private static void Update()
         {
-            if (GameManager.Instance.Enemies.Length == 0)
+            /*if (GameManager.Instance.Enemies.Length == 0)
             {
                 GameManager.Instance.NewWave();
-            }
+            }*/
         }
 
         private static void Render()
