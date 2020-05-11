@@ -41,15 +41,21 @@ namespace Game
             if (Engine.GetKey(Keys.D))
             {
                 player.MoveRight();
+<<<<<<< HEAD
                 
                 
+=======
+>>>>>>> 05febb91e671efb6a6e9cc21c3a0ec60339e9fbe
             }
 
             if (Engine.GetKey(Keys.A))
             {
                 player.MoveLeft();
+<<<<<<< HEAD
                 
                 
+=======
+>>>>>>> 05febb91e671efb6a6e9cc21c3a0ec60339e9fbe
             }
 
             if (Engine.GetKey(Keys.S))
@@ -61,8 +67,11 @@ namespace Game
             if (Engine.GetKey(Keys.W))
             {
                 player.MoveUp();
+<<<<<<< HEAD
                
 
+=======
+>>>>>>> 05febb91e671efb6a6e9cc21c3a0ec60339e9fbe
             }
 
             if (Engine.GetKey(Keys.Q))

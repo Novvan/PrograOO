@@ -8,8 +8,7 @@ namespace Game.scripts
 {
        public class Player
     {
-
-
+        
         private float x;
         private float y;
         private LifeController lifeController;
@@ -42,39 +41,49 @@ namespace Game.scripts
         {
             x += speed * Program.deltaTime;
             angle = 0f;
+<<<<<<< HEAD
             
+=======
+>>>>>>> 05febb91e671efb6a6e9cc21c3a0ec60339e9fbe
         }
         public void MoveLeft()
         {
             x -= speed * Program.deltaTime;
             angle = 180f;
+<<<<<<< HEAD
                        
             
+=======
+>>>>>>> 05febb91e671efb6a6e9cc21c3a0ec60339e9fbe
         }
         public void MoveUp()
         {
             y -= speed * Program.deltaTime;
             angle = 90f;
+<<<<<<< HEAD
             
             
+=======
+
+>>>>>>> 05febb91e671efb6a6e9cc21c3a0ec60339e9fbe
         }
         public void MoveDown()
         {
             y += speed * Program.deltaTime;
             angle = 270f;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 05febb91e671efb6a6e9cc21c3a0ec60339e9fbe
         }
         public void Update()
         {
-
+            
         }
 
         public void Render()
         {
-<<<<<<< HEAD
-            Engine.Draw(texture, x, y, scale, scale, angle, OffsetX, OffsetY);
-=======
             Engine.Draw(texture, x, y, scale, scale, angle, OffsetX,OffsetY);
->>>>>>> 3f0725abdbb5e0e6e20a8b1d65f882fb21ecf643
         }
     }
 }
