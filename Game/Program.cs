@@ -12,18 +12,10 @@ namespace Game
         static Player player;
         static int width = 1600;
         static int height = 900;
-
         private static SpawnPoint spawnPoint;
-
-        
-       
-   
-        
 
         static void Main(string[] args)
         {
-                 
-           
             Init();
 
             while (true)
@@ -34,13 +26,14 @@ namespace Game
                 Render();
             }
         }
+
         static void Init()
         {
             Engine.Initialize("BoxHead", width, height, false);
 
 
             spawnPoint = new SpawnPoint(new Vector2(5, 5));
-            player = new Player(width/2, height/2, 0);
+            player = new Player(width / 2, height / 2, 0);
             startTime = DateTime.Now;
         }
 
@@ -49,29 +42,21 @@ namespace Game
             if (Engine.GetKey(Keys.D))
             {
                 player.MoveRight();
-
             }
 
             if (Engine.GetKey(Keys.A))
             {
-                player.MoveLeft();              
-                
-
+                player.MoveLeft();
             }
 
             if (Engine.GetKey(Keys.S))
             {
                 player.MoveDown();
-                
             }
 
             if (Engine.GetKey(Keys.W))
             {
                 player.MoveUp();
-
-               
-
-
             }
 
             if (Engine.GetKey(Keys.Q))
@@ -88,25 +73,25 @@ namespace Game
             {
                 GameManager.Instance.NewKill(1);
             }
+
             Engine.Debug(GameManager.Instance.Kills);
         }
 
         private static void Render()
         {
-            
             Engine.Clear();
             Engine.Draw("textures/assets/Map.png");
             player.Render();
-            
+
             Engine.Show();
         }
+
         static void CalculateDeltaTime()
         {
-            float currentTime = (float)(DateTime.Now - startTime).TotalSeconds;
-            deltaTime = currentTime - lastFrameTime; 
+            float currentTime = (float) (DateTime.Now - startTime).TotalSeconds;
+            deltaTime = currentTime - lastFrameTime;
             lastFrameTime = currentTime;
             //Engine.Debug("DeltaTime:" + deltaTime);
-
         }
     }
 }

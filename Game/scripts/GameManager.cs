@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace Game.scripts
 {
-    public  class GameManager
+    public class GameManager
     {
         private static GameManager _instance;
+
         public static GameManager Instance
         {
             get
@@ -22,8 +23,9 @@ namespace Game.scripts
                 return _instance;
             }
         }
-        
+
         private float _kills;
+
         public float Kills
         {
             get => _kills;

@@ -8,7 +8,6 @@ namespace Game.scripts
 {
     public class Player
     {
-
         private float x;
         private float y;
         private Vector2 position;
@@ -20,18 +19,29 @@ namespace Game.scripts
         private string texturePath = "textures/assets/Player/player.png";
         private SpawnPoint spawnPoint;
 
-        
-
 
         public float Width => texture.Width * scale;
         public float Height => texture.Height * scale;
         public float OffsetX => Width / 2;
         public float OffsetY => Height / 2;
 
-        public LifeController LifeController { get => lifeController; set => lifeController = value; }
+        public LifeController LifeController
+        {
+            get => lifeController;
+            set => lifeController = value;
+        }
 
-        public float X { get => x; set => x = value; }
-        public float Y { get => y; set => y = value; }
+        public float X
+        {
+            get => x;
+            set => x = value;
+        }
+
+        public float Y
+        {
+            get => y;
+            set => y = value;
+        }
 
         public Player(float initialX, float initialY, float angle)
         {
@@ -47,34 +57,37 @@ namespace Game.scripts
         {
             spawnPoint = newSpawnpoint;
         }
+
         public void MoveRight()
         {
             x += speed * Program.deltaTime;
             angle = 0f;
-            Engine.Debug(angle);
-
+            //Engine.Debug(angle);
         }
+
         public void MoveLeft()
         {
             x -= speed * Program.deltaTime;
             angle = 180f;
-            Engine.Debug(angle);
+            //Engine.Debug(angle);
         }
+
         public void MoveUp()
         {
             y -= speed * Program.deltaTime;
             angle = 270f;
-            Engine.Debug(angle);
+            //Engine.Debug(angle);
         }
+
         public void MoveDown()
         {
             y += speed * Program.deltaTime;
             angle = 90f;
-            Engine.Debug("Angulo : " + angle);
+            //Engine.Debug(angle);
         }
+
         public void Update()
         {
-
         }
 
         public void Render()
@@ -83,5 +96,3 @@ namespace Game.scripts
         }
     }
 }
-
-
