@@ -6,28 +6,85 @@ using System.Threading.Tasks;
 
 namespace Game.scripts
 {
-    public class Player
+    public class Player : GameObject
     {
-        string image = "textures/assets/Player/player (1).png";
         private float x;
         private float y;
-        private float scaleX = 0.5f;
-        private float scaleY = 0.5f;
-        private float angle;
-        private float offsetX;
-        private float offsetY;
+        // private float angle = 0;
+        // private float scale = 0.5f;
+        //private string texturePath = "textures/assets/Player/player.png";
 
-        public Player(float x, float y)
+        private LifeController lifeController;
+        private float speed = 300f;      
+        private SpawnPoint spawnPoint;
+
+
+  
+        public LifeController LifeController
         {
-            this.x = x;
-            this.y = y;
-        } 
-        
-       
-        public void render()
-        { 
-            Engine.Draw(image,x,y,scaleX,scaleY,angle,offsetX,offsetY);
+            get => lifeController;
+            set => lifeController = value;
         }
+
+        public float X
+        {
+            get => x;
+            set => x = value;
+        }
+
+        public float Y
+        {
+            get => y;
+            set => y = value;
+        }
+
+      
         
+        public Player(Vector2 initialPosition, string texturePath, float angle, float scaleX, float scaleY, float speed) : base(initialPosition, texturePath, angle, scaleX, scaleY)
+        {
+            lifeController = new LifeController(100);
+        }
+
+        public void AssignSpawnpoint(SpawnPoint newSpawnpoint)
+        {
+            spawnPoint = newSpawnpoint;
+        }
+
+        public void MoveRight()
+        {
+            x += speed * Program.deltaTime;
+            angle = 0f;
+            //Engine.Debug(angle);
+        }
+
+        public void MoveLeft()
+        {
+            x -= speed * Program.deltaTime;
+            angle = 180f;
+            //Engine.Debug(angle);
+        }
+
+        public void MoveUp()
+        {
+            y -= speed * Program.deltaTime;
+            angle = 270f;
+            //Engine.Debug(angle);
+        }
+
+        public void MoveDown()
+        {
+            y += speed * Program.deltaTime;
+            angle = 90f;
+            //Engine.Debug(angle);
+        }
+
+        public override void Update()
+        {
+        }
+
+        public override void Render()
+        {
+            base.Render();
+        }
     }
 }

@@ -110,3 +110,17 @@ C:\Users\Admin\Desktop\Facultad\2020\Introduccion a Objetos\BoxHead\SpaceGame\Ga
 C:\Users\Admin\Desktop\Facultad\2020\Introduccion a Objetos\BoxHead\SpaceGame\Game\bin\Debug\textures\assets\Player\player (7).png
 C:\Users\Admin\Desktop\Facultad\2020\Introduccion a Objetos\BoxHead\SpaceGame\Game\bin\Debug\textures\assets\Player\player (8).png
 C:\Users\Admin\Desktop\Facultad\2020\Introduccion a Objetos\BoxHead\SpaceGame\Game\bin\Debug\textures\assets\Player\player (9).png
+D:\PrograOO\Game\obj\Debug\Game.csprojAssemblyReference.cache
+D:\PrograOO\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
+D:\PrograOO\Game\obj\Debug\Game.exe
+D:\PrograOO\Game\obj\Debug\Game.pdb
+D:\PrograOO\Game\bin\Debug\Engine.dll
+D:\PrograOO\Game\bin\Debug\textures\assets\Map.png
+D:\PrograOO\Game\bin\Debug\textures\assets\Zombie Normal\attack01_0019.png
+D:\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-attack_0.png
+D:\PrograOO\Game\bin\Debug\textures\bkg.png
+D:\PrograOO\Game\bin\Debug\textures\spaceship.png
+D:\PrograOO\Game\bin\Debug\textures\ship.png
+D:\PrograOO\Game\bin\Debug\textures\assets\Player\player.png
+D:\PrograOO\Game\bin\Debug\Game.exe
+D:\PrograOO\Game\bin\Debug\Game.pdb

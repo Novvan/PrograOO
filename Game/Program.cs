@@ -8,58 +8,87 @@ namespace Game
     {
         public static float deltaTime;
         static DateTime startTime;
-        static float lastTime;
-        static Player UserPlayer;
-        public static float angle;
+        static float lastFrameTime;
+        static Player player;
+        static int width = 1600;
+        static int height = 900;
+        private static Vector2 SpawnPoint;
 
         static void Main(string[] args)
         {
-            startTime = DateTime.Now;
-           
-            Engine.Initialize("BoxHead Reborn",1500,1000);
-            Engine.Debug("Hola mundo");
-
             Init();
 
             while (true)
             {
                 CalculateDeltaTime();
-                P_Input();
-                P_Update();
-                P_Render();
+                Input();
+                Update();
+                Render();
             }
         }
+
         static void Init()
         {
-            UserPlayer = new Player(500,500,0);
+            Engine.Initialize("BoxHead", width, height, false);
+
+
+            SpawnPoint = new Vector2(5, 5);
+            player = new Player(SpawnPoint, "textures/assets/Player/player.png",0,0.5f,0.5f,300f);
+            startTime = DateTime.Now;
         }
 
-        private static void P_Input()
+        private static void Input()
         {
+            if (Engine.GetKey(Keys.D))
+            {
+                player.MoveRight();
+            }
 
+            if (Engine.GetKey(Keys.A))
+            {
+                player.MoveLeft();
+            }
+
+            if (Engine.GetKey(Keys.S))
+            {
+                player.MoveDown();
+            }
+
+            if (Engine.GetKey(Keys.W))
+            {
+                player.MoveUp();
+            }
+
+            if (Engine.GetKey(Keys.Q))
+            {
+                player.LifeController.GetDamage(1);
+                Engine.Debug(player.LifeController.CurrentLife);
+            }
         }
 
-        private static void P_Update()
+        private static void Update()
         {
-            angle += 90;
+            if (GameManager.Instance.Enemies.Length == 0)
+            {
+                GameManager.Instance.NewWave();
+            }
         }
 
-        private static void P_Render()
+        private static void Render()
         {
-            //Engine.Debug("render");
             Engine.Clear();
-            Engine.Draw("textures/assets/Map.png", 0, 0, 1, 1);
-            UserPlayer.render();
+            Engine.Draw("textures/assets/Map.png");
+            player.Render();
+
             Engine.Show();
         }
+
         static void CalculateDeltaTime()
         {
-            //TimeSpan currentTime = DateTime.Now - startTime;
-            //float currentTimeInSeconds = (float) currentTime.TotalSeconds;
-            float currentTime = (float)(DateTime.Now - startTime).TotalMilliseconds;
-            deltaTime = currentTime - lastTime; //La diferencia de esto seria el delta time
-            lastTime = currentTime;
-            Engine.Debug("DeltaTime:" + deltaTime);
+            float currentTime = (float)(DateTime.Now - startTime).TotalSeconds;
+            deltaTime = currentTime - lastFrameTime;
+            lastFrameTime = currentTime;
+            //Engine.Debug("DeltaTime:" + deltaTime);
         }
     }
 }
