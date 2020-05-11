@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Game.scripts
 {
-    public abstract class GameObject
+    public class Menu 
     {
+
     }
 }

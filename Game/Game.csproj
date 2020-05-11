@@ -42,10 +42,9 @@
     <Compile Include="scripts\Bullet.cs" />
     <Compile Include="scripts\Enemy.cs" />
     <Compile Include="scripts\GameManager.cs" />
-    <Compile Include="scripts\GameObject.cs" />
     <Compile Include="scripts\LifeController.cs" />
-    <Compile Include="scripts\Menu.cs" />
     <Compile Include="scripts\Player.cs" />
+    <Compile Include="scripts\RegularEnemy.cs" />
     <Compile Include="scripts\SpawnPoint.cs" />
     <Compile Include="scripts\Time.cs" />
     <Compile Include="scripts\Vector2.cs" />
@@ -256,6 +255,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Content Include="textures\bullet.png">
 =======
     <Content Include="textures\Menu\menuscreen.png">
@@ -274,6 +274,8 @@
 >>>>>>> cf6e12e92eb9aec22198f4fba775182841bcb4bc
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+=======
+>>>>>>> parent of 3e87d2f... Parte de herencias (GameObject)
     <Content Include="textures\spaceship.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
