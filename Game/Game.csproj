@@ -39,6 +39,7 @@
   <ItemGroup>
     <Compile Include="Game.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="scripts\Bullet.cs" />
     <Compile Include="scripts\Enemy.cs" />
     <Compile Include="scripts\GameManager.cs" />
     <Compile Include="scripts\GameObject.cs" />
@@ -46,6 +47,7 @@
     <Compile Include="scripts\Menu.cs" />
     <Compile Include="scripts\Player.cs" />
     <Compile Include="scripts\SpawnPoint.cs" />
+    <Compile Include="scripts\Time.cs" />
     <Compile Include="scripts\Vector2.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -253,6 +255,9 @@
     <Content Include="textures\bkg.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+<<<<<<< HEAD
+    <Content Include="textures\bullet.png">
+=======
     <Content Include="textures\Menu\menuscreen.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -266,6 +271,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="textures\Menu\yellowquit.png">
+>>>>>>> cf6e12e92eb9aec22198f4fba775182841bcb4bc
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="textures\spaceship.png">

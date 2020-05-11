@@ -43,7 +43,7 @@ namespace Game.scripts
         
         public void SpawnEnemies()
         {
-            if (Enemies.Length < _maxEnemies*_wave)
+            while (Enemies.Length <= _maxEnemies*_wave)
             {
                 
             }
