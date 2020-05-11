@@ -12,12 +12,14 @@ namespace Game.scripts
 
         private float x;
         private float y;
+        private Vector2 position;
         private LifeController lifeController;
         private float speed = 300f;
         private float angle = 0f;
         private float scale = 0.5f;
         private Texture texture;
         private string texturePath = "textures/assets/Player/player (1).png";
+        private SpawnPoint spawnPoint;
 
         public float Width => texture.Width * scale;
         public float Height => texture.Height * scale;
@@ -37,6 +39,11 @@ namespace Game.scripts
             texture = Engine.GetTexture(texturePath);
 
             lifeController = new LifeController(100);
+        }
+
+        public void AssignSpawnpoint(SpawnPoint newSpawnpoint)
+        {
+            spawnPoint = newSpawnpoint;
         }
         public void MoveRight()
         {

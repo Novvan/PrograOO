@@ -43,6 +43,8 @@
     <Compile Include="scripts\GameManager.cs" />
     <Compile Include="scripts\LifeController.cs" />
     <Compile Include="scripts\Player.cs" />
+    <Compile Include="scripts\SpawnPoint.cs" />
+    <Compile Include="scripts\Vector2.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Engine.dll">

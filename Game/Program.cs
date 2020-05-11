@@ -10,7 +10,7 @@ namespace Game
         static DateTime startTime;
         static float lastFrameTime;
         static Player player;
-       
+        private static SpawnPoint spawnPoint;
         
         
 
@@ -31,6 +31,8 @@ namespace Game
         static void Init()
         {
             Engine.Initialize();
+
+            spawnPoint = new SpawnPoint(new Vector2(100, 100));
             player = new Player(100, 200, 0);
             startTime = DateTime.Now;
         }
