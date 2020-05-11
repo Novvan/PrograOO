@@ -40,6 +40,8 @@
     <Compile Include="Game.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="scripts\Enemy.cs" />
+    <Compile Include="scripts\GameManager.cs" />
+    <Compile Include="scripts\LifeController.cs" />
     <Compile Include="scripts\Player.cs" />
   </ItemGroup>
   <ItemGroup>
