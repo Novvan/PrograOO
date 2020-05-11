@@ -8,17 +8,16 @@ namespace Game
     {
         public static float deltaTime;
         static DateTime startTime;
-        static float lastTime;
-        static Player UserPlayer;
-        public static float angle;
+        static float lastFrameTime;
+        static Player player;
+       
+        
+        
 
         static void Main(string[] args)
         {
-            startTime = DateTime.Now;
+                 
            
-            Engine.Initialize("BoxHead Reborn",1500,1000);
-            Engine.Debug("Hola mundo");
-
             Init();
 
             while (true)
@@ -31,17 +30,38 @@ namespace Game
         }
         static void Init()
         {
-            UserPlayer = new Player(500,500);
+            Engine.Initialize();
+            player = new Player(100, 200, 0);
+            startTime = DateTime.Now;
         }
 
         private static void P_Input()
         {
+            if (Engine.GetKey(Keys.D))
+            {
+                player.MoveRight();
+            }
 
+            if (Engine.GetKey(Keys.A))
+            {
+                player.MoveLeft();
+                
+            }
+
+            if (Engine.GetKey(Keys.S))
+            {
+                player.MoveDown();
+            }
+
+            if (Engine.GetKey(Keys.W))
+            {
+                player.MoveUp();
+            }
         }
 
         private static void P_Update()
         {
-            angle += 90;
+            player.Update();
         }
 
         private static void P_Render()
@@ -49,16 +69,16 @@ namespace Game
             //Engine.Debug("render");
             Engine.Clear();
             Engine.Draw("textures/assets/Map.png", 0, 0, 1, 1);
-            UserPlayer.render();
+            player.Render();
+            
             Engine.Show();
         }
         static void CalculateDeltaTime()
         {
-            //TimeSpan currentTime = DateTime.Now - startTime;
-            //float currentTimeInSeconds = (float) currentTime.TotalSeconds;
-            float currentTime = (float)(DateTime.Now - startTime).TotalMilliseconds;
-            deltaTime = currentTime - lastTime; //La diferencia de esto seria el delta time
-            lastTime = currentTime;
+            
+            float currentTime = (float)(DateTime.Now - startTime).TotalSeconds;
+            deltaTime = currentTime - lastFrameTime; 
+            lastFrameTime = currentTime;
             Engine.Debug("DeltaTime:" + deltaTime);
         }
     }
