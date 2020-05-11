@@ -11,6 +11,8 @@ namespace Game.scripts
         private float maxLife;
         private float currentLife;
 
+        public float CurrentLife => currentLife;
+
         public LifeController(float initialMaxLife)
         {
             maxLife = initialMaxLife;

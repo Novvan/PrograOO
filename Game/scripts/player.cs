@@ -12,7 +12,7 @@ namespace Game.scripts
 
         private float x;
         private float y;
-        private float life;
+        private LifeController lifeController;
         private float speed = 300f;
         private float angle = 0f;
         private float scale = 0.5f;
@@ -24,11 +24,10 @@ namespace Game.scripts
         public float OffsetX => Width / 2;
         public float OffsetY => Height / 2;
 
-
+        public LifeController LifeController { get => lifeController; set => lifeController = value; }
 
         public float X { get => x; set => x = value; }
         public float Y { get => y; set => y = value; }
-        public float Life { get => life; set => life = value; }
 
         public Player(float initialX, float initialY, float angle)
         {
@@ -36,6 +35,8 @@ namespace Game.scripts
             y = initialY;
 
             texture = Engine.GetTexture(texturePath);
+
+            lifeController = new LifeController(100);
         }
         public void MoveRight()
         {

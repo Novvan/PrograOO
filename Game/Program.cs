@@ -57,6 +57,12 @@ namespace Game
             {
                 player.MoveUp();
             }
+
+            if (Engine.GetKey(Keys.Q))
+            {
+                player.LifeController.GetDamage(1);
+                Engine.Debug(player.LifeController.CurrentLife);
+            }
         }
 
         private static void P_Update()
