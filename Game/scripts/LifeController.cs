@@ -43,7 +43,8 @@ namespace Game.scripts
         private void Die()
         {
             currentLife = 0;
-            // Aca iria el comportamiento de muerte
+            
+            
         }
     }
 }

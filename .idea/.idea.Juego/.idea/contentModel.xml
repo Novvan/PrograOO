@@ -17,32 +17,15 @@
           <e p="GameManager.cs" t="Include" />
           <e p="LifeController.cs" t="Include" />
           <e p="Player.cs" t="Include" />
+          <e p="SpawnPoint.cs" t="Include" />
+          <e p="Vector2.cs" t="Include" />
         </e>
         <e p="textures" t="Include">
           <e p="assets" t="Include">
             <e p="BoxHead-like.drawio" t="Include" />
             <e p="Map.png" t="Include" />
             <e p="Player" t="Include">
-              <e p="player (1).png" t="Include" />
-              <e p="player (10).png" t="Include" />
-              <e p="player (11).png" t="Include" />
-              <e p="player (12).png" t="Include" />
-              <e p="player (13).png" t="Include" />
-              <e p="player (14).png" t="Include" />
-              <e p="player (15).png" t="Include" />
-              <e p="player (16).png" t="Include" />
-              <e p="player (17).png" t="Include" />
-              <e p="player (18).png" t="Include" />
-              <e p="player (19).png" t="Include" />
-              <e p="player (2).png" t="Include" />
-              <e p="player (20).png" t="Include" />
-              <e p="player (3).png" t="Include" />
-              <e p="player (4).png" t="Include" />
-              <e p="player (5).png" t="Include" />
-              <e p="player (6).png" t="Include" />
-              <e p="player (7).png" t="Include" />
-              <e p="player (8).png" t="Include" />
-              <e p="player (9).png" t="Include" />
+              <e p="player.png" t="Include" />
             </e>
             <e p="Zombie Normal" t="Include">
               <e p="attack01_0000.png" t="Include" />
