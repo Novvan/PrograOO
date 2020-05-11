@@ -62,7 +62,7 @@ namespace Game.scripts
 
         public void Render()
         {
-            Engine.Draw(texture, x, y, scale, scale, OffsetX, OffsetY);
+            Engine.Draw(texture, x, y, scale, scale, angle, OffsetX,OffsetY);
         }
     }
 }
