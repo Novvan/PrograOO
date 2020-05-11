@@ -40,7 +40,8 @@ namespace Game
         {
             if (Engine.GetKey(Keys.D))
             {
-                player.MoveRight();               
+                player.MoveRight();
+                
                 
             }
 
@@ -48,16 +49,19 @@ namespace Game
             {
                 player.MoveLeft();
                 
+                
             }
 
             if (Engine.GetKey(Keys.S))
             {
-                player.MoveDown();                
+                player.MoveDown();
+                
             }
 
             if (Engine.GetKey(Keys.W))
             {
-                player.MoveUp();               
+                player.MoveUp();
+               
 
             }
 

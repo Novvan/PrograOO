@@ -14,7 +14,7 @@ namespace Game.scripts
         private float y;
         private LifeController lifeController;
         private float speed = 300f;
-        public float angle = 0f;
+        private float angle = 0f;
         private float scale = 0.5f;
         private Texture texture;
         private string texturePath = "textures/assets/Player/player (1).png";
@@ -41,23 +41,27 @@ namespace Game.scripts
         public void MoveRight()
         {
             x += speed * Program.deltaTime;
+            angle = 0f;
             
         }
         public void MoveLeft()
         {
             x -= speed * Program.deltaTime;
+            angle = 180f;
                        
             
         }
         public void MoveUp()
         {
             y -= speed * Program.deltaTime;
+            angle = 90f;
+            
             
         }
         public void MoveDown()
         {
             y += speed * Program.deltaTime;
-            
+            angle = 270f;
         }
         public void Update()
         {
