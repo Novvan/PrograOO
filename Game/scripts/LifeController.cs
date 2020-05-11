@@ -43,8 +43,8 @@ namespace Game.scripts
         private void Die()
         {
             currentLife = 0;
-            
-            
+            Engine.Draw("textures/assets/gameover.png");
+
         }
     }
 }

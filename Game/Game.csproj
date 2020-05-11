@@ -50,6 +50,9 @@
     <Content Include="Engine.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="textures\assets\gameover.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="textures\assets\Map.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
