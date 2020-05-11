@@ -6,28 +6,65 @@ using System.Threading.Tasks;
 
 namespace Game.scripts
 {
-    public class Player
+       public class Player
     {
-        string image = "textures/assets/Player/player (1).png";
+
+
         private float x;
         private float y;
-        private float scaleX = 0.5f;
-        private float scaleY = 0.5f;
-        private float angle;
-        private float offsetX;
-        private float offsetY;
+        private float life;
+        private float speed = 300f;
+        private float angle = 0f;
+        private float scale = 0.5f;
+        private Texture texture;
+        private string texturePath = "textures/assets/Player/player (1).png";
 
-        public Player(float x, float y)
+        public float Width => texture.Width * scale;
+        public float Height => texture.Height * scale;
+        public float OffsetX => Width / 2;
+        public float OffsetY => Height / 2;
+
+
+
+        public float X { get => x; set => x = value; }
+        public float Y { get => y; set => y = value; }
+        public float Life { get => life; set => life = value; }
+
+        public Player(float initialX, float initialY, float angle)
         {
-            this.x = x;
-            this.y = y;
-        } 
-        
-       
-        public void render()
-        { 
-            Engine.Draw(image,x,y,scaleX,scaleY,angle,offsetX,offsetY);
+            x = initialX;
+            y = initialY;
+
+            texture = Engine.GetTexture(texturePath);
         }
-        
+        public void MoveRight()
+        {
+            x += speed * Program.deltaTime;
+        }
+        public void MoveLeft()
+        {
+            x -= speed * Program.deltaTime;
+            
+            
+        }
+        public void MoveUp()
+        {
+            y -= speed * Program.deltaTime;
+        }
+        public void MoveDown()
+        {
+            y += speed * Program.deltaTime;
+        }
+        public void Update()
+        {
+
+        }
+
+        public void Render()
+        {
+            Engine.Draw(texture, x, y, scale, scale, OffsetX, OffsetY);
+        }
     }
 }
+
+
