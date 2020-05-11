@@ -39,12 +39,14 @@
   <ItemGroup>
     <Compile Include="Game.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="scripts\Bullet.cs" />
     <Compile Include="scripts\Enemy.cs" />
     <Compile Include="scripts\GameManager.cs" />
     <Compile Include="scripts\LifeController.cs" />
     <Compile Include="scripts\Player.cs" />
     <Compile Include="scripts\RegularEnemy.cs" />
     <Compile Include="scripts\SpawnPoint.cs" />
+    <Compile Include="scripts\Time.cs" />
     <Compile Include="scripts\Vector2.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -250,6 +252,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="textures\bkg.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\bullet.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="textures\spaceship.png">

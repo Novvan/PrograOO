@@ -397,3 +397,5 @@ E:\Ian\Documents\UADE\PrograOO\Game\obj\Debug\Game.pdb
 >>>>>>> a8087509e84c68998f55b6b5265f2918f0127125
 D:\PrograOO\Game\bin\Debug\textures\assets\Player\player.png
 D:\PrograOO\Game\bin\Debug\textures\assets\gameover.png
+C:\Users\Federico\Documents\GitHub\Orientacion a Objetos\Game\bin\Debug\textures\assets\gameover.png
+C:\Users\Federico\Documents\GitHub\Orientacion a Objetos\Game\bin\Debug\textures\assets\Player\player.png
