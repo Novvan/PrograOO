@@ -11,7 +11,8 @@ namespace Game.scripts
     {
         Menu,
         Level,
-        Lose
+        Lose,
+        Victory
 
     }
     public class GameManager
@@ -23,6 +24,7 @@ namespace Game.scripts
         private float _wave = 0;
         private float _maxEnemies = 4f;
         private LoseWindow looseWindow;
+        private VictoryWindow victoryWindow;
         private Menu menuWindow;
         private Level levelWindow;
         public State currentState;
@@ -32,6 +34,7 @@ namespace Game.scripts
         private int _enemyIndex;
         private int _killGO;
         private float _angle;
+        
 
 
         public static GameManager Instance
@@ -49,6 +52,7 @@ namespace Game.scripts
 
         public void Initialize()
         {
+            victoryWindow = new VictoryWindow(new Vector2(Program.Width / 2, Program.Height / 2), "textures/victory.png", 0f, 1, 1);
             looseWindow = new LoseWindow(new Vector2(Program.Width / 2, Program.Height / 2), "textures/gameover.png", 0f, 1, 1);
             menuWindow = new Menu(new Vector2(Program.Width / 2, Program.Height / 2), "textures/assets/Menu/menubkg.png", 0f, 1, 1);
             levelWindow = new Level();
@@ -140,8 +144,15 @@ namespace Game.scripts
                 case State.Lose:
                     looseWindow.Update();
                     break;
+                case State.Victory:
+                    victoryWindow.Update();
+                    break;
                 default:
                     break;
+            }
+            if(_wave == 5)
+            {
+                currentState = State.Victory;
             }
         }
         public void Render()
@@ -156,6 +167,9 @@ namespace Game.scripts
                     break;
                 case State.Lose:
                     looseWindow.Render();
+                    break;
+                case State.Victory:
+                    victoryWindow.Render();
                     break;
                 default:
                     break;

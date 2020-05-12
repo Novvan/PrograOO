@@ -22,6 +22,8 @@ namespace Game.scripts
         private bool _started = false;
         private GameObject background;
         private List<Enemy> Enemies;
+        private List<Bullet> playerBullets;
+        
 
         private List<GameObject> gameObjects;
         public List<GameObject> GameObjects { get => gameObjects; set => gameObjects = value; }
@@ -31,12 +33,14 @@ namespace Game.scripts
         public Level()
         {
             gameObjects = new List<GameObject>();
+            bullets = new List<Bullet>(); 
+
             Enemies = GameManager.Instance.Enemies;
             
 
             _spawnPoint = new Vector2(_width / 2, _height / 2);
             player = new Player(_spawnPoint, "textures/assets/Player/player.png", 0, 0.5f, 0.5f, 300f);
-
+            playerBullets = player.BulletsFired;
             background = new GameObject(new Vector2(_width/2, _height/2),"textures/assets/Map.png", 0, 1, 1);
             gameObjects.Add(background);
             gameObjects.Add(player);
@@ -94,6 +98,8 @@ namespace Game.scripts
                 }
             }
         }
+
+
         public void Render()
         {
             if (gameObjects.Count > 0)
@@ -111,6 +117,14 @@ namespace Game.scripts
                         en.Render();
                     }
                 }
+                
+               /* if(playerBullets.Count >= 0)
+                {
+                    foreach (Bullet bl in playerBullets)
+                    {
+                        bl.Render();
+                    }
+                }*/
              }
         }
 

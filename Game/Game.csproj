@@ -52,6 +52,7 @@
     <Compile Include="scripts\SpawnPoint.cs" />
     <Compile Include="scripts\Time.cs" />
     <Compile Include="scripts\Vector2.cs" />
+    <Compile Include="scripts\VictoryWindow.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Engine.dll">
@@ -90,6 +91,9 @@
     <Content Include="textures\bkg.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="textures\bullet.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="textures\gameover.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -97,6 +101,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="textures\ship.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\victory.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

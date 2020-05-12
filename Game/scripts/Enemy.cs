@@ -43,9 +43,6 @@ namespace Game.scripts
                 
             }
         }
-        public override void Render()
-        {
-            base.Render();
-        }
+      
     }
 }

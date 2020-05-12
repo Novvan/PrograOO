@@ -8,24 +8,25 @@ namespace Game.scripts
 {
     public class Player : GameObject
     {
-       
+
         // private float angle = 0;
         // private float scale = 0.5f;
         //private string texturePath = "textures/assets/Player/player.png";
 
         private LifeController lifeController;
-        private float speed;      
+        private float speed;
         private SpawnPoint spawnPoint;
+        private List<Bullet> _bulletsFired;
+        private bool _pPressed;
+        private Vector2 _bPoint;
 
-
-  
         public LifeController LifeController
         {
             get => lifeController;
             set => lifeController = value;
         }
-      
-        
+        public List<Bullet> BulletsFired { get => _bulletsFired; set => _bulletsFired = value; }
+
         public Player(Vector2 initialPosition, string texturePath, float angle, float scaleX, float scaleY, float speed) : base(initialPosition, texturePath, angle, scaleX, scaleY)
         {
             lifeController = new LifeController(100);
@@ -41,32 +42,35 @@ namespace Game.scripts
         {
             position.x += speed * Program.deltaTime;
             angle = 0f;
-           Engine.Debug(angle);
+            //_bPoint = new Vector2(texture.Width / scaleX, texture.Height / scaleY / 2);
+            Engine.Debug("Angle: " + angle);
         }
 
         public void MoveLeft()
         {
             position.x -= speed * Program.deltaTime;
             angle = 180f;
-            //Engine.Debug(angle);
+            //_bPoint = new Vector2(, texture.Height / scaleY / 2);
+            Engine.Debug("Angle: " + angle);
         }
 
         public void MoveUp()
         {
-           position.y -= speed * Program.deltaTime;
+            position.y -= speed * Program.deltaTime;
             angle = 270f;
-            //Engine.Debug(angle);
+            Engine.Debug("Angle: " + angle);
         }
 
         public void MoveDown()
         {
-           position.y += speed * Program.deltaTime;
+            position.y += speed * Program.deltaTime;
             angle = 90f;
-            //Engine.Debug(angle);
+            Engine.Debug("Angle: "+angle);
         }
 
         public override void Update()
         {
+
             if (Engine.GetKey(Keys.D))
             {
                 MoveRight();
@@ -92,11 +96,32 @@ namespace Game.scripts
                 LifeController.GetDamage(100);
                 Engine.Debug(LifeController.CurrentLife);
             }
+
+            if (Engine.GetKey(Keys.P) && !_pPressed)
+            {
+                _pPressed = true;
+                Engine.Debug("Shot");
+                //Shoot(angle);
+            }
+
+            if (!Engine.GetKey(Keys.P))
+            {
+                _pPressed = false;
+            }
+
         }
 
-        public override void Render()
+
+
+        //add _bpPoint
+
+        public void Shoot(float angle)
         {
-            base.Render();
+            _bulletsFired.Add(new Bullet(position, "textures/bullet.png", angle, 1, 1, 200));
         }
+
+
+
+
     }
 }

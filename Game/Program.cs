@@ -41,6 +41,7 @@ namespace Game
             {
                 GameManager.Instance.NewWave();
             }*/
+
             CalculateDeltaTime();
             Time.Update();
             GameManager.Instance.Update();
