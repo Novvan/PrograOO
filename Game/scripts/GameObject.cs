@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game.scripts
 {
-    public abstract class GameObject
+    public  class GameObject
 {
     //Clase padre de todos los gameobjects
     protected Vector2 position;
@@ -28,6 +28,10 @@ namespace Game.scripts
     {
         position = initialPosition;
         texture = Engine.GetTexture(texturePath);
+
+            this.scaleX = scaleX;
+            this.scaleY = scaleY;
+            this.angle = angle;
     }
     public virtual void Update()
     {
