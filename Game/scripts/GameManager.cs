@@ -12,7 +12,7 @@ namespace Game.scripts
         Menu,
         Level,
         Lose
-       
+
     }
     public class GameManager
     {
@@ -21,14 +21,17 @@ namespace Game.scripts
         private static GameManager instance;
         private float _gameModifier;
         private float _wave = 0;
-        private float _maxEnemies = 5f;
+        private float _maxEnemies = 4f;
         private LoseWindow looseWindow;
         private Menu menuWindow;
         private Level levelWindow;
         public State currentState;
         public Vector2 SpawnPoint;
-
-
+        private Vector2 _enemySpawn;
+        private Enemy _newEnemy;
+        private int _enemyIndex;
+        private int _killGO;
+        private float _angle;
 
 
         public static GameManager Instance
@@ -46,9 +49,9 @@ namespace Game.scripts
 
         public void Initialize()
         {
-            looseWindow = new LoseWindow(new Vector2(Program.Width/2, Program.Height /2), "textures/gameover.png",0f,1,1);
+            looseWindow = new LoseWindow(new Vector2(Program.Width / 2, Program.Height / 2), "textures/gameover.png", 0f, 1, 1);
             menuWindow = new Menu(new Vector2(Program.Width / 2, Program.Height / 2), "textures/assets/Menu/menubkg.png", 0f, 1, 1);
-            levelWindow = new Level();            
+            levelWindow = new Level();
             currentState = State.Menu;
             SpawnPoint = new Vector2(50, 50);
             //player = new Player(SpawnPoint, "textures/assets/Player/player.png", 0, 0.5f, 0.5f, 300f);
@@ -68,25 +71,54 @@ namespace Game.scripts
         {
             get => _wave;
         }
+        public List<Enemy> Enemies { get => _enemies; set => _enemies = value; }
 
         public void SpawnEnemies()
         {
+            Random rnd = new Random();
+            float _scale = 0.5f;
+
             while (_enemies.Count <= _maxEnemies * _wave)
             {
-                Random rnd = new Random();
-                int _randomY = rnd.Next(0, 900);
-                int _randomX = rnd.Next(0, 1600);
-                float _scale = 0.5f;
-                Vector2 position = new Vector2(_randomX, _randomY);
-                
-                for (int i = 0; i <= _maxEnemies*_wave; i++ )
+                _enemyIndex++;
+                int _randomSpawn = rnd.Next(1, 5);
+                switch (_randomSpawn)
                 {
-                    _enemies.Add( new Enemy(position,"Game/textures/assets/Zombie Normal/attack01_0019.png",0,_scale,_scale,100));
+                    case 1:
+                        _enemySpawn = new Vector2(rnd.Next(1, Program.Width), 50);//arriba
+                        _angle = 90;
+                        break;
+                    case 2:
+                        _enemySpawn = new Vector2(Program.Width - 50, rnd.Next(1, Program.Height));//derecha
+                        _angle = 180;
+                        break;
+                    case 3:
+                        _enemySpawn = new Vector2(rnd.Next(1, Program.Width), Program.Height-50);//abajo
+                        _angle = 270;
+                        break;
+                    case 4:
+                        _enemySpawn = new Vector2(50, rnd.Next(1, Program.Height));//izquierda
+                        _angle = 0;
+                        break;
+                    default:
+                        _enemySpawn = new Vector2(rnd.Next(1, Program.Width), Program.Height / 2);//por defecto derecha
+                        _angle = 180;
+                        break;
                 }
+
+                _newEnemy = new Enemy(_enemySpawn, "textures/assets/Zombie Tanque/skeleton-attack_0.png", _angle, _scale, _scale, 100, _enemyIndex);
+                _enemies.Add(_newEnemy);
+                Engine.Debug("Added Enemy");
             }
         }
 
         public void NewWave()
+        {
+            _wave++;
+            SpawnEnemies();
+        }
+
+        public void CheckEnemies()
         {
             if (_enemies.Count == 0)
             {
@@ -94,9 +126,10 @@ namespace Game.scripts
                 SpawnEnemies();
             }
         }
+
         public void Update()
         {
-          switch (currentState)
+            switch (currentState)
             {
                 case State.Menu:
                     menuWindow.Update();
@@ -109,7 +142,7 @@ namespace Game.scripts
                     break;
                 default:
                     break;
-            }           
+            }
         }
         public void Render()
         {
@@ -131,6 +164,12 @@ namespace Game.scripts
         public void GameOver()
         {
             currentState = State.Lose;
+        }
+
+        public void KillEnemy()
+        {
+            _killGO = _enemies.Count()-1;
+            _enemies.RemoveAt(_killGO);
         }
     }
 

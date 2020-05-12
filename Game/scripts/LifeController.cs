@@ -43,8 +43,6 @@ namespace Game.scripts
 
         public virtual void Die()
         {          
-            
-
         }
     }
 }
