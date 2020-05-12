@@ -6,12 +6,16 @@ namespace Game
 {
     public class Program
     {
-      
+        public static float deltaTime;
+        static DateTime startTime;
+        public static float lastFrameTime;
+
 
         static void Main(string[] args)
         {
+            startTime = DateTime.Now;
             Init();
-
+            
             while (true)
             {
                 
@@ -35,6 +39,7 @@ namespace Game
             {
                 GameManager.Instance.NewWave();
             }*/
+            CalculateDeltaTime();
             Time.Update();
             GameManager.Instance.Update();
         }
@@ -44,6 +49,13 @@ namespace Game
             GameManager.Instance.Render();
             Engine.Show();
         }
-        
+        public static void CalculateDeltaTime()
+        {
+            float currentTime = (float)(DateTime.Now - startTime).TotalSeconds;
+            deltaTime = currentTime - lastFrameTime;
+            lastFrameTime = currentTime;
+            //Engine.Debug("DeltaTime:" + deltaTime);
+        }
+
     }
 }

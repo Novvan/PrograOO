@@ -8,70 +8,61 @@ namespace Game.scripts
 {
     public class Level
     {
-        public float deltaTime;
-        DateTime startTime;
-        float lastFrameTime;
-        Player player;
+        private  LoseWindow loseWindow;
+        private List<Bullet> bullets = new List<Bullet>();
+        
+        public Player player;
         int width = 1600;
         int height = 900;
-        private Vector2 SpawnPoint;
+        
+        private GameObject background;
+        private List<GameObject> gameObjects;
+        public List<GameObject> GameObjects { get => gameObjects; set => gameObjects = value; }
+        public List<Bullet> Bullets { get => bullets; set => bullets = value; }
 
         //en el constructor inicializamos todos los objetos del nivel
         public Level()
         {
-            SpawnPoint = new Vector2(5, 5);
-            player = new Player(SpawnPoint, "textures/assets/Player/player.png",0,0.5f,0.5f,300f);
-            startTime = DateTime.Now;
+            player = new Player(GameManager.Instance.SpawnPoint, "textures/assets/Player/player.png", 0, 0.5f, 0.5f, 300f);
+            gameObjects = new List<GameObject>();
+            background = new GameObject(new Vector2(width/2, height/2),"textures/assets/Map.png", 0, 1, 1);
+            gameObjects.Add(background);
+            gameObjects.Add(player);
+            
+
         }
 
-        private void Input()
+      
+        public void Initialize()
         {
-            if (Engine.GetKey(Keys.D))
-            {
-                player.MoveRight();
-            }
-
-            if (Engine.GetKey(Keys.A))
-            {
-                player.MoveLeft();
-            }
-
-            if (Engine.GetKey(Keys.S))
-            {
-                player.MoveDown();
-            }
-
-            if (Engine.GetKey(Keys.W))
-            {
-                player.MoveUp();
-            }
-
-            if (Engine.GetKey(Keys.Q))
-            {
-                player.LifeController.GetDamage(1);
-                Engine.Debug(player.LifeController.CurrentLife);
-            }
+            loseWindow = new LoseWindow();
+           
         }
         public void Update()
         {
-
+            if (gameObjects.Count > 0)
+            {
+                foreach (GameObject go in gameObjects)
+                {
+                    Engine.Debug(" render ");
+                    go.Update();
+                }
+            }
         }
         public void Render()
         {
-            Engine.Clear();
-            Engine.Draw("textures/assets/Map.png");
-            player.Render();
-
-            Engine.Show();
+             if (gameObjects.Count > 0)
+             {
+                 foreach (GameObject go in gameObjects)
+                 {
+                        Engine.Debug(" render ");
+                     go.Render();
+                 }
+             }
+            
         }
 
-         void CalculateDeltaTime()
-        {
-            float currentTime = (float)(DateTime.Now - startTime).TotalSeconds;
-            deltaTime = currentTime - lastFrameTime;
-            lastFrameTime = currentTime;
-            //Engine.Debug("DeltaTime:" + deltaTime);
-        }
+       
 
     }
 

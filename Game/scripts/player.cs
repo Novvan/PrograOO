@@ -8,15 +8,13 @@ namespace Game.scripts
 {
     public class Player : GameObject
     {
-        
-        private float x;
-        private float y;
+       
         // private float angle = 0;
         // private float scale = 0.5f;
         //private string texturePath = "textures/assets/Player/player.png";
 
         private LifeController lifeController;
-        private float speed = 300f;      
+        private float speed;      
         private SpawnPoint spawnPoint;
 
 
@@ -26,24 +24,12 @@ namespace Game.scripts
             get => lifeController;
             set => lifeController = value;
         }
-
-        public float X
-        {
-            get => x;
-            set => x = value;
-        }
-
-        public float Y
-        {
-            get => y;
-            set => y = value;
-        }
-
       
         
         public Player(Vector2 initialPosition, string texturePath, float angle, float scaleX, float scaleY, float speed) : base(initialPosition, texturePath, angle, scaleX, scaleY)
         {
             lifeController = new LifeController(100);
+            this.speed = speed;
         }
 
         public void AssignSpawnpoint(SpawnPoint newSpawnpoint)
@@ -53,34 +39,59 @@ namespace Game.scripts
 
         public void MoveRight()
         {
-            x += speed * Program.deltaTime;
+            position.x += speed * Program.deltaTime;
             angle = 0f;
-            //Engine.Debug(angle);
+           Engine.Debug(angle);
         }
 
         public void MoveLeft()
         {
-            x -= speed * Program.deltaTime;
+            position.x -= speed * Program.deltaTime;
             angle = 180f;
             //Engine.Debug(angle);
         }
 
         public void MoveUp()
         {
-            y -= speed * Program.deltaTime;
+           position.y -= speed * Program.deltaTime;
             angle = 270f;
             //Engine.Debug(angle);
         }
 
         public void MoveDown()
         {
-            y += speed * Program.deltaTime;
+           position.y += speed * Program.deltaTime;
             angle = 90f;
             //Engine.Debug(angle);
         }
 
         public override void Update()
         {
+            if (Engine.GetKey(Keys.D))
+            {
+                MoveRight();
+            }
+
+            if (Engine.GetKey(Keys.A))
+            {
+                MoveLeft();
+            }
+
+            if (Engine.GetKey(Keys.S))
+            {
+                MoveDown();
+            }
+
+            if (Engine.GetKey(Keys.W))
+            {
+                MoveUp();
+            }
+
+            if (Engine.GetKey(Keys.Q))
+            {
+                LifeController.GetDamage(1);
+                Engine.Debug(LifeController.CurrentLife);
+            }
         }
 
         public override void Render()
