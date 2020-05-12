@@ -60,6 +60,9 @@
     <Content Include="textures\assets\Map.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="textures\assets\Menu\menubkg.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="textures\assets\Menu\menuscreen.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
