@@ -10,10 +10,12 @@ namespace Game.scripts
     {
         private  LoseWindow loseWindow;
         private List<Bullet> bullets = new List<Bullet>();
-        
+        private float _width = Program.Width;
+        private float _height = Program.Height;
+
+
         public Player player;
-        int width = 1600;
-        int height = 900;
+        private Vector2 _spawnPoint;
         
         private GameObject background;
         private List<GameObject> gameObjects;
@@ -23,9 +25,13 @@ namespace Game.scripts
         //en el constructor inicializamos todos los objetos del nivel
         public Level()
         {
-            player = new Player(GameManager.Instance.SpawnPoint, "textures/assets/Player/player.png", 0, 0.5f, 0.5f, 300f);
             gameObjects = new List<GameObject>();
-            background = new GameObject(new Vector2(width/2, height/2),"textures/assets/Map.png", 0, 1, 1);
+            
+            _spawnPoint = new Vector2(_width / 2, _height / 2);
+            player = new Player(_spawnPoint, "textures/assets/Player/player.png", 0, 0.5f, 0.5f, 300f);
+
+            background = new GameObject(new Vector2(_width/2, _height/2),"textures/assets/Map.png", 0, 1, 1);
+            
             gameObjects.Add(background);
             gameObjects.Add(player);
             
@@ -35,8 +41,7 @@ namespace Game.scripts
       
         public void Initialize()
         {
-            loseWindow = new LoseWindow();
-           
+                       
         }
         public void Update()
         {

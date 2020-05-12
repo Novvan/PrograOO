@@ -9,6 +9,8 @@ namespace Game
         public static float deltaTime;
         static DateTime startTime;
         public static float lastFrameTime;
+        public static int Width = 1600;
+        public static int Height = 900;
 
 
         static void Main(string[] args)
@@ -26,7 +28,7 @@ namespace Game
 
         static void Init()
         {
-            Engine.Initialize();
+            Engine.Initialize("Zombie Apocalypse", Width,Height,false);
             Time.Initialize();
             GameManager.Instance.Initialize();             
         }

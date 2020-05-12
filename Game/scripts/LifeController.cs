@@ -26,6 +26,7 @@ namespace Game.scripts
 
             if (currentLife <= 0)
             {
+                GameManager.Instance.currentState = State.Lose;
                 Die();
             }
         }
@@ -40,10 +41,9 @@ namespace Game.scripts
             }
         }
 
-        private void Die()
-        {
-            currentLife = 0;
-            Engine.Draw("textures/assets/gameover.png");
+        public virtual void Die()
+        {          
+            
 
         }
     }

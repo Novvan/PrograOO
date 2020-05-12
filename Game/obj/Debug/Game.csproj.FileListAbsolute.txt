@@ -124,3 +124,9 @@ D:\PrograOO\Game\bin\Debug\textures\ship.png
 D:\PrograOO\Game\bin\Debug\textures\assets\Player\player.png
 D:\PrograOO\Game\bin\Debug\Game.exe
 D:\PrograOO\Game\bin\Debug\Game.pdb
+D:\PrograOO\Game\bin\Debug\textures\assets\Menu\menuscreen.png
+D:\PrograOO\Game\bin\Debug\textures\assets\Menu\play.png
+D:\PrograOO\Game\bin\Debug\textures\assets\Menu\quit.png
+D:\PrograOO\Game\bin\Debug\textures\assets\Menu\yellowplay.png
+D:\PrograOO\Game\bin\Debug\textures\assets\Menu\yellowquit.png
+D:\PrograOO\Game\bin\Debug\textures\gameover.png

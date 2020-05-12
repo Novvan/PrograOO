@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game.scripts
 {
-    public  class GameObject
+    public class GameObject
 {
     //Clase padre de todos los gameobjects
     protected Vector2 position;

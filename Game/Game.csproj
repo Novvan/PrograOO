@@ -40,12 +40,14 @@
     <Compile Include="Game.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="scripts\Bullet.cs" />
+    <Compile Include="scripts\Button.cs" />
     <Compile Include="scripts\Enemy.cs" />
     <Compile Include="scripts\GameManager.cs" />
     <Compile Include="scripts\GameObject.cs" />
     <Compile Include="scripts\Level.cs" />
     <Compile Include="scripts\LifeController.cs" />
     <Compile Include="scripts\LoseWindow.cs" />
+    <Compile Include="scripts\Menu.cs" />
     <Compile Include="scripts\Player.cs" />
     <Compile Include="scripts\SpawnPoint.cs" />
     <Compile Include="scripts\Time.cs" />
@@ -58,6 +60,21 @@
     <Content Include="textures\assets\Map.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="textures\assets\Menu\menuscreen.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\assets\Menu\play.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\assets\Menu\quit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\assets\Menu\yellowplay.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\assets\Menu\yellowquit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="textures\assets\Player\player.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -68,6 +85,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="textures\bkg.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\gameover.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="textures\spaceship.png">

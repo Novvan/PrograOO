@@ -89,7 +89,7 @@ namespace Game.scripts
 
             if (Engine.GetKey(Keys.Q))
             {
-                LifeController.GetDamage(1);
+                LifeController.GetDamage(100);
                 Engine.Debug(LifeController.CurrentLife);
             }
         }

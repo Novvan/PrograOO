@@ -11,7 +11,8 @@ namespace Game.scripts
     {
         Menu,
         Level,
-        Loose
+        Lose
+       
     }
     public class GameManager
     {
@@ -22,8 +23,9 @@ namespace Game.scripts
         private float _wave = 0;
         private float _maxEnemies = 5f;
         private LoseWindow looseWindow;
+        private Menu menuWindow;
         private Level levelWindow;
-        private State currentState;
+        public State currentState;
         public Vector2 SpawnPoint;
 
 
@@ -44,11 +46,16 @@ namespace Game.scripts
 
         public void Initialize()
         {
-            levelWindow = new Level();
-            looseWindow = new LoseWindow();
-            currentState = State.Level;
+            looseWindow = new LoseWindow(new Vector2(Program.Width/2, Program.Height /2), "textures/gameover.png",0f,1,1);
+            menuWindow = new Menu(new Vector2(Program.Width / 2, Program.Height / 2), "textures/assets/Menu/menuscreen.png", 0f, 1, 1);
+            levelWindow = new Level();            
+            currentState = State.Menu;
             SpawnPoint = new Vector2(50, 50);
             //player = new Player(SpawnPoint, "textures/assets/Player/player.png", 0, 0.5f, 0.5f, 300f);
+        }
+        public void ChangeCurrentState(State newState)
+        {
+            currentState = newState;
         }
 
         public float GameModifier
@@ -89,33 +96,41 @@ namespace Game.scripts
         }
         public void Update()
         {
-            //if (player.LifeController.CurrentLife <= 0)
-            //{
-            //    GameOver();
-            //}
-            if (currentState== State.Level)
+          switch (currentState)
             {
-                levelWindow.Update();
-            }
-            if (currentState == State.Loose)
-            {
-                looseWindow.Update();
-            }
+                case State.Menu:
+                    menuWindow.Update();
+                    break;
+                case State.Level:
+                    levelWindow.Update();
+                    break;
+                case State.Lose:
+                    looseWindow.Update();
+                    break;
+                default:
+                    break;
+            }           
         }
         public void Render()
         {
-            if (currentState == State.Level)
+            switch (currentState)
             {
-                levelWindow.Render();
-            }
-            if(currentState == State.Loose)
-            {
-                looseWindow.Render();
+                case State.Menu:
+                    menuWindow.Render();
+                    break;
+                case State.Level:
+                    levelWindow.Render();
+                    break;
+                case State.Lose:
+                    looseWindow.Render();
+                    break;
+                default:
+                    break;
             }
         }
         public void GameOver()
         {
-            currentState = State.Loose;
+            currentState = State.Lose;
         }
     }
 

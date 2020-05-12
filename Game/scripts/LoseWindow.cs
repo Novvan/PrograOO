@@ -6,33 +6,26 @@ using System.Threading.Tasks;
 
 namespace Game.scripts
 {
-    public class LoseWindow
-    {
-        private Texture texture;
-        private string texturePath = "textures/game over.png";
-        private float scaleX = 1f;
-        private float scaleY = 1f;
-        private Vector2 position;
-        private float angle;
+    public class LoseWindow :GameObject
+    {              
+             
 
-        public float Width => texture.Width * scaleX;
-        public float Height => texture.Height * scaleY;
-        public float OffsetX => Width / 2f;
-        public float OffsetY => Height / 2f;
-
-        public LoseWindow()
-        {
-            position = new Vector2(0, 0);
-            texture = Engine.GetTexture(texturePath);
-        }
-
-        public void Update()
+        public LoseWindow(Vector2 initialPosition, string texturePath, float angle, float scaleX, float scaleY) : base(initialPosition, texturePath, angle, scaleX, scaleY)
         {
             
         }
-        public void Render()
+
+        public override void Update()
         {
-            Engine.Draw(texture, position.x, position.y, scaleX, scaleY, angle, OffsetX, OffsetY);
+            if (Engine.GetKey(Keys.ESCAPE))
+            {
+                GameManager.Instance.currentState = State.Menu;
+            }
+        }
+        public override void Render()
+        {
+            base.Render();
+           // Engine.Draw(texture, position.x, position.y, scaleX, scaleY, angle, OffsetX, OffsetY);
         }
     }
 }
