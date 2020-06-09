@@ -30,7 +30,8 @@ namespace Game.scripts
         public State currentState;
         public Vector2 SpawnPoint;      
         private int _killGO;
-        
+        public Level LevelWindow => levelWindow;
+
         private Random _random = new Random();
 
 

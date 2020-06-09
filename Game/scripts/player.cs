@@ -16,7 +16,6 @@ namespace Game.scripts
         private LifeController lifeController;
         private float speed;
         private SpawnPoint spawnPoint;
-        private List<Bullet> _bulletsFired;
         private bool _pPressed;
         private Vector2 _bPoint;
 
@@ -25,7 +24,6 @@ namespace Game.scripts
             get => lifeController;
             set => lifeController = value;
         }
-        public List<Bullet> BulletsFired { get => _bulletsFired; set => _bulletsFired = value; }
 
         public Player(Vector2 initialPosition, string texturePath, float angle, float scaleX, float scaleY, float speed) : base(initialPosition, texturePath, angle, scaleX, scaleY)
         {
@@ -101,7 +99,7 @@ namespace Game.scripts
             {
                 _pPressed = true;
                 Engine.Debug("Shot");
-                //Shoot(angle);
+                Shoot(angle);
             }
 
             if (!Engine.GetKey(Keys.P))
@@ -117,7 +115,7 @@ namespace Game.scripts
 
         public void Shoot(float angle)
         {
-            _bulletsFired.Add(new Bullet(position, "textures/bullet.png", angle, 1, 1, 200));
+            var bullet = new Bullet(position, "textures/bullet.png", angle, 1, 1, 200);
         }
 
 

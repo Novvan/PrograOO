@@ -44,6 +44,7 @@ namespace Game.scripts
             }
 
             texture = Engine.GetTexture(_texturePath);
+            GameManager.Instance.LevelWindow.Bullets.Add(this);
         }
 
         public override void Update()
