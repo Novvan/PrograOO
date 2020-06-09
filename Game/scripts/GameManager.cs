@@ -28,15 +28,13 @@ namespace Game.scripts
         private Menu menuWindow;
         private Level levelWindow;
         public State currentState;
-        public Vector2 SpawnPoint;
-        private Vector2 _enemySpawn;
-        private Enemy _newEnemy;
-        private int _enemyIndex;
+        public Vector2 SpawnPoint;      
         private int _killGO;
-        private float _angle;
         
+        private Random _random = new Random();
 
 
+        public float maxEnemies => _maxEnemies;
         public static GameManager Instance
         {
             get
@@ -71,55 +69,18 @@ namespace Game.scripts
             set => _gameModifier = value;
         }
 
-        public float Wave
+        public float wave
         {
             get => _wave;
         }
         public List<Enemy> Enemies { get => _enemies; set => _enemies = value; }
 
-        public void SpawnEnemies()
-        {
-            Random rnd = new Random();
-            float _scale = 0.5f;
-
-            while (_enemies.Count <= _maxEnemies * _wave)
-            {
-                _enemyIndex++;
-                int _randomSpawn = rnd.Next(1, 5);
-                switch (_randomSpawn)
-                {
-                    case 1:
-                        _enemySpawn = new Vector2(rnd.Next(1, Program.Width), 50);//arriba
-                        _angle = 90;
-                        break;
-                    case 2:
-                        _enemySpawn = new Vector2(Program.Width - 50, rnd.Next(1, Program.Height));//derecha
-                        _angle = 180;
-                        break;
-                    case 3:
-                        _enemySpawn = new Vector2(rnd.Next(1, Program.Width), Program.Height-50);//abajo
-                        _angle = 270;
-                        break;
-                    case 4:
-                        _enemySpawn = new Vector2(50, rnd.Next(1, Program.Height));//izquierda
-                        _angle = 0;
-                        break;
-                    default:
-                        _enemySpawn = new Vector2(rnd.Next(1, Program.Width), Program.Height / 2);//por defecto derecha
-                        _angle = 180;
-                        break;
-                }
-
-                _newEnemy = new Enemy(_enemySpawn, "textures/assets/Zombie Tanque/skeleton-attack_0.png", _angle, _scale, _scale, 100, _enemyIndex);
-                _enemies.Add(_newEnemy);
-                Engine.Debug("Added Enemy");
-            }
-        }
+        
 
         public void NewWave()
         {
             _wave++;
-            SpawnEnemies();
+            EnemyFactory.Spawn();
         }
 
         public void CheckEnemies()
@@ -127,7 +88,7 @@ namespace Game.scripts
             if (_enemies.Count == 0)
             {
                 _wave++;
-                SpawnEnemies();
+                EnemyFactory.Spawn();
             }
         }
 

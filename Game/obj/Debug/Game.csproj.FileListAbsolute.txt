@@ -116,7 +116,6 @@ D:\PrograOO\Game\obj\Debug\Game.exe
 D:\PrograOO\Game\obj\Debug\Game.pdb
 D:\PrograOO\Game\bin\Debug\Engine.dll
 D:\PrograOO\Game\bin\Debug\textures\assets\Map.png
-D:\PrograOO\Game\bin\Debug\textures\assets\Zombie Normal\attack01_0019.png
 D:\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-attack_0.png
 D:\PrograOO\Game\bin\Debug\textures\bkg.png
 D:\PrograOO\Game\bin\Debug\textures\spaceship.png
@@ -133,3 +132,5 @@ D:\PrograOO\Game\bin\Debug\textures\gameover.png
 D:\PrograOO\Game\bin\Debug\textures\assets\Menu\menubkg.png
 D:\PrograOO\Game\bin\Debug\textures\bullet.png
 D:\PrograOO\Game\bin\Debug\textures\victory.png
+D:\PrograOO\Game\bin\Debug\textures\assets\Zombie Light\attack01_0019.png
+D:\PrograOO\Game\bin\Debug\textures\assets\Zombie Normal\zombie_normal.png

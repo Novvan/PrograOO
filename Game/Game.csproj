@@ -42,6 +42,7 @@
     <Compile Include="scripts\Bullet.cs" />
     <Compile Include="scripts\Button.cs" />
     <Compile Include="scripts\Enemy.cs" />
+    <Compile Include="scripts\EnemyFactory.cs" />
     <Compile Include="scripts\GameManager.cs" />
     <Compile Include="scripts\GameObject.cs" />
     <Compile Include="scripts\Level.cs" />
@@ -82,7 +83,10 @@
     <Content Include="textures\assets\Player\player.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="textures\assets\Zombie Normal\attack01_0019.png">
+    <Content Include="textures\assets\Zombie Light\attack01_0019.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\assets\Zombie Normal\zombie_normal.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="textures\assets\Zombie Tanque\skeleton-attack_0.png">
