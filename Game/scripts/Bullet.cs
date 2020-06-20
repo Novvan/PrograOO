@@ -17,6 +17,8 @@ namespace Game.scripts
         private Vector2 _direction;
         private float _angle;
 
+        public event Action<Bullet> OnDeactivate;
+
 
 
         public Bullet(Vector2 initialPosition, string texturePath, float angle, float scaleX, float scaleY, float speed) : base(initialPosition, texturePath, angle, scaleX, scaleY)
@@ -52,6 +54,11 @@ namespace Game.scripts
             _position.x += _direction.x * _speed * Time.DeltaTime;
             _position.y += _direction.y * _speed * Time.DeltaTime;
 
+        }
+
+        public void Reset()
+        {
+            GameManager.Instance.LevelWindow.GameObjects.Add(this);
         }
     }
 

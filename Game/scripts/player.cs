@@ -18,6 +18,7 @@ namespace Game.scripts
         private SpawnPoint spawnPoint;
         private bool _pPressed;
         private Vector2 _bPoint;
+        private PullGenerico <Bullet> _bulletPull;
 
         public LifeController LifeController
         {
@@ -29,6 +30,7 @@ namespace Game.scripts
         {
             lifeController = new LifeController(100);
             this.speed = speed;
+            _bulletPull = new PullGenerico<Bullet>();
         }
 
         public void AssignSpawnpoint(SpawnPoint newSpawnpoint)
@@ -115,7 +117,8 @@ namespace Game.scripts
 
         public void Shoot(float angle)
         {
-            var bullet = new Bullet(position, "textures/bullet.png", angle, 1, 1, 200);
+           Bullet bullet = _bulletPull.GetBullet(angle);
+           // var bullet = new Bullet(position, "textures/bullet.png", angle, 1, 1, 200);
         }
 
 
