@@ -6,25 +6,22 @@ using System.Threading.Tasks;
 
 namespace Game.scripts
 {
-    public interface IPooleable 
+  
+    class PullGenerico<T> where T : IPooleable<T>, new()  
     {
- 
-    }
-    class PullGenerico<T> where T : IPooleable, new()  
-    {
-        private List<Bullet> available = new List<Bullet>();
-        private List<Bullet> inUse = new List<Bullet>();
+        private List<T> available = new List<T>();
+        private List<T> inUse = new List<T>();
 
         public PullGenerico()
         {
 
         }
 
-        public Bullet GetBullet(float angle)
+        public T GetBullet(float angle)
         {
             if (available.Count > 0)
             {
-                Bullet bullet = available[0];
+                T bullet = available[0];
                 inUse.Add(bullet);
                 available.RemoveAt(0);
                 bullet.Reset();
@@ -32,20 +29,20 @@ namespace Game.scripts
             }
             else
             {
-                Bullet bullet = new Bullet(new Vector2(0, 0), "Textures/bullet.png", angle, 1, 1, 200);
+                T bullet = new T();
                 bullet.OnDeactivate += OnBulletDeactivateHandler;
                 inUse.Add(bullet);
                 return bullet;
             }
         }
 
-        private void OnBulletDeactivateHandler(Bullet bullet)
+        private void OnBulletDeactivateHandler(T bullet)
         {
             Recycle(bullet);
 
         }
 
-        private void Recycle(Bullet bullet)
+        private void Recycle(T bullet)
         {
             if (inUse.Contains(bullet))
             {

@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace Game.scripts
 {
-    public class Enemy : GameObject
+    public class Enemy : GameObject, IDamageable
     {
+        private int hitPoints;
+        public int HitPoints => hitPoints;
+
+        public bool IsDestroyed { get; set; }
+
+        public event Action<IDamageable> OnDestroy;
         private float x;
         private float y;
         private LifeController lifeController;
@@ -43,6 +49,20 @@ namespace Game.scripts
                 
             }
         }
-      
+        public void Destroy()
+        {
+            IsDestroyed = true;
+            OnDestroy?.Invoke(this);
+        }
+
+        public void GetDamage(int damage)
+        {
+            hitPoints -= damage;
+            if (hitPoints <= 0)
+            {
+                Destroy();
+            }
+        }
+
     }
 }

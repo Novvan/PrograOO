@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game.scripts
 {
-    public class Bullet : GameObject
+    public class Bullet : GameObject, IPooleable<Bullet>
     {
 
         private string _texturePath = "textures/bullet.png";
@@ -19,10 +19,12 @@ namespace Game.scripts
 
         public event Action<Bullet> OnDeactivate;
 
-
-
-        public Bullet(Vector2 initialPosition, string texturePath, float angle, float scaleX, float scaleY, float speed) : base(initialPosition, texturePath, angle, scaleX, scaleY)
+        public Bullet()
         {
+
+        }
+
+        public void Init(Vector2 initialPosition, string texturePath, float angle, float scaleX, float scaleY, float speed) { 
             this._position = initialPosition;
             this._speed = speed;
             this._scale = scaleX;
@@ -60,6 +62,8 @@ namespace Game.scripts
         {
             GameManager.Instance.LevelWindow.GameObjects.Add(this);
         }
+
+        
     }
 
 }

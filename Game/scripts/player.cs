@@ -1,14 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Game.scripts
 {
-    public class Player : GameObject
+    public class Player : GameObject, IDamageable, ITransform
     {
+        private int hitPoints;
+        public int HitPoints => hitPoints;
 
+        public bool IsDestroyed { get; set; }
+
+        public event Action<IDamageable> OnDestroy;
+        
         // private float angle = 0;
         // private float scale = 0.5f;
         //private string texturePath = "textures/assets/Player/player.png";
@@ -30,65 +37,67 @@ namespace Game.scripts
         {
             lifeController = new LifeController(100);
             this.speed = speed;
-            _bulletPull = new PullGenerico<Bullet>();
+           // _bulletPull = new PullGenerico<Bullet>();
         }
 
         public void AssignSpawnpoint(SpawnPoint newSpawnpoint)
         {
             spawnPoint = newSpawnpoint;
         }
-
-        public void MoveRight()
+        public void MoveDown(Vector2 _position, float _speed)
         {
-            position.x += speed * Program.deltaTime;
-            angle = 0f;
-            //_bPoint = new Vector2(texture.Width / scaleX, texture.Height / scaleY / 2);
-            Engine.Debug("Angle: " + angle);
-        }
-
-        public void MoveLeft()
-        {
-            position.x -= speed * Program.deltaTime;
-            angle = 180f;
-            //_bPoint = new Vector2(, texture.Height / scaleY / 2);
-            Engine.Debug("Angle: " + angle);
-        }
-
-        public void MoveUp()
-        {
-            position.y -= speed * Program.deltaTime;
-            angle = 270f;
-            Engine.Debug("Angle: " + angle);
-        }
-
-        public void MoveDown()
-        {
-            position.y += speed * Program.deltaTime;
+            position.y += _speed * Program.deltaTime;
             angle = 90f;
-            Engine.Debug("Angle: "+angle);
+            Engine.Debug("abajo");
+            
         }
+        public void MoveUp(Vector2 _position, float _speed)
+        {
+            position.y -= _speed * Program.deltaTime;
+            angle = 270f;
+            Engine.Debug("arriba");
+        }
+        public void MoveLeft(Vector2 _position, float _speed)
+        {
+            position.x -= _speed * Program.deltaTime;
+            angle = 180f;
+            Engine.Debug("izq");
+        }
+        public void MoveRight(Vector2 _position, float _speed)
+        {
+            position.x =_position.x + _speed * Program.deltaTime;
+            angle = 0f;
+            Engine.Debug("der");
+
+        }
+       
 
         public override void Update()
         {
 
             if (Engine.GetKey(Keys.D))
             {
-                MoveRight();
+                MoveRight(position, speed);
+                Engine.Debug(this.speed);
+                
             }
 
             if (Engine.GetKey(Keys.A))
             {
-                MoveLeft();
+                MoveLeft(position, speed);
+                
             }
 
             if (Engine.GetKey(Keys.S))
             {
-                MoveDown();
+                MoveDown(position, speed);
+               
             }
 
             if (Engine.GetKey(Keys.W))
             {
-                MoveUp();
+                MoveUp(position, speed);
+                
             }
 
             if (Engine.GetKey(Keys.Q))
@@ -118,10 +127,24 @@ namespace Game.scripts
         public void Shoot(float angle)
         {
            Bullet bullet = _bulletPull.GetBullet(angle);
-           // var bullet = new Bullet(position, "textures/bullet.png", angle, 1, 1, 200);
+           bullet.Init(position, "textures/bullet.png", angle, 1, 1, 200);
         }
 
+        public void Destroy()
+        {
+            IsDestroyed = true;
+            OnDestroy?.Invoke(this);
+        }
 
+        public void GetDamage(int damage)
+        {
+            hitPoints -= damage;
+            if (hitPoints<=0)
+            {
+                Destroy();
+            }
+        }
+        
 
 
     }

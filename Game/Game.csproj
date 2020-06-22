@@ -45,11 +45,16 @@
     <Compile Include="scripts\EnemyFactory.cs" />
     <Compile Include="scripts\GameManager.cs" />
     <Compile Include="scripts\GameObject.cs" />
+    <Compile Include="scripts\IDamageable.cs" />
+    <Compile Include="scripts\IPooleable.cs" />
+    <Compile Include="scripts\IRenderer.cs" />
+    <Compile Include="scripts\ITransform.cs" />
     <Compile Include="scripts\Level.cs" />
     <Compile Include="scripts\LifeController.cs" />
     <Compile Include="scripts\LoseWindow.cs" />
     <Compile Include="scripts\Menu.cs" />
     <Compile Include="scripts\Player.cs" />
+    <Compile Include="scripts\PullGenerico.cs" />
     <Compile Include="scripts\SpawnPoint.cs" />
     <Compile Include="scripts\Time.cs" />
     <Compile Include="scripts\Vector2.cs" />
