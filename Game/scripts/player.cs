@@ -21,7 +21,7 @@ namespace Game.scripts
         private bool _pPressed;
         private Vector2 _bPoint;
         private PullGenerico<Bullet> _bulletPull;
-        private Transform _transform;
+
 
         public LifeController LifeController
         {
@@ -32,39 +32,37 @@ namespace Game.scripts
         public Player(Vector2 initialPosition, string texturePath, float angle, Vector2 size, float speed)
             : base(initialPosition, texturePath, angle, size)
         {
-            _transform = new Transform(initialPosition, size, angle);
 
-            _transform.Position = initialPosition;
+            transform.Position = initialPosition;
             _lifeController = new LifeController(100);
             this.speed = speed;
             //TODO: ver por que pija no andan las bullets
-            //_bulletPull = new PullGenerico<Bullet>();
+            _bulletPull = new PullGenerico<Bullet>();
         }
 
         public void MoveDown(Vector2 _position, float _speed)
         {
-            position.y = _position.y - _speed * Program.deltaTime;
-            //position.y += _speed * Program.deltaTime;
-            angle = 90f;
+            transform.Position = new Vector2(transform.Position.x, transform.Position.y + _speed * Program.deltaTime);
+            transform.Rotation = 90f;
             Engine.Debug("abajo");
 
         }
         public void MoveUp(Vector2 _position, float _speed)
         {
-            _position.y -= _speed * Program.deltaTime;
-            angle = 270f;
+            transform.Position = new Vector2(transform.Position.x, transform.Position.y - _speed * Program.deltaTime);
+            transform.Rotation = 270f;
             Engine.Debug("arriba");
         }
         public void MoveLeft(Vector2 _position, float _speed)
         {
-            _position.x -= _speed * Program.deltaTime;
-            angle = 180f;
+            transform.Position = new Vector2(transform.Position.x - _speed * Program.deltaTime, transform.Position.y);
+            transform.Rotation = 180f;
             Engine.Debug("izq");
         }
         public void MoveRight(Vector2 _position, float _speed)
         {
-            position.x = _position.x + _speed * Program.deltaTime;
-            angle = 0f;
+            transform.Position = new Vector2(transform.Position.x + _speed * Program.deltaTime, transform.Position.y);
+            transform.Rotation = 0f;
             Engine.Debug("der");
 
         }
@@ -75,7 +73,7 @@ namespace Game.scripts
 
             if (Engine.GetKey(Keys.D))
             {
-                MoveRight(_transform.Position, speed);
+                MoveRight(position, speed);
             }
 
             if (Engine.GetKey(Keys.A))
@@ -106,7 +104,7 @@ namespace Game.scripts
             {
                 _pPressed = true;
                 Engine.Debug("Shot");
-                Shoot(angle);
+                Shoot(transform.Rotation);
             }
 
             if (!Engine.GetKey(Keys.P))
@@ -123,7 +121,7 @@ namespace Game.scripts
         public void Shoot(float angle)
         {
             Bullet bullet = _bulletPull.GetBullet(angle);
-            bullet.Init(position, "textures/bullet.png", angle, 1, 1, 200);
+            bullet.Init(transform.Position, "textures/bullet.png", angle, new Vector2(1,1), 100f);
         }
 
         public void Destroy()

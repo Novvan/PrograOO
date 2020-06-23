@@ -20,7 +20,7 @@ namespace Game.scripts
             texturePath = _texturePath;
             size = _transform.Size;
             texture = new Texture(texturePath);
-            offset = new Vector2(texture.Width / 2, texture.Height / 2);
+            offset = new Vector2(texture.Width / 2 * size.x, texture.Height / 2 * size.y);
         }
 
         public void Render(Transform transform)

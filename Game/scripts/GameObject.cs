@@ -22,10 +22,13 @@ namespace Game.scripts
         public float Height => texture.Height * scaleY;
         public float OffsetX => Width / 2;
         public float OffsetY => Height / 2;
+        
         public GameObject()
         {
-
+            transform = new Transform(new Vector2(), new Vector2(), angle);
+            renderer = new Renderer(transform, "textures/bullet.png");
         }
+
         public GameObject(Vector2 initialPosition, string texturePath, float angle, Vector2 size)
         {
             transform = new Transform(initialPosition, size, angle);
@@ -33,6 +36,7 @@ namespace Game.scripts
         }
         public virtual void Update()
         {
+
         }
 
         public virtual void Render()
