@@ -8,7 +8,8 @@ namespace Game.scripts
 {
     class VictoryWindow : GameObject
     {
-        public VictoryWindow(Vector2 initialPosition, string texturePath, float angle, float scaleX, float scaleY) : base(initialPosition, texturePath, angle, scaleX, scaleY)
+        public VictoryWindow(Vector2 initialPosition, string texturePath, float angle, Vector2 size) :
+            base(initialPosition, texturePath, angle, size)
         {
 
         }

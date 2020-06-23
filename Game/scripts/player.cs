@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Game.scripts
 {
-    public class Player : GameObject, IDamageable, ITransform
+    public class Player : GameObject, IDamageable
     {
         private int hitPoints;
         public int HitPoints => hitPoints;
@@ -15,29 +15,26 @@ namespace Game.scripts
         public bool IsDestroyed { get; set; }
 
         public event Action<IDamageable> OnDestroy;
-        
-        // private float angle = 0;
-        // private float scale = 0.5f;
-        //private string texturePath = "textures/assets/Player/player.png";
-
-        private LifeController lifeController;
+        private LifeController _lifeController;
         private float speed;
         private SpawnPoint spawnPoint;
         private bool _pPressed;
         private Vector2 _bPoint;
-        private PullGenerico <Bullet> _bulletPull;
+        private PullGenerico<Bullet> _bulletPull;
 
         public LifeController LifeController
         {
-            get => lifeController;
-            set => lifeController = value;
+            get => _lifeController;
+            set => _lifeController = value;
         }
 
-        public Player(Vector2 initialPosition, string texturePath, float angle, float scaleX, float scaleY, float speed) : base(initialPosition, texturePath, angle, scaleX, scaleY)
+        public Player(Vector2 initialPosition, string texturePath, float angle, Vector2 size, float speed)
+            : base(initialPosition, texturePath, angle, size)
         {
-            lifeController = new LifeController(100);
+            _lifeController = new LifeController(100);
             this.speed = speed;
-           // _bulletPull = new PullGenerico<Bullet>();
+            //TODO: ver por que pija no andan las bullets
+            //_bulletPull = new PullGenerico<Bullet>();
         }
 
         public void AssignSpawnpoint(SpawnPoint newSpawnpoint)
@@ -49,7 +46,7 @@ namespace Game.scripts
             position.y += _speed * Program.deltaTime;
             angle = 90f;
             Engine.Debug("abajo");
-            
+
         }
         public void MoveUp(Vector2 _position, float _speed)
         {
@@ -65,12 +62,12 @@ namespace Game.scripts
         }
         public void MoveRight(Vector2 _position, float _speed)
         {
-            position.x =_position.x + _speed * Program.deltaTime;
+            position.x = _position.x + _speed * Program.deltaTime;
             angle = 0f;
             Engine.Debug("der");
 
         }
-       
+
 
         public override void Update()
         {
@@ -79,25 +76,25 @@ namespace Game.scripts
             {
                 MoveRight(position, speed);
                 Engine.Debug(this.speed);
-                
+
             }
 
             if (Engine.GetKey(Keys.A))
             {
                 MoveLeft(position, speed);
-                
+
             }
 
             if (Engine.GetKey(Keys.S))
             {
                 MoveDown(position, speed);
-               
+
             }
 
             if (Engine.GetKey(Keys.W))
             {
                 MoveUp(position, speed);
-                
+
             }
 
             if (Engine.GetKey(Keys.Q))
@@ -126,8 +123,8 @@ namespace Game.scripts
 
         public void Shoot(float angle)
         {
-           Bullet bullet = _bulletPull.GetBullet(angle);
-           bullet.Init(position, "textures/bullet.png", angle, 1, 1, 200);
+            Bullet bullet = _bulletPull.GetBullet(angle);
+            bullet.Init(position, "textures/bullet.png", angle, 1, 1, 200);
         }
 
         public void Destroy()
@@ -139,13 +136,10 @@ namespace Game.scripts
         public void GetDamage(int damage)
         {
             hitPoints -= damage;
-            if (hitPoints<=0)
+            if (hitPoints <= 0)
             {
                 Destroy();
             }
         }
-        
-
-
     }
 }

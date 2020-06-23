@@ -38,8 +38,9 @@ namespace Game.scripts
             
 
             _spawnPoint = new Vector2(_width / 2, _height / 2);
-            player = new Player(_spawnPoint, "textures/assets/Player/player.png", 0, 0.5f, 0.5f, 300f);
-            background = new GameObject(new Vector2(_width/2, _height/2),"textures/assets/Map.png", 0, 1, 1);
+
+            player = new Player(_spawnPoint, "textures/assets/Player/player.png", 0, new Vector2(0.5f, 0.5f), 300f);
+            background = new GameObject(new Vector2(_width / 2, _height / 2), "textures/assets/Map.png", 0, new Vector2(1,1));
             gameObjects.Add(background);
             gameObjects.Add(player);
         }

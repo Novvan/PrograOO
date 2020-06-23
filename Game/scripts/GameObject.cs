@@ -14,7 +14,8 @@ namespace Game.scripts
         protected float scaleX;
         protected float scaleY;
         protected Texture texture;
-
+        protected Transform transform;
+        protected Renderer renderer;
 
 
         public float Width => texture.Width * scaleX;
@@ -25,25 +26,28 @@ namespace Game.scripts
         {
 
         }
-
-        public Vector2 Position { get => position; set => position = value; }
-
-        public GameObject(Vector2 initialPosition, string texturePath, float angle, float scaleX, float scaleY)
+        public GameObject(Vector2 initialPosition, string texturePath, float angle, Vector2 size)
         {
+            transform = new Transform(initialPosition, size, angle);
+            renderer = new Renderer(transform, texturePath);
+
+            /*
             position = initialPosition;
             texture = Engine.GetTexture(texturePath);
 
             this.scaleX = scaleX;
             this.scaleY = scaleY;
             this.angle = angle;
+            */
         }
         public virtual void Update()
         {
 
         }
+
         public virtual void Render()
         {
-            Engine.Draw(texture, position.x, position.y, scaleX, scaleY, angle, OffsetX, OffsetY);
+            renderer.Render();
         }
         
     }

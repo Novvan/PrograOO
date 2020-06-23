@@ -51,9 +51,12 @@ namespace Game.scripts
 
         public void Initialize()
         {
-            victoryWindow = new VictoryWindow(new Vector2(Program.Width / 2, Program.Height / 2), "textures/victory.png", 0f, 1, 1);
-            looseWindow = new LoseWindow(new Vector2(Program.Width / 2, Program.Height / 2), "textures/gameover.png", 0f, 1, 1);
-            menuWindow = new Menu(new Vector2(Program.Width / 2, Program.Height / 2), "textures/assets/Menu/menubkg.png", 0f, 1, 1);
+            victoryWindow = new VictoryWindow(new Vector2(Program.Width / 2, Program.Height / 2),
+                "textures/victory.png", 0f, new Vector2(1, 1));
+            looseWindow = new LoseWindow(new Vector2(Program.Width / 2, Program.Height / 2), "textures/gameover.png",
+                0f, new Vector2(1, 1));
+            menuWindow = new Menu(new Vector2(Program.Width / 2, Program.Height / 2),
+                "textures/assets/Menu/menubkg.png", 0f, new Vector2(1, 1));
             levelWindow = new Level();
             currentState = State.Menu;
             SpawnPoint = new Vector2(50, 50);

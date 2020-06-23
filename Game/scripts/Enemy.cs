@@ -28,9 +28,9 @@ namespace Game.scripts
             get => lifeController;
             set => lifeController = value;
         }
-
-        public Enemy(Vector2 initialPosition, string texturePath, float angle, float scaleX, float scaleY, float speed, int index)
-            : base(initialPosition, texturePath, angle, scaleX, scaleY)
+        public Enemy(Vector2 initialPosition, string texturePath, float angle, Vector2 size, float speed,
+            int index)
+            : base(initialPosition, texturePath, angle, size)
         {
             position = initialPosition;
             _index = index;
