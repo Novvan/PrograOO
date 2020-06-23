@@ -1,92 +1,97 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Game.scripts
 {
-    public class Player : GameObject
+    public class Player : GameObject, IDamageable
     {
+        private int hitPoints;
+        public int HitPoints => hitPoints;
 
-        // private float angle = 0;
-        // private float scale = 0.5f;
-        //private string texturePath = "textures/assets/Player/player.png";
+        public bool IsDestroyed { get; set; }
 
-        private LifeController lifeController;
+        public event Action<IDamageable> OnDestroy;
+        private LifeController _lifeController;
         private float speed;
         private SpawnPoint spawnPoint;
         private bool _pPressed;
         private Vector2 _bPoint;
+        private PullGenerico<Bullet> _bulletPull;
+
 
         public LifeController LifeController
         {
-            get => lifeController;
-            set => lifeController = value;
+            get => _lifeController;
+            set => _lifeController = value;
         }
 
-        public Player(Vector2 initialPosition, string texturePath, float angle, float scaleX, float scaleY, float speed) : base(initialPosition, texturePath, angle, scaleX, scaleY)
+        public Player(Vector2 initialPosition, string texturePath, float angle, Vector2 size, float speed)
+            : base(initialPosition, texturePath, angle, size)
         {
-            lifeController = new LifeController(100);
+
+            transform.Position = initialPosition;
+            _lifeController = new LifeController(100);
             this.speed = speed;
+            //TODO: ver por que pija no andan las bullets
+            _bulletPull = new PullGenerico<Bullet>();
         }
 
-        public void AssignSpawnpoint(SpawnPoint newSpawnpoint)
+        public void MoveDown(Vector2 _position, float _speed)
         {
-            spawnPoint = newSpawnpoint;
+            transform.Position = new Vector2(transform.Position.x, transform.Position.y + _speed * Program.deltaTime);
+            transform.Rotation = 90f;
+            Engine.Debug("abajo");
+
+        }
+        public void MoveUp(Vector2 _position, float _speed)
+        {
+            transform.Position = new Vector2(transform.Position.x, transform.Position.y - _speed * Program.deltaTime);
+            transform.Rotation = 270f;
+            Engine.Debug("arriba");
+        }
+        public void MoveLeft(Vector2 _position, float _speed)
+        {
+            transform.Position = new Vector2(transform.Position.x - _speed * Program.deltaTime, transform.Position.y);
+            transform.Rotation = 180f;
+            Engine.Debug("izq");
+        }
+        public void MoveRight(Vector2 _position, float _speed)
+        {
+            transform.Position = new Vector2(transform.Position.x + _speed * Program.deltaTime, transform.Position.y);
+            transform.Rotation = 0f;
+            Engine.Debug("der");
+
         }
 
-        public void MoveRight()
-        {
-            position.x += speed * Program.deltaTime;
-            angle = 0f;
-            //_bPoint = new Vector2(texture.Width / scaleX, texture.Height / scaleY / 2);
-            Engine.Debug("Angle: " + angle);
-        }
-
-        public void MoveLeft()
-        {
-            position.x -= speed * Program.deltaTime;
-            angle = 180f;
-            //_bPoint = new Vector2(, texture.Height / scaleY / 2);
-            Engine.Debug("Angle: " + angle);
-        }
-
-        public void MoveUp()
-        {
-            position.y -= speed * Program.deltaTime;
-            angle = 270f;
-            Engine.Debug("Angle: " + angle);
-        }
-
-        public void MoveDown()
-        {
-            position.y += speed * Program.deltaTime;
-            angle = 90f;
-            Engine.Debug("Angle: "+angle);
-        }
 
         public override void Update()
         {
 
             if (Engine.GetKey(Keys.D))
             {
-                MoveRight();
+                MoveRight(position, speed);
             }
 
             if (Engine.GetKey(Keys.A))
             {
-                MoveLeft();
+                MoveLeft(position, speed);
+
             }
 
             if (Engine.GetKey(Keys.S))
             {
-                MoveDown();
+                MoveDown(position, speed);
+
             }
 
             if (Engine.GetKey(Keys.W))
             {
-                MoveUp();
+                MoveUp(position, speed);
+
             }
 
             if (Engine.GetKey(Keys.Q))
@@ -99,7 +104,7 @@ namespace Game.scripts
             {
                 _pPressed = true;
                 Engine.Debug("Shot");
-                Shoot(angle);
+                Shoot(transform.Rotation);
             }
 
             if (!Engine.GetKey(Keys.P))
@@ -115,11 +120,23 @@ namespace Game.scripts
 
         public void Shoot(float angle)
         {
-            var bullet = new Bullet(position, "textures/bullet.png", angle, 1, 1, 200);
+            Bullet bullet = _bulletPull.GetBullet(angle);
+            bullet.Init(transform.Position, "textures/bullet.png", angle, new Vector2(1,1), 100f);
         }
 
+        public void Destroy()
+        {
+            IsDestroyed = true;
+            OnDestroy?.Invoke(this);
+        }
 
-
-
+        public void GetDamage(int damage)
+        {
+            hitPoints -= damage;
+            if (hitPoints <= 0)
+            {
+                Destroy();
+            }
+        }
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Game.scripts
 {
-    public struct Vector2 
+    public struct Vector2
     {
         public float x { get; set; }
 
@@ -25,30 +25,6 @@ namespace Game.scripts
         {
             return new Vector2(0, 0);
         }
-
-        public static Vector2 up()
-        {
-            return new Vector2(0, 1);
-        }
-
-        public static Vector2 right()
-        {
-            return new Vector2(1, 0);
-        }
-
-        public static Vector2 one()
-        {
-            return new Vector2(1, 1);
-        }
-
-        public static Vector2 left()
-        {
-            return new Vector2(-1, 0);
-        }
-
-        public static Vector2 down()
-        {
-            return new Vector2(0, -1);
-        }
     }
 }
+

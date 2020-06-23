@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace Game.scripts
 {
-    public class Enemy : GameObject
+    public class Enemy : GameObject, IDamageable
     {
+        private int hitPoints;
+        public int HitPoints => hitPoints;
+
+        public bool IsDestroyed { get; set; }
+
+        public event Action<IDamageable> OnDestroy;
         private float x;
         private float y;
         private LifeController lifeController;
@@ -22,9 +28,9 @@ namespace Game.scripts
             get => lifeController;
             set => lifeController = value;
         }
-
-        public Enemy(Vector2 initialPosition, string texturePath, float angle, float scaleX, float scaleY, float speed, int index)
-            : base(initialPosition, texturePath, angle, scaleX, scaleY)
+        public Enemy(Vector2 initialPosition, string texturePath, float angle, Vector2 size, float speed,
+            int index)
+            : base(initialPosition, texturePath, angle, size)
         {
             position = initialPosition;
             _index = index;
@@ -43,6 +49,20 @@ namespace Game.scripts
                 
             }
         }
-      
+        public void Destroy()
+        {
+            IsDestroyed = true;
+            OnDestroy?.Invoke(this);
+        }
+
+        public void GetDamage(int damage)
+        {
+            hitPoints -= damage;
+            if (hitPoints <= 0)
+            {
+                Destroy();
+            }
+        }
+
     }
 }

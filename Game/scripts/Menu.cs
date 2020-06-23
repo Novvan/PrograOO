@@ -11,12 +11,18 @@ namespace Game.scripts
         private Button playButton;
         private Button quitButton;
         private Button currentHighlightButton;
-        public Menu(Vector2 initialPosition, string texturePath, float angle, float scaleX, float scaleY) : base(initialPosition, texturePath, angle, scaleX, scaleY)
+
+        public Menu(Vector2 initialPosition, string texturePath, float angle, Vector2 size) : base(
+            initialPosition, texturePath, angle, size)
         {
-            playButton = new Button(new Vector2(Program.Width / 2, 350), "textures/assets/Menu/play.png", 0f, 1f, 1f, "textures/assets/Menu/yellowplay.png");
+            playButton = new Button(new Vector2(Program.Width / 2, 350), "textures/assets/Menu/play.png", 0f, new Vector2(1, 1),
+                "textures/assets/Menu/yellowplay.png");
             playButton.OnButtonSelected += OnSelectedPlayButton;
-            quitButton = new Button(new Vector2(Program.Width / 2, 550), "textures/assets/Menu/quit.png", 0f, 1f, 1f, "textures/assets/Menu/yellowquit.png");
+
+            quitButton = new Button(new Vector2(Program.Width / 2, 550), "textures/assets/Menu/quit.png", 0f, new Vector2(1, 1),
+                "textures/assets/Menu/yellowquit.png");
             quitButton.OnButtonSelected += OnSelectedQuitButton;
+
             currentHighlightButton = playButton;
             currentHighlightButton.OnHighlight();
         }
@@ -56,6 +62,7 @@ namespace Game.scripts
         }
         private void OnSelectedQuitButton()
         {
+            Engine.Debug("Quit Game");
             Environment.Exit(1);
         }
     }

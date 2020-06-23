@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Game.scripts
 {
-    public class LoseWindow :GameObject
-    {              
-             
-
-        public LoseWindow(Vector2 initialPosition, string texturePath, float angle, float scaleX, float scaleY) : base(initialPosition, texturePath, angle, scaleX, scaleY)
+    public class LoseWindow : GameObject
+    {
+        public LoseWindow(Vector2 initialPosition, string texturePath, float angle, Vector2 size) : base(
+            initialPosition, texturePath, angle, size)
         {
             
         }

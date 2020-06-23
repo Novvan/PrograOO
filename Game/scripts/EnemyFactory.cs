@@ -73,7 +73,8 @@ namespace Game.scripts
                         break;
                 }
 
-                _newEnemy = new Enemy(_enemySpawn, _selectedEnemy , _angle, _scale, _scale, 100, _enemyIndex);
+
+                _newEnemy = new Enemy(_enemySpawn, _selectedEnemy, _angle, new Vector2(_scale,_scale), 100, _enemyIndex);
                 _enemies.Add(_newEnemy);
                 Engine.Debug("Added Enemy");
             }
