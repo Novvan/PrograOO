@@ -14,6 +14,7 @@ namespace Game.scripts
 
         public bool IsDestroyed { get; set; }
 
+        private IWeapon currentWeapon;
         public event Action<IDamageable> OnDestroy;
         private LifeController _lifeController;
         private float speed;
@@ -111,7 +112,18 @@ namespace Game.scripts
             {
                 _pPressed = false;
             }
+            
+            if (Engine.GetKey(Keys.K)
+                   && currentWeapon is object)
+            {
+                currentWeapon.StartAttack();
+            }
 
+        }
+
+        public void AssignWeapon(IWeapon newWeapon)
+        {
+            currentWeapon = newWeapon;
         }
 
 
@@ -121,7 +133,7 @@ namespace Game.scripts
         public void Shoot(float angle)
         {
             Bullet bullet = _bulletPull.GetBullet(angle);
-            bullet.Init(transform.Position, "textures/bullet.png", angle, new Vector2(1,1), 100f);
+            bullet.Init(transform.Position, "textures/bullet.png", angle, new Vector2(1, 1), 100f);
         }
 
         public void Destroy()

@@ -9,7 +9,7 @@ namespace Game.scripts
 {
     public class Level
     {
-        private  LoseWindow loseWindow;
+        private LoseWindow loseWindow;
         private List<Bullet> bullets = new List<Bullet>();
         private float _width = Program.Width;
         private float _height = Program.Height;
@@ -22,39 +22,39 @@ namespace Game.scripts
         private bool _started = false;
         private GameObject background;
         private List<Enemy> Enemies;
-        
+
 
         private List<GameObject> gameObjects;
         public List<GameObject> GameObjects { get => gameObjects; set => gameObjects = value; }
         public List<Bullet> Bullets { get => bullets; set => bullets = value; }
 
-        //en el constructor inicializamos todos los objetos del nivel
         public Level()
         {
             gameObjects = new List<GameObject>();
-            bullets = new List<Bullet>(); 
+            bullets = new List<Bullet>();
 
             Enemies = GameManager.Instance.Enemies;
-            
+
 
             _spawnPoint = new Vector2(_width / 2, _height / 2);
 
-            player = new Player(_spawnPoint, "textures/assets/Player/player.png", 0, new Vector2(0.5f, 0.5f),200f);
-            background = new GameObject(new Vector2(_width / 2, _height / 2), "textures/assets/Map.png", 0, new Vector2(1,1));
+            player = new Player(_spawnPoint, "textures/assets/Player/player.png", 0, new Vector2(0.5f, 0.5f), 200f);
+            background = new GameObject(new Vector2(_width / 2, _height / 2), "textures/assets/Map.png", 0, new Vector2(1, 1));
             gameObjects.Add(background);
             gameObjects.Add(player);
         }
 
-      
+
         public void Initialize()
         {
-                       
+
         }
         public void Update()
         {
-            if (Engine.GetKey(Keys.T)&& !_tPressed)
+            if (Engine.GetKey(Keys.T) && !_tPressed)
             {
-                if (!_started) {
+                if (!_started)
+                {
                     _tPressed = true;
                     Engine.Debug("Spawn");
                     GameManager.Instance.NewWave();
@@ -62,22 +62,23 @@ namespace Game.scripts
                 }
                 Engine.Debug("Round has started");
             }
-            
+
             if (!Engine.GetKey(Keys.T))
             {
                 _tPressed = false;
             }
-            
-            if (Engine.GetKey(Keys.U)&& !_uPressed)
+
+            if (Engine.GetKey(Keys.U) && !_uPressed)
             {
                 _uPressed = true;
 
-                if(Enemies.Count() != 0) { 
-                Engine.Debug("Enemy killed");
-                GameManager.Instance.KillEnemy();
+                if (Enemies.Count() != 0)
+                {
+                    Engine.Debug("Enemy killed");
+                    GameManager.Instance.KillEnemy();
                 }
             }
-            
+
             if (!Engine.GetKey(Keys.U))
             {
                 _uPressed = false;
@@ -108,35 +109,35 @@ namespace Game.scripts
         public void Render()
         {
             if (gameObjects.Count > 0)
-             {
-                 foreach (GameObject go in gameObjects)
-                 {
-                     go.Render();
-                 }
-                
+            {
+                foreach (GameObject go in gameObjects)
+                {
+                    go.Render();
+                }
+
                 if (Enemies.Count > 0)
                 {
-                    foreach(Enemy en in Enemies)
+                    foreach (Enemy en in Enemies)
                     {
                         en.Render();
                     }
                 }
-                
-                if(Bullets.Count >= 0)
+
+                if (Bullets.Count >= 0)
                 {
                     foreach (Bullet bl in Bullets)
                     {
                         bl.Render();
                     }
                 }
-             }
+            }
         }
 
-       
+
 
     }
 
 
 }
-    
+
 

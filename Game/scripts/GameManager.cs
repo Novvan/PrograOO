@@ -28,7 +28,7 @@ namespace Game.scripts
         private Menu menuWindow;
         private Level levelWindow;
         public State currentState;
-        public Vector2 SpawnPoint;      
+        public Vector2 SpawnPoint;
         private int _killGO;
         public Level LevelWindow => levelWindow;
 
@@ -79,7 +79,7 @@ namespace Game.scripts
         }
         public List<Enemy> Enemies { get => _enemies; set => _enemies = value; }
 
-        
+
 
         public void NewWave()
         {
@@ -115,7 +115,7 @@ namespace Game.scripts
                 default:
                     break;
             }
-            if(_wave == 5)
+            if (_wave == 5)
             {
                 currentState = State.Victory;
             }
@@ -147,7 +147,7 @@ namespace Game.scripts
 
         public void KillEnemy()
         {
-            _killGO = _enemies.Count()-1;
+            _killGO = _enemies.Count() - 1;
             _enemies.RemoveAt(_killGO);
         }
     }

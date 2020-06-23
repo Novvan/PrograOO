@@ -28,7 +28,7 @@ namespace Game.scripts
             this._speed = speed;
             transform.Size = scale;
             transform.Rotation = angle;
-            
+
 
             switch (_angle)
             {
