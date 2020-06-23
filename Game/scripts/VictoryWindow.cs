@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Game.scripts
 {
-    public class LoseWindow : GameObject
+    class VictoryWindow : GameObject
     {
-        public LoseWindow(Vector2 initialPosition, string texturePath, float angle, Vector2 size) : base(
-            initialPosition, texturePath, angle, size)
+        public VictoryWindow(Vector2 initialPosition, string texturePath, float angle, Vector2 size) :
+            base(initialPosition, texturePath, angle, size)
         {
-            
+
         }
 
         public override void Update()
@@ -24,7 +24,7 @@ namespace Game.scripts
         public override void Render()
         {
             base.Render();
-           // Engine.Draw(texture, position.x, position.y, scaleX, scaleY, angle, OffsetX, OffsetY);
+            // Engine.Draw(texture, position.x, position.y, scaleX, scaleY, angle, OffsetX, OffsetY);
         }
     }
 }

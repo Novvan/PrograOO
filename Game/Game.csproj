@@ -40,16 +40,26 @@
     <Compile Include="Game.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="scripts\Bullet.cs" />
+    <Compile Include="scripts\Button.cs" />
     <Compile Include="scripts\Enemy.cs" />
+    <Compile Include="scripts\EnemyFactory.cs" />
     <Compile Include="scripts\GameManager.cs" />
     <Compile Include="scripts\GameObject.cs" />
+    <Compile Include="scripts\IDamageable.cs" />
+    <Compile Include="scripts\IPooleable.cs" />
     <Compile Include="scripts\Level.cs" />
     <Compile Include="scripts\LifeController.cs" />
     <Compile Include="scripts\LoseWindow.cs" />
+    <Compile Include="scripts\Menu.cs" />
     <Compile Include="scripts\Player.cs" />
+    <Compile Include="scripts\PlayerAlt.cs" />
+    <Compile Include="scripts\PullGenerico.cs" />
+    <Compile Include="scripts\Renderer.cs" />
     <Compile Include="scripts\SpawnPoint.cs" />
     <Compile Include="scripts\Time.cs" />
+    <Compile Include="scripts\Transform.cs" />
     <Compile Include="scripts\Vector2.cs" />
+    <Compile Include="scripts\VictoryWindow.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Engine.dll">
@@ -58,10 +68,31 @@
     <Content Include="textures\assets\Map.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="textures\assets\Menu\menubkg.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\assets\Menu\menuscreen.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\assets\Menu\play.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\assets\Menu\quit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\assets\Menu\yellowplay.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\assets\Menu\yellowquit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="textures\assets\Player\player.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="textures\assets\Zombie Normal\attack01_0019.png">
+    <Content Include="textures\assets\Zombie Light\attack01_0019.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\assets\Zombie Normal\zombie_normal.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="textures\assets\Zombie Tanque\skeleton-attack_0.png">
@@ -70,10 +101,19 @@
     <Content Include="textures\bkg.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="textures\bullet.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\gameover.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="textures\spaceship.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="textures\ship.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\victory.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

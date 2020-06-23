@@ -11,7 +11,9 @@ namespace Game.scripts
     {
         Menu,
         Level,
-        Loose
+        Lose,
+        Victory
+
     }
     public class GameManager
     {
@@ -20,15 +22,20 @@ namespace Game.scripts
         private static GameManager instance;
         private float _gameModifier;
         private float _wave = 0;
-        private float _maxEnemies = 5f;
+        private float _maxEnemies = 4f;
         private LoseWindow looseWindow;
+        private VictoryWindow victoryWindow;
+        private Menu menuWindow;
         private Level levelWindow;
-        private State currentState;
-        public Vector2 SpawnPoint;
+        public State currentState;
+        public Vector2 SpawnPoint;      
+        private int _killGO;
+        public Level LevelWindow => levelWindow;
+
+        private Random _random = new Random();
 
 
-
-
+        public float maxEnemies => _maxEnemies;
         public static GameManager Instance
         {
             get
@@ -44,11 +51,20 @@ namespace Game.scripts
 
         public void Initialize()
         {
+            victoryWindow = new VictoryWindow(new Vector2(Program.Width / 2, Program.Height / 2),
+                "textures/victory.png", 0f, new Vector2(1, 1));
+            looseWindow = new LoseWindow(new Vector2(Program.Width / 2, Program.Height / 2), "textures/gameover.png",
+                0f, new Vector2(1, 1));
+            menuWindow = new Menu(new Vector2(Program.Width / 2, Program.Height / 2),
+                "textures/assets/Menu/menubkg.png", 0f, new Vector2(1, 1));
             levelWindow = new Level();
-            looseWindow = new LoseWindow();
-            currentState = State.Level;
+            currentState = State.Menu;
             SpawnPoint = new Vector2(50, 50);
             //player = new Player(SpawnPoint, "textures/assets/Player/player.png", 0, 0.5f, 0.5f, 300f);
+        }
+        public void ChangeCurrentState(State newState)
+        {
+            currentState = newState;
         }
 
         public float GameModifier
@@ -57,65 +73,82 @@ namespace Game.scripts
             set => _gameModifier = value;
         }
 
-        public float Wave
+        public float wave
         {
             get => _wave;
         }
+        public List<Enemy> Enemies { get => _enemies; set => _enemies = value; }
 
-        public void SpawnEnemies()
-        {
-            while (_enemies.Count <= _maxEnemies * _wave)
-            {
-                Random rnd = new Random();
-                int _randomY = rnd.Next(0, 900);
-                int _randomX = rnd.Next(0, 1600);
-                float _scale = 0.5f;
-                Vector2 position = new Vector2(_randomX, _randomY);
-                
-                for (int i = 0; i <= _maxEnemies*_wave; i++ )
-                {
-                    _enemies.Add( new Enemy(position,"Game/textures/assets/Zombie Normal/attack01_0019.png",0,_scale,_scale,100));
-                }
-            }
-        }
+        
 
         public void NewWave()
+        {
+            _wave++;
+            EnemyFactory.Spawn();
+        }
+
+        public void CheckEnemies()
         {
             if (_enemies.Count == 0)
             {
                 _wave++;
-                SpawnEnemies();
+                EnemyFactory.Spawn();
             }
         }
+
         public void Update()
         {
-            //if (player.LifeController.CurrentLife <= 0)
-            //{
-            //    GameOver();
-            //}
-            if (currentState== State.Level)
+            switch (currentState)
             {
-                levelWindow.Update();
+                case State.Menu:
+                    menuWindow.Update();
+                    break;
+                case State.Level:
+                    levelWindow.Update();
+                    break;
+                case State.Lose:
+                    looseWindow.Update();
+                    break;
+                case State.Victory:
+                    victoryWindow.Update();
+                    break;
+                default:
+                    break;
             }
-            if (currentState == State.Loose)
+            if(_wave == 5)
             {
-                looseWindow.Update();
+                currentState = State.Victory;
             }
         }
         public void Render()
         {
-            if (currentState == State.Level)
+            switch (currentState)
             {
-                levelWindow.Render();
-            }
-            if(currentState == State.Loose)
-            {
-                looseWindow.Render();
+                case State.Menu:
+                    menuWindow.Render();
+                    break;
+                case State.Level:
+                    levelWindow.Render();
+                    break;
+                case State.Lose:
+                    looseWindow.Render();
+                    break;
+                case State.Victory:
+                    victoryWindow.Render();
+                    break;
+                default:
+                    break;
             }
         }
         public void GameOver()
         {
-            currentState = State.Loose;
+            currentState = State.Lose;
+        }
+
+        public void KillEnemy()
+        {
+            _killGO = _enemies.Count()-1;
+            _enemies.RemoveAt(_killGO);
         }
     }
 

@@ -6,39 +6,63 @@ using System.Threading.Tasks;
 
 namespace Game.scripts
 {
-    public class Bullet
+    public class Bullet : GameObject, IPooleable<Bullet>
     {
-        private Texture texture;
-        private string texturePath = "textures/bullet.png";
-        private float scale;
-        private float speed = 200f;
-        private float angle = 0f;
-        private float radio;
-        private Vector2 direction;
-        private Vector2 position;
+        private float _speed = 200f;
+        private Vector2 _scale;
 
-        public float Radio => radio;
-        public float Width => texture.Width * scale;
-        public float Height => texture.Height * scale;
-        public float OffsetX => Width / 2f;
-        public float OffsetY => Height / 2f;
+        private Vector2 _position;
+        private Vector2 _direction;
+        private float _angle;
 
-        public Bullet(Vector2 initialPosition, Vector2 direction)
+        public event Action<Bullet> OnDeactivate;
+
+        public Bullet()
         {
-            this.position = position;
-            this.direction = direction;
+
+        }
+
+        public void Init(Vector2 initialPosition, string texturePath, float angle, Vector2 scale, float speed)
+        {
+            transform.Position = initialPosition;
+            this._speed = speed;
+            transform.Size = scale;
+            transform.Rotation = angle;
+            
+
+            switch (_angle)
+            {
+                case 0:
+                    _direction.x = 1;
+                    break;
+                case 90:
+                    _direction.y = 1;
+                    break;
+                case 180:
+                    _direction.x = -1;
+                    break;
+                case 270:
+                    _direction.y = -1;
+                    break;
+            }
+
             texture = Engine.GetTexture(texturePath);
-        }
-        public void Update()
-        {
-            position.x += direction.x * speed * Time.DeltaTime;
-            position.y += direction.y * speed * Time.DeltaTime;
+            GameManager.Instance.LevelWindow.Bullets.Add(this);
+            //GameManager.Instance.LevelWindow.GameObjects.Add(this);
         }
 
-        public void Render()
+        public override void Update()
         {
-            Engine.Draw(texture, position.x, position.y, scale, scale, angle, OffsetX, OffsetY);
+            transform.Position = new Vector2(transform.Position.x + _direction.x * _speed * Time.DeltaTime, transform.Position.y);
+            transform.Position = new Vector2(transform.Position.x, transform.Position.y + _direction.y * _speed * Time.DeltaTime);
+
         }
+
+        public void Reset()
+        {
+            GameManager.Instance.LevelWindow.GameObjects.Add(this);
+        }
+
 
     }
 
