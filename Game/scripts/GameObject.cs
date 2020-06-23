@@ -30,24 +30,14 @@ namespace Game.scripts
         {
             transform = new Transform(initialPosition, size, angle);
             renderer = new Renderer(transform, texturePath);
-
-            /*
-            position = initialPosition;
-            texture = Engine.GetTexture(texturePath);
-
-            this.scaleX = scaleX;
-            this.scaleY = scaleY;
-            this.angle = angle;
-            */
         }
         public virtual void Update()
         {
-
         }
 
         public virtual void Render()
         {
-            renderer.Render();
+            renderer.Render(transform);
         }
         
     }

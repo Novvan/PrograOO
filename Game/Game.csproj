@@ -52,6 +52,7 @@
     <Compile Include="scripts\LoseWindow.cs" />
     <Compile Include="scripts\Menu.cs" />
     <Compile Include="scripts\Player.cs" />
+    <Compile Include="scripts\PlayerAlt.cs" />
     <Compile Include="scripts\PullGenerico.cs" />
     <Compile Include="scripts\Renderer.cs" />
     <Compile Include="scripts\SpawnPoint.cs" />

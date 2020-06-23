@@ -23,7 +23,7 @@ namespace Game.scripts
             offset = new Vector2(texture.Width / 2, texture.Height / 2);
         }
 
-        public void Render()
+        public void Render(Transform transform)
         {
             Engine.Draw(texture, transform.Position.x, transform.Position.y, size.x, size.y, transform.Rotation, offset.x, offset.y);
         }

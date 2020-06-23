@@ -21,6 +21,7 @@ namespace Game.scripts
         private bool _pPressed;
         private Vector2 _bPoint;
         private PullGenerico<Bullet> _bulletPull;
+        private Transform _transform;
 
         public LifeController LifeController
         {
@@ -31,32 +32,32 @@ namespace Game.scripts
         public Player(Vector2 initialPosition, string texturePath, float angle, Vector2 size, float speed)
             : base(initialPosition, texturePath, angle, size)
         {
+            _transform = new Transform(initialPosition, size, angle);
+
+            _transform.Position = initialPosition;
             _lifeController = new LifeController(100);
             this.speed = speed;
             //TODO: ver por que pija no andan las bullets
             //_bulletPull = new PullGenerico<Bullet>();
         }
 
-        public void AssignSpawnpoint(SpawnPoint newSpawnpoint)
-        {
-            spawnPoint = newSpawnpoint;
-        }
         public void MoveDown(Vector2 _position, float _speed)
         {
-            position.y += _speed * Program.deltaTime;
+            position.y = _position.y - _speed * Program.deltaTime;
+            //position.y += _speed * Program.deltaTime;
             angle = 90f;
             Engine.Debug("abajo");
 
         }
         public void MoveUp(Vector2 _position, float _speed)
         {
-            position.y -= _speed * Program.deltaTime;
+            _position.y -= _speed * Program.deltaTime;
             angle = 270f;
             Engine.Debug("arriba");
         }
         public void MoveLeft(Vector2 _position, float _speed)
         {
-            position.x -= _speed * Program.deltaTime;
+            _position.x -= _speed * Program.deltaTime;
             angle = 180f;
             Engine.Debug("izq");
         }
@@ -74,9 +75,7 @@ namespace Game.scripts
 
             if (Engine.GetKey(Keys.D))
             {
-                MoveRight(position, speed);
-                Engine.Debug(this.speed);
-
+                MoveRight(_transform.Position, speed);
             }
 
             if (Engine.GetKey(Keys.A))

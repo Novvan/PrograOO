@@ -112,7 +112,6 @@ namespace Game.scripts
              {
                  foreach (GameObject go in gameObjects)
                  {
-                     //Engine.Debug(" render ");
                      go.Render();
                  }
                 
