@@ -25,8 +25,7 @@ namespace Game.scripts
 
         public GameObject()
         {
-            transform = new Transform(new Vector2(), new Vector2(), angle);
-            renderer = new Renderer(transform, "textures/bullet.png");
+            
         }
 
         public GameObject(Vector2 initialPosition, string texturePath, float angle, Vector2 size)

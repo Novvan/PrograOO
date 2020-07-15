@@ -9,10 +9,14 @@ namespace Game.scripts
     public class Renderer
     {
         protected Transform transform;
-        protected string texturePath;
+        private string texturePath;
+
+
         protected Vector2 offset;
         protected Vector2 size;
         protected Texture texture;
+
+        public string TexturePath { get => texturePath; set => texturePath = value; }
 
         public Renderer(Transform _transform, string _texturePath)
         {
