@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Game.scripts
 {
-  
-    class PullGenerico<T> where T : IPooleable<T>, new()  
+
+    class PullGenerico<T> where T : IPooleable<T>, new()
     {
         private List<T> available = new List<T>();
         private List<T> inUse = new List<T>();

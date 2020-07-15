@@ -19,6 +19,8 @@ namespace Game.scripts
 
         public Bullet()
         {
+            transform = new Transform(new Vector2(), new Vector2(), angle);
+            renderer = new Renderer(transform, "textures/bullet.png");
 
         }
 
@@ -28,7 +30,7 @@ namespace Game.scripts
             this._speed = speed;
             transform.Size = scale;
             transform.Rotation = angle;
-            
+            renderer.TexturePath = texturePath;
 
             switch (_angle)
             {
