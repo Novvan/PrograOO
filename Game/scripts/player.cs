@@ -37,7 +37,7 @@ namespace Game.scripts
             transform.Position = initialPosition;
             _lifeController = new LifeController(100);
             this.speed = speed;
-            //TODO: ver por que pija no andan las bullets
+            //TODO: ver por que p*** no andan las bullets
             _bulletPull = new PullGenerico<Bullet>();
         }
 
