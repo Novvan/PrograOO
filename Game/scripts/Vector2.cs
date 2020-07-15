@@ -21,9 +21,20 @@ namespace Game.scripts
             y = posY;
         }
 
-        public Vector2 zero()
+        public Vector2 Zero()
         {
             return new Vector2(0, 0);
+        }
+
+        public Vector2 normalize()
+        {
+            if (x >= 1) x = 1;
+            if (x <= -1) x = -1;
+            if (y >= 1) y = 1;
+            if (y <= -1) y = -1;
+
+
+            return new Vector2(x, y);
         }
     }
 }

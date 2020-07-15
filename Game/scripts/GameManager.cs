@@ -84,7 +84,7 @@ namespace Game.scripts
         public void NewWave()
         {
             _wave++;
-            EnemyFactory.Spawn();
+            EnemyFactory.Spawn(levelWindow.player);
         }
 
         public void CheckEnemies()

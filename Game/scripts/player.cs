@@ -22,6 +22,7 @@ namespace Game.scripts
         private bool _pPressed;
         private Vector2 _bPoint;
         private PullGenerico<Bullet> _bulletPull;
+        public Vector2 Position;
 
 
         public LifeController LifeController
@@ -71,6 +72,9 @@ namespace Game.scripts
 
         public override void Update()
         {
+            position = transform.Position;
+
+
 
             if (Engine.GetKey(Keys.D))
             {
@@ -104,7 +108,7 @@ namespace Game.scripts
             if (Engine.GetKey(Keys.P) && !_pPressed)
             {
                 _pPressed = true;
-                Engine.Debug("Shot");
+                //Engine.Debug("Shot");
                 Shoot(transform.Rotation);
             }
 
@@ -133,7 +137,7 @@ namespace Game.scripts
         public void Shoot(float angle)
         {
             Bullet bullet = _bulletPull.GetBullet(angle);
-            bullet.Init(transform.Position, "textures/bullet.png", angle, new Vector2(1, 1), 100f);
+            bullet.Init(transform.Position, "textures/bullet.png", angle, new Vector2(1, 1), 0f);
         }
 
         public void Destroy()

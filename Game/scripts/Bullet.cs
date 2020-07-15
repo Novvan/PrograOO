@@ -8,7 +8,7 @@ namespace Game.scripts
 {
     public class Bullet : GameObject, IPooleable<Bullet>
     {
-        private float _speed = 200f;
+        private float _speed = 0f;
         private Vector2 _scale;
 
         private Vector2 _position;
@@ -26,6 +26,7 @@ namespace Game.scripts
 
         public void Init(Vector2 initialPosition, string texturePath, float angle, Vector2 scale, float speed)
         {
+            
             transform.Position = initialPosition;
             this._speed = speed;
             transform.Size = scale;
@@ -50,6 +51,7 @@ namespace Game.scripts
 
             texture = Engine.GetTexture(texturePath);
             GameManager.Instance.LevelWindow.Bullets.Add(this);
+            Engine.Debug(GameManager.Instance.LevelWindow.Bullets.Count());
             //GameManager.Instance.LevelWindow.GameObjects.Add(this);
         }
 

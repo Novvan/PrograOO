@@ -96,9 +96,16 @@ namespace Game.scripts
                     go.Update();
                 }
             }
-            if (Bullets.Count >= 0)
+            if (Enemies.Count > 0)
             {
-                foreach (Bullet bl in Bullets)
+                foreach (Enemy en in Enemies)
+                {
+                    en.Update();
+                }
+            }
+            if (bullets.Count >= 0)
+            {
+                foreach (Bullet bl in bullets)
                 {
                     bl.Update();
                 }
@@ -123,9 +130,9 @@ namespace Game.scripts
                     }
                 }
 
-                if (Bullets.Count >= 0)
+                if (bullets.Count >= 0)
                 {
-                    foreach (Bullet bl in Bullets)
+                    foreach (Bullet bl in bullets)
                     {
                         bl.Render();
                     }
