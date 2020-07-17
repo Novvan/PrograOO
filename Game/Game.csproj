@@ -41,10 +41,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="scripts\Bullet.cs" />
     <Compile Include="scripts\Button.cs" />
+    <Compile Include="scripts\CreditsWindow.cs" />
     <Compile Include="scripts\Enemy.cs" />
     <Compile Include="scripts\EnemyFactory.cs" />
     <Compile Include="scripts\GameManager.cs" />
     <Compile Include="scripts\GameObject.cs" />
+    <Compile Include="scripts\HelpWindow.cs" />
     <Compile Include="scripts\IDamageable.cs" />
     <Compile Include="scripts\IPooleable.cs" />
     <Compile Include="scripts\IWeapon.cs" />

@@ -12,7 +12,9 @@ namespace Game.scripts
         Menu,
         Level,
         Lose,
-        Victory
+        Victory,
+        Credits,
+        Help
 
     }
     public class GameManager
@@ -24,6 +26,8 @@ namespace Game.scripts
         private float _wave = 0;
         private float _maxEnemies = 4f;
         private LoseWindow looseWindow;
+        private CreditsWindow creditsWindow;
+        private HelpWindow helpWindow;
         private VictoryWindow victoryWindow;
         private Menu menuWindow;
         private Level levelWindow;
@@ -51,6 +55,8 @@ namespace Game.scripts
 
         public void Initialize()
         {
+            creditsWindow = new CreditsWindow(new Vector2(Program.Width / 2, Program.Height / 2), "", 0f, new Vector2(1, 1));
+            helpWindow = new HelpWindow(new Vector2(Program.Width / 2, Program.Height / 2), "", 0f, new Vector2(1, 1));
             victoryWindow = new VictoryWindow(new Vector2(Program.Width / 2, Program.Height / 2),
                 "textures/victory.png", 0f, new Vector2(1, 1));
             looseWindow = new LoseWindow(new Vector2(Program.Width / 2, Program.Height / 2), "textures/gameover.png",
@@ -112,6 +118,12 @@ namespace Game.scripts
                 case State.Victory:
                     victoryWindow.Update();
                     break;
+                case State.Credits:
+                    creditsWindow.Update();
+                    break;
+                case State.Help:
+                    helpWindow.Update();
+                    break;
                 default:
                     break;
             }
@@ -135,6 +147,12 @@ namespace Game.scripts
                     break;
                 case State.Victory:
                     victoryWindow.Render();
+                    break;
+                case State.Credits:
+                    creditsWindow.Render();
+                    break;
+                case State.Help:
+                    helpWindow.Render();
                     break;
                 default:
                     break;
