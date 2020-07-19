@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Game.scripts
@@ -23,7 +25,9 @@ namespace Game.scripts
         private float _speed;
         private bool _isAlive;
         private bool _horizMovement;
-        private Player _player;
+        private float _timer;
+
+
 
         public LifeController LifeController
         {
@@ -31,13 +35,12 @@ namespace Game.scripts
             set => lifeController = value;
         }
         public Enemy(Vector2 initialPosition, string texturePath, float angle, Vector2 size, float speed,
-            int index, Player player)
+            int index)
             : base(initialPosition, texturePath, angle, size)
         {
             position = initialPosition;
             _index = index;
             _speed = speed;
-            _player = player;
             lifeController = new LifeController(100);
         }
         public void AssignSpawnpoint(SpawnPoint newSpawnpoint)
@@ -46,12 +49,7 @@ namespace Game.scripts
         }
         public override void Update()
         {
-            PlayerFollow(_player.Position);
 
-            if (lifeController.CurrentLife <= 0)
-            {
-                
-            }
         }
         public void Destroy()
         {
@@ -72,31 +70,62 @@ namespace Game.scripts
         {
 
             Vector2 direction;
+            direction = new Vector2(playerposition.x - transform.Position.x, playerposition.y - transform.Position.y);
 
-            if (Math.Abs(playerposition.y) - Math.Abs(playerposition.x) > 1)
+            transform.Position = new Vector2(transform.Position.x + direction.normalize().x * Time.DeltaTime * _speed, transform.Position.y + direction.normalize().y * Time.DeltaTime * _speed);
+
+            if (Math.Abs(direction.y) > Math.Abs(direction.x))
             {
-                _horizMovement = false;
-            }
-
-            if (Math.Abs(playerposition.x) - Math.Abs(playerposition.y) > 1)
-            {
-                _horizMovement = true;
-            }
-
-            if (!_horizMovement)
-            {
-                direction = new Vector2(playerposition.x - transform.Position.x, playerposition.y - transform.Position.y);
-                
-                
-                Engine.Debug(direction.normalize().x);
-                Engine.Debug(direction.normalize().y);
-
-                //transform.Position = new Vector2(direction.normalize().x - _speed * Program.deltaTime, transform.Position.y);
+                if (direction.y > 0)
+                {
+                    transform.Rotation = 90f;
+                }
+                else
+                {
+                    transform.Rotation = 270f;
+                }
             }
             else
             {
-                //transform.Position = new Vector2(transform.Position.x, transform.Position.y + _speed * Program.deltaTime);
+                if (direction.x > 0)
+                {
+                    transform.Rotation = 0f;
+                }
+                else
+                {
+                    transform.Rotation = 180f;
+                }
             }
+
+            /*if (_timer >= 0.5f)
+            {
+                if (Math.Abs(playerposition.y) > Math.Abs(playerposition.x))
+                {
+                    _horizMovement = false;
+                }
+                else
+                {
+                    _horizMovement = true;
+                }
+
+                _timer = 0f;
+            }
+            else
+            {
+                _timer += Time.DeltaTime;
+            }
+
+            if (_horizMovement)
+            {    
+                //Engine.Debug(direction.normalize().x);
+                //Engine.Debug(direction.normalize().y);
+
+                transform.Position = new Vector2(transform.Position.x + direction.normalize().x * _speed * Program.deltaTime, transform.Position.y);
+            }
+            else
+            {
+                transform.Position = new Vector2(transform.Position.x, transform.Position.y + direction.normalize().y * _speed * Program.deltaTime);
+            }*/
         }
 
     }

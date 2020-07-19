@@ -16,6 +16,8 @@ namespace Game.scripts
         protected Vector2 size;
         protected Texture texture;
 
+        public Vector2 Offset => offset;
+        
         public string TexturePath { get => texturePath; set => texturePath = value; }
 
         public Renderer(Transform _transform, string _texturePath)

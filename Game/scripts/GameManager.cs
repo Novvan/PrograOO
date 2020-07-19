@@ -55,14 +55,14 @@ namespace Game.scripts
 
         public void Initialize()
         {
-            creditsWindow = new CreditsWindow(new Vector2(Program.Width / 2, Program.Height / 2), "", 0f, new Vector2(1, 1));
-            helpWindow = new HelpWindow(new Vector2(Program.Width / 2, Program.Height / 2), "", 0f, new Vector2(1, 1));
+            creditsWindow = new CreditsWindow(new Vector2(Program.Width / 2, Program.Height / 2), "textures/assets/screencredits.png", 0f, new Vector2(1, 1));
+            //helpWindow = new HelpWindow(new Vector2(Program.Width / 2, Program.Height / 2), "", 0f, new Vector2(1, 1));
             victoryWindow = new VictoryWindow(new Vector2(Program.Width / 2, Program.Height / 2),
                 "textures/victory.png", 0f, new Vector2(1, 1));
             looseWindow = new LoseWindow(new Vector2(Program.Width / 2, Program.Height / 2), "textures/gameover.png",
                 0f, new Vector2(1, 1));
             menuWindow = new Menu(new Vector2(Program.Width / 2, Program.Height / 2),
-                "textures/assets/Menu/menubkg.png", 0f, new Vector2(1, 1));
+                "textures/assets/screenmenu.png", 0f, new Vector2(1.35f, 1.35f));
             levelWindow = new Level();
             currentState = State.Menu;
             SpawnPoint = new Vector2(50, 50);
@@ -90,7 +90,7 @@ namespace Game.scripts
         public void NewWave()
         {
             _wave++;
-            EnemyFactory.Spawn(levelWindow.player);
+            EnemyFactory.Spawn();
         }
 
         public void CheckEnemies()
@@ -98,7 +98,7 @@ namespace Game.scripts
             if (_enemies.Count == 0)
             {
                 _wave++;
-                EnemyFactory.Spawn(levelWindow.player);
+                EnemyFactory.Spawn();
             }
         }
 
@@ -121,9 +121,9 @@ namespace Game.scripts
                 case State.Credits:
                     creditsWindow.Update();
                     break;
-                case State.Help:
+                /*case State.Help:
                     helpWindow.Update();
-                    break;
+                    break;*/
                 default:
                     break;
             }
@@ -151,9 +151,9 @@ namespace Game.scripts
                 case State.Credits:
                     creditsWindow.Render();
                     break;
-                case State.Help:
+                /*case State.Help:
                     helpWindow.Render();
-                    break;
+                    break;*/
                 default:
                     break;
             }

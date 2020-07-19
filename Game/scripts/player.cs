@@ -22,7 +22,12 @@ namespace Game.scripts
         private bool _pPressed;
         private Vector2 _bPoint;
         private PullGenerico<Bullet> _bulletPull;
-        public Vector2 Position;
+        public Vector2 Position
+        {
+            get => position;
+        }
+
+
 
 
         public LifeController LifeController
@@ -38,7 +43,6 @@ namespace Game.scripts
             transform.Position = initialPosition;
             _lifeController = new LifeController(100);
             this.speed = speed;
-            //TODO: ver por que p*** no andan las bullets
             _bulletPull = new PullGenerico<Bullet>();
         }
 

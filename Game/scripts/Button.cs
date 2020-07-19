@@ -8,6 +8,8 @@ namespace Game.scripts
 {
     public class Button : GameObject
     {
+        
+
         private Texture nonHighlightTexture;
         private Texture highlightTexture;
         public event Action OnButtonSelected;
@@ -18,6 +20,8 @@ namespace Game.scripts
         {
             nonHighlightTexture = Engine.GetTexture(texturePath);
             highlightTexture = Engine.GetTexture(selectedTexturePath);
+
+           
         }
 
         public override void Update()
@@ -30,10 +34,12 @@ namespace Game.scripts
         }
         public void OnHighlight()
         {
+            
             texture = highlightTexture;
         }
         public void OnUnHighlight()
         {
+            
             texture = nonHighlightTexture;
         }
     }
