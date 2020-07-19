@@ -72,6 +72,9 @@
     <Content Include="textures\assets\bkg.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="textures\assets\bullet.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="textures\assets\Menu\credits.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -102,6 +105,9 @@
     <Content Include="textures\assets\Powerup\bulletspowerup.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="textures\assets\Powerup\healthpowerup.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="textures\assets\screencredits.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -115,9 +121,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="textures\assets\Zombie Tanque\skeleton-attack_0.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="textures\bullet.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="textures\gameover.png">

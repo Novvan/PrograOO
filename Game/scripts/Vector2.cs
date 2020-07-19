@@ -36,6 +36,12 @@ namespace Game.scripts
 
             return new Vector2(x, y);
         }
+        public float magnitude()
+        {
+            float _mag = (float) Math.Sqrt(x*x+y*y);
+
+            return _mag;
+        }
     }
 }
 

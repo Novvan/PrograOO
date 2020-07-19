@@ -122,7 +122,6 @@ D:\PrograOO\Game\bin\Debug\Game.pdb
 D:\PrograOO\Game\bin\Debug\textures\assets\Menu\play.png
 D:\PrograOO\Game\bin\Debug\textures\assets\Menu\quit.png
 D:\PrograOO\Game\bin\Debug\textures\gameover.png
-D:\PrograOO\Game\bin\Debug\textures\bullet.png
 D:\PrograOO\Game\bin\Debug\textures\victory.png
 D:\PrograOO\Game\bin\Debug\textures\assets\Zombie Normal\zombie_normal.png
 D:\PrograOO\Game\bin\Debug\textures\assets\Menu\credits.png
@@ -136,3 +135,5 @@ D:\PrograOO\Game\bin\Debug\textures\assets\screenmenu.png
 D:\PrograOO\Game\bin\Debug\textures\assets\bkg.png
 D:\PrograOO\Game\bin\Debug\textures\assets\Powerup\bulletspowerup.png
 D:\PrograOO\Game\bin\Debug\textures\assets\Zombie Light\lightzombie.png
+D:\PrograOO\Game\bin\Debug\textures\assets\bullet.png
+D:\PrograOO\Game\bin\Debug\textures\assets\Powerup\healthpowerup.png

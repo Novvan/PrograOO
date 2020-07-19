@@ -20,7 +20,7 @@ namespace Game.scripts
         public Bullet()
         {
             transform = new Transform(new Vector2(), new Vector2(), angle);
-            renderer = new Renderer(transform, "textures/bullet.png");
+            renderer = new Renderer(transform, "textures/assets/bullet.png");
 
         }
 

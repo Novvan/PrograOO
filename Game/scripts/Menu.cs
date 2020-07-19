@@ -31,6 +31,10 @@ namespace Game.scripts
             quitButton = new Button(new Vector2(Program.Width / 2, 670), "textures/assets/Menu/quit.png", 0f, new Vector2(0.7f, 0.7f), "textures/assets/Menu/selectedquit.png");
             quitButton.OnButtonSelected += OnSelectedQuitButton;
 
+            playButton.AssignButtons(quitButton, creditsButton);
+            creditsButton.AssignButtons(playButton, helpButton);
+            helpButton.AssignButtons(creditsButton, quitButton);
+            quitButton.AssignButtons(helpButton, playButton);
             currentHighlightButton = playButton;
             currentHighlightButton.OnHighlight();
         }
@@ -42,19 +46,22 @@ namespace Game.scripts
             {
                 currentHighlightButton.Select();
             }
-            if ((Engine.GetKey(Keys.UP) || Engine.GetKey(Keys.DOWN)) && currentPressKeyTime >= delayPressKey)
+            if (Engine.GetKey(Keys.UP)  && currentPressKeyTime >= delayPressKey)
             {
                 currentPressKeyTime = 0;
                 currentHighlightButton.OnUnHighlight();
-                if (currentHighlightButton == playButton)
-                {
-                    currentHighlightButton = quitButton;
+                currentHighlightButton=currentHighlightButton.PreviousButton;
+                
+                currentHighlightButton.OnHighlight();
+                Engine.Debug(currentHighlightButton);
 
-                }
-                else
-                {
-                    currentHighlightButton = playButton;
-                }
+            }
+            if (Engine.GetKey(Keys.DOWN) && currentPressKeyTime >= delayPressKey)
+            {
+                currentPressKeyTime = 0;
+                currentHighlightButton.OnUnHighlight();
+                currentHighlightButton = currentHighlightButton.NextButton;
+
                 currentHighlightButton.OnHighlight();
                 Engine.Debug(currentHighlightButton);
 
