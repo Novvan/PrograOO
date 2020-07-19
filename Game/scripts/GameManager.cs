@@ -98,7 +98,7 @@ namespace Game.scripts
             if (_enemies.Count == 0)
             {
                 _wave++;
-                EnemyFactory.Spawn();
+                EnemyFactory.Spawn(levelWindow.player);
             }
         }
 

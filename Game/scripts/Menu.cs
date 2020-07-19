@@ -23,11 +23,11 @@ namespace Game.scripts
                 "textures/assets/Menu/yellowplay.png");
             playButton.OnButtonSelected += OnSelectedPlayButton;
             
-            creditsButton = new Button(new Vector2(Program.Width / 2, 350), "", 0f, new Vector2(1, 1), "");
+            /*creditsButton = new Button(new Vector2(Program.Width / 2, 350), "", 0f, new Vector2(1, 1), "");
             creditsButton.OnButtonSelected += OnSelectedPlayButton;
 
             helpButton = new Button(new Vector2(Program.Width / 2, 550), "", 0f, new Vector2(1, 1), "");
-            helpButton.OnButtonSelected += OnSelectedPlayButton;
+            helpButton.OnButtonSelected += OnSelectedPlayButton;*/
 
             quitButton = new Button(new Vector2(Program.Width / 2, 750), "textures/assets/Menu/quit.png", 0f, new Vector2(1, 1),
                 "textures/assets/Menu/yellowquit.png");
@@ -59,8 +59,8 @@ namespace Game.scripts
                 currentHighlightButton.OnHighlight();
             }                       
             playButton.Update();
-            creditsButton.Update();
-            helpButton.Update();
+           /* creditsButton.Update();
+            helpButton.Update();*/
             quitButton.Update();
         }
       
@@ -68,8 +68,8 @@ namespace Game.scripts
         {
             base.Render();
             playButton.Render();
-            creditsButton.Render();
-            helpButton.Render();
+           /* creditsButton.Render();
+            helpButton.Render();*/
             quitButton.Render();
         }
         private void OnSelectedPlayButton()
