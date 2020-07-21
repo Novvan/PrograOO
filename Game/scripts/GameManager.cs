@@ -80,8 +80,7 @@ namespace Game.scripts
             get => _wave;
         }
         public List<Enemy> Enemies { get => _enemies; set => _enemies = value; }
-
-
+        public Random Random => _random;
 
         public void NewWave()
         {
@@ -123,7 +122,7 @@ namespace Game.scripts
                 default:
                     break;
             }
-            if (_wave == 5)
+            if (_wave == 6)
             {
                 currentState = State.Victory;
             }

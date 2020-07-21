@@ -71,7 +71,6 @@ namespace Game.scripts
 
                 if (_enemies.Count() != 0)
                 {
-                    //Engine.Debug("Enemy killed");
                     GameManager.Instance.KillEnemy();
                 }
             }
