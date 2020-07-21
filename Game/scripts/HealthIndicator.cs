@@ -29,13 +29,13 @@ namespace Game.scripts
                 switch (currenthealth)
                 {
                     case 1:
-                        renderer.Texture = new Texture("textures/assets/Healthbar/1heart.png");
+                        renderer.Texture = Engine.GetTexture("textures/assets/Healthbar/1heart.png");
                         break;
                     case 2:
-                        renderer.Texture = new Texture("textures/assets/Healthbar/2hearts.png");
+                        renderer.Texture = Engine.GetTexture("textures/assets/Healthbar/2hearts.png");
                         break;
                     case 3:
-                        renderer.Texture = new Texture("textures/assets/Healthbar/3hearts.png");
+                        renderer.Texture = Engine.GetTexture("textures/assets/Healthbar/3hearts.png");
                         break;
                 }
             }

@@ -25,8 +25,8 @@ namespace Game.scripts
             transform = _transform;
             texturePath = _texturePath;
             size = _transform.Size;
-            texture = new Texture(texturePath);
-            offset = new Vector2(texture.Width / 2 * size.x, texture.Height / 2 * size.y);
+            texture = Engine.GetTexture(texturePath);
+         offset = new Vector2(texture.Width / 2 * size.x, texture.Height / 2 * size.y);
         }
 
         public void Render(Transform transform)
