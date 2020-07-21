@@ -55,7 +55,6 @@
     <Compile Include="scripts\LoseWindow.cs" />
     <Compile Include="scripts\Menu.cs" />
     <Compile Include="scripts\Player.cs" />
-    <Compile Include="scripts\PlayerAlt.cs" />
     <Compile Include="scripts\PullGenerico.cs" />
     <Compile Include="scripts\Renderer.cs" />
     <Compile Include="scripts\SpawnPoint.cs" />
@@ -64,8 +63,25 @@
     <Compile Include="scripts\Transform.cs" />
     <Compile Include="scripts\Vector2.cs" />
     <Compile Include="scripts\VictoryWindow.cs" />
+    <Compile Include="scripts\WaveIndicator.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="C:\Users\Admin\Desktop\IOO\finalwave.png">
+      <Link>textures\assets\finalwave.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="C:\Users\Admin\Desktop\IOO\wave1.png">
+      <Link>textures\assets\wave1.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="C:\Users\Admin\Desktop\IOO\wave2.png">
+      <Link>textures\assets\wave2.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="C:\Users\Admin\Desktop\IOO\wave3.png">
+      <Link>textures\assets\wave3.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Engine.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

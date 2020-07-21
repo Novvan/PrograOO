@@ -14,11 +14,9 @@ namespace Game.scripts
         private static List<Enemy> _enemies = GameManager.Instance.Enemies;
         private static Vector2 _enemySpawn;
         private static float _angle;
-        private static Enemy _newEnemy;
         private static string _zombie = "textures/assets/Zombie Normal/zombie_normal.png";
         private static string _tankZombie = "textures/assets/Zombie Tanque/skeleton-attack_0.png";
         private static string _lightZombie = "textures/assets/Zombie Light/lightzombie.png";
-        private static string _selectedEnemy;
         private static float _scale = 0.5f;
         private static Random rnd = new Random();
 
@@ -30,16 +28,16 @@ namespace Game.scripts
                 switch (rnd.Next(0, 3))
                 {
                     case 0:
-                        SpawnTank();
+                        _enemies.Add(SpawnTank());
                         break;
                     case 1:
-                        SpawnZombie();
+                        _enemies.Add(SpawnZombie());
                         break;
                     case 2:
-                        SpawnLight();
+                        _enemies.Add(SpawnLarvae());
                         break;
                     default:
-                        SpawnTank();
+                        _enemies.Add(SpawnZombie());
                         break;
                 }
             }
@@ -51,9 +49,8 @@ namespace Game.scripts
             _SpawnEnemies();
         }
 
-        public static void SpawnTank()
+        public static Enemy SpawnTank()
         {
-            _enemyIndex++;
             int _randomSpawn = rnd.Next(1, 5);
             switch (_randomSpawn)
             {
@@ -78,15 +75,12 @@ namespace Game.scripts
                     _angle = 180;
                     break;
             }
-
-            _newEnemy = new Enemy(_enemySpawn, _tankZombie, _angle, new Vector2(_scale, _scale), 40, _enemyIndex);
-            _enemies.Add(_newEnemy);
-            Engine.Debug("Added TANK ZOMBIE Enemy");
+            return new Enemy(_enemySpawn, _tankZombie, _angle, new Vector2(_scale, _scale), 40, 5);
+            //Engine.Debug("Added TANK ZOMBIE Enemy");
         }
 
-        public static void SpawnLight()
+        public static Enemy SpawnLarvae()
         {
-            _enemyIndex++;
             int _randomSpawn = rnd.Next(1, 5);
             switch (_randomSpawn)
             {
@@ -111,15 +105,11 @@ namespace Game.scripts
                     _angle = 180;
                     break;
             }
-
-            _newEnemy = new Enemy(_enemySpawn, _lightZombie, _angle, new Vector2(_scale, _scale), 100, _enemyIndex);
-            _enemies.Add(_newEnemy);
-            Engine.Debug("Added LIGHT ZOMBIE Enemy");
+            return new Enemy(_enemySpawn, _lightZombie, _angle, new Vector2(_scale, _scale), 100,1);
         }
 
-        public static void SpawnZombie()
+        public static Enemy SpawnZombie()
         {
-            _enemyIndex++;
             int _randomSpawn = rnd.Next(1, 5);
             switch (_randomSpawn)
             {
@@ -145,9 +135,9 @@ namespace Game.scripts
                     break;
             }
 
-            _newEnemy = new Enemy(_enemySpawn, _zombie, _angle, new Vector2(_scale, _scale), 80, _enemyIndex);
-            _enemies.Add(_newEnemy);
-            Engine.Debug("Added REGULAR ZOMBIE Enemy");
+            return new Enemy(_enemySpawn, _zombie, _angle, new Vector2(_scale, _scale), 80,2);
+            
+            //Engine.Debug("Added REGULAR ZOMBIE Enemy");
         }
     }
 }

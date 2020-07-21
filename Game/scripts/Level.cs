@@ -9,21 +9,17 @@ namespace Game.scripts
 {
     public class Level
     {
-        private LoseWindow loseWindow;
-        private List<Bullet> bullets = new List<Bullet>();
         private float _width = Program.Width;
         private float _height = Program.Height;
-
-
         public Player player;
         private Vector2 _spawnPoint;
         private bool _tPressed;
         private bool _uPressed;
         private bool _started = false;
         private GameObject background;
+        private GameObject waveIndicator;
         private List<Enemy> Enemies;
-
-
+        private List<Bullet> bullets;
         private List<GameObject> gameObjects;
         public List<GameObject> GameObjects { get => gameObjects; set => gameObjects = value; }
         public List<Bullet> Bullets { get => bullets; set => bullets = value; }
@@ -34,14 +30,13 @@ namespace Game.scripts
             bullets = new List<Bullet>();
 
             Enemies = GameManager.Instance.Enemies;
-
-
             _spawnPoint = new Vector2(_width / 2, _height / 2);
-
-            player = new Player(_spawnPoint, "textures/assets/Player/player.png", 0, new Vector2(0.5f, 0.5f), 200f);
+            player = new Player(_spawnPoint, "textures/assets/Player/player.png", 0, new Vector2(0.5f, 0.5f), 200f, 3);
             background = new GameObject(new Vector2(_width / 2, _height / 2), "textures/assets/bkg.png", 0, new Vector2(1, 1));
+            waveIndicator = new WaveIndicator(new Vector2(_width - 175, _height - 90), "textures/assets/wave1.png", 0, new Vector2(1, 1));
             gameObjects.Add(background);
             gameObjects.Add(player);
+            gameObjects.Add(waveIndicator);
         }
 
 
@@ -56,7 +51,7 @@ namespace Game.scripts
                 if (!_started)
                 {
                     _tPressed = true;
-                    Engine.Debug("Spawn");
+                    //Engine.Debug("Spawn");
                     GameManager.Instance.NewWave();
                     _started = true;
                 }
@@ -74,7 +69,7 @@ namespace Game.scripts
 
                 if (Enemies.Count() != 0)
                 {
-                    Engine.Debug("Enemy killed");
+                    //Engine.Debug("Enemy killed");
                     GameManager.Instance.KillEnemy();
                 }
             }
@@ -98,17 +93,33 @@ namespace Game.scripts
             }
             if (Enemies.Count > 0)
             {
-                foreach (Enemy en in Enemies)
+                for (var i = 0; i < Enemies.Count; i++)
                 {
-                    en.Update();
-                    en.PlayerFollow(player.Position);
+                    if (!player.Invencible)
+                    {
+                        collisionDetectionPlayer(Enemies[i], 100, 100);
+                    }
+                    
+
+                    foreach (Bullet bl in bullets)
+                    {
+                        collisionDetectionEnemyBullet(Enemies[i], 100, bl, 35);
+                    }
+                    if (Enemies.Count > 0)
+                    {
+                        Enemies[i].Update();
+                        if (i != Enemies.Count)
+                        {
+                            Enemies[i].PlayerFollow(player.Position);
+                        }
+                    }
                 }
             }
             if (bullets.Count >= 0)
             {
-                foreach (Bullet bl in bullets)
+                for (var x = bullets.Count - 1; x >= 0; x--)
                 {
-                    bl.Update();
+                    bullets[x].Update();
                 }
             }
         }
@@ -125,22 +136,49 @@ namespace Game.scripts
 
                 if (Enemies.Count > 0)
                 {
-                    foreach (Enemy en in Enemies)
+                    for (var x = Enemies.Count - 1; x >= 0; x--)
                     {
-                        en.Render();
+                        Enemies[x].Render();
                     }
                 }
 
                 if (bullets.Count >= 0)
                 {
-                    foreach (Bullet bl in bullets)
+                    for (var x = bullets.Count - 1; x >= 0; x--)
                     {
-                        bl.Render();
+                        bullets[x].Render();
                     }
                 }
             }
         }
 
+
+        public void collisionDetectionEnemyBullet(Enemy enemy, float diamenemy, Bullet bullet, float diambullet)
+        {
+            Vector2 distance = new Vector2(enemy.Position.x - bullet.Position.x, enemy.Position.y - bullet.Position.y);
+
+            bool _flag = distance.magnitude() <= diamenemy + diambullet;
+            if (_flag)
+            {
+                enemy.LifeController.GetDamage(bullet.BulletDamage);
+                bullet.Lifecontroller.GetDamage(1);
+            }
+        }
+
+        public void collisionDetectionPlayer(Enemy enemy, float diamenemy, float diamplayer)
+        {
+
+            Vector2 distance = new Vector2(enemy.Position.x - player.Position.x, enemy.Position.y - player.Position.y);
+
+            bool _flag = distance.magnitude() <= diamenemy + diamplayer;
+            if (_flag)
+            {
+
+                Engine.Debug("COLISION");
+                player.LifeController.GetDamage(2);
+                player.Invencible = true;
+            }
+        }
 
 
     }

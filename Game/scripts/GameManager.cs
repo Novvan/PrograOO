@@ -56,17 +56,13 @@ namespace Game.scripts
         public void Initialize()
         {
             creditsWindow = new CreditsWindow(new Vector2(Program.Width / 2, Program.Height / 2), "textures/assets/screencredits.png", 0f, new Vector2(1, 1));
-            helpWindow = new HelpWindow(new Vector2(Program.Width / 2, Program.Height / 2), "textures/assets/screenhelp.png", 0f, new Vector2(0.9f, 0.9f));
-            victoryWindow = new VictoryWindow(new Vector2(Program.Width / 2, Program.Height / 2),
-                "textures/assets/victory.png", 0f, new Vector2(0.9f, 0.9f));
-            looseWindow = new LoseWindow(new Vector2(Program.Width / 2, Program.Height / 2), "textures/assets/defeat.png",
-                0f, new Vector2(0.9f, 0.9f));
-            menuWindow = new Menu(new Vector2(Program.Width / 2, Program.Height / 2),
-                "textures/assets/screenmenu.png", 0f, new Vector2(1.35f, 1.35f));
+            helpWindow = new HelpWindow(new Vector2(Program.Width / 2, Program.Height / 2), "textures/assets/screenhelp.png", 0f, new Vector2(1, 1));
+            victoryWindow = new VictoryWindow(new Vector2(Program.Width / 2, Program.Height / 2),"textures/assets/victory.png", 0f, new Vector2(1, 1));
+            looseWindow = new LoseWindow(new Vector2(Program.Width / 2, Program.Height / 2), "textures/assets/defeat.png",0f, new Vector2(1, 1));
+            menuWindow = new Menu(new Vector2(Program.Width / 2, Program.Height / 2),"textures/assets/screenmenu.png", 0f, new Vector2(1, 1));
             levelWindow = new Level();
             currentState = State.Menu;
             SpawnPoint = new Vector2(50, 50);
-            //player = new Player(SpawnPoint, "textures/assets/Player/player.png", 0, 0.5f, 0.5f, 300f);
         }
         public void ChangeCurrentState(State newState)
         {

@@ -7,41 +7,26 @@ using System.Threading.Tasks;
 
 namespace Game.scripts
 {
-    public class Player : GameObject, IDamageable
+    public class Player : GameObject
     {
-        private int hitPoints;
-        public int HitPoints => hitPoints;
-
-        public bool IsDestroyed { get; set; }
-
         private IWeapon currentWeapon;
-        public event Action<IDamageable> OnDestroy;
-        private LifeController _lifeController;
         private float speed;
-        private SpawnPoint spawnPoint;
         private bool _pPressed;
-        private Vector2 _bPoint;
+        //private Vector2 _bPoint;
         private PullGenerico<Bullet> _bulletPull;
-        public Vector2 Position
-        {
-            get => position;
-        }
+        private LifeController _lifeController;
+        public LifeController LifeController => _lifeController;
 
+        public bool Invencible { get => invencible; set => invencible = value; }
+         
+        private bool invencible;
+        private float invencibleTimer;
 
-
-
-        public LifeController LifeController
-        {
-            get => _lifeController;
-            set => _lifeController = value;
-        }
-
-        public Player(Vector2 initialPosition, string texturePath, float angle, Vector2 size, float speed)
+        public Player(Vector2 initialPosition, string texturePath, float angle, Vector2 size, float speed, float life)
             : base(initialPosition, texturePath, angle, size)
         {
-
+            _lifeController = new LifeController(life);
             transform.Position = initialPosition;
-            _lifeController = new LifeController(100);
             this.speed = speed;
             _bulletPull = new PullGenerico<Bullet>();
         }
@@ -50,82 +35,94 @@ namespace Game.scripts
         {
             transform.Position = new Vector2(transform.Position.x, transform.Position.y + _speed * Program.deltaTime);
             transform.Rotation = 90f;
-            Engine.Debug("abajo");
+            //Engine.Debug("abajo");
 
         }
         public void MoveUp(Vector2 _position, float _speed)
         {
             transform.Position = new Vector2(transform.Position.x, transform.Position.y - _speed * Program.deltaTime);
             transform.Rotation = 270f;
-            Engine.Debug("arriba");
+            //Engine.Debug("arriba");
         }
         public void MoveLeft(Vector2 _position, float _speed)
         {
             transform.Position = new Vector2(transform.Position.x - _speed * Program.deltaTime, transform.Position.y);
             transform.Rotation = 180f;
-            Engine.Debug("izq");
+            //Engine.Debug("izq");
         }
         public void MoveRight(Vector2 _position, float _speed)
         {
             transform.Position = new Vector2(transform.Position.x + _speed * Program.deltaTime, transform.Position.y);
             transform.Rotation = 0f;
-            Engine.Debug("der");
+            //Engine.Debug("der");
 
         }
 
 
         public override void Update()
         {
-            position = transform.Position;
-
-
+            if (invencible) 
+            {
+                if (invencibleTimer >= 2f)
+                {
+                    invencible = false;
+                    invencibleTimer = 0;
+                }
+                else 
+                {
+                    invencibleTimer += Time.DeltaTime;
+                }
+            }
+            if (LifeController.CurrentLife <= 0) GameManager.Instance.currentState = State.Lose;
 
             if (Engine.GetKey(Keys.D))
             {
-                MoveRight(position, speed);
+                MoveRight(transform.Position, speed);
             }
 
             if (Engine.GetKey(Keys.A))
             {
-                MoveLeft(position, speed);
+                MoveLeft(transform.Position, speed);
 
             }
 
             if (Engine.GetKey(Keys.S))
             {
-                MoveDown(position, speed);
+                MoveDown(transform.Position, speed);
 
             }
 
             if (Engine.GetKey(Keys.W))
             {
-                MoveUp(position, speed);
+                MoveUp(transform.Position, speed);
 
             }
 
             if (Engine.GetKey(Keys.Q))
             {
-                LifeController.GetDamage(100);
-                Engine.Debug(LifeController.CurrentLife);
+                _lifeController.GetDamage(1);
+                //Engine.Debug(lifecontroller.CurrentLife);
             }
 
             if (Engine.GetKey(Keys.P) && !_pPressed)
             {
                 _pPressed = true;
-                //Engine.Debug("Shot");
                 Shoot(transform.Rotation);
+                //Engine.Debug("Shot");
             }
 
             if (!Engine.GetKey(Keys.P))
             {
                 _pPressed = false;
             }
-            
+
+            /*
             if (Engine.GetKey(Keys.K)
                    && currentWeapon is object)
             {
                 currentWeapon.StartAttack();
             }
+            */
 
         }
 
@@ -141,22 +138,7 @@ namespace Game.scripts
         public void Shoot(float angle)
         {
             Bullet bullet = _bulletPull.GetBullet(angle);
-            bullet.Init(transform.Position, "textures/bullet.png", angle, new Vector2(1, 1), 0f);
-        }
-
-        public void Destroy()
-        {
-            IsDestroyed = true;
-            OnDestroy?.Invoke(this);
-        }
-
-        public void GetDamage(int damage)
-        {
-            hitPoints -= damage;
-            if (hitPoints <= 0)
-            {
-                Destroy();
-            }
+            bullet.Init(transform.Position, "textures/assets/bullet.png", angle, new Vector2(1, 1), 1500f, 1, 1);
         }
     }
 }

@@ -42,12 +42,13 @@ namespace Game.scripts
         public void OnHighlight()
         {
             
-            texture = highlightTexture;
+            renderer.Texture = highlightTexture;
+            Engine.Debug("funciona");
         }
         public void OnUnHighlight()
         {
-            
-            texture = nonHighlightTexture;
+
+            renderer.Texture = nonHighlightTexture;
         }
     }
 }

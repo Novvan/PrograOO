@@ -86,7 +86,7 @@ namespace Game.scripts
         }
         private void OnSelectedQuitButton()
         {
-            Engine.Debug("Quit Game");
+          
             Environment.Exit(1);
         }
         private void OnSelectedCreditsButton()

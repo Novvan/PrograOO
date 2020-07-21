@@ -139,3 +139,7 @@ D:\PrograOO\Game\bin\Debug\textures\assets\Boss\boss.png
 D:\PrograOO\Game\bin\Debug\textures\assets\defeat.png
 D:\PrograOO\Game\bin\Debug\textures\assets\screenhelp.png
 D:\PrograOO\Game\bin\Debug\textures\assets\victory.png
+D:\PrograOO\Game\bin\Debug\textures\assets\finalwave.png
+D:\PrograOO\Game\bin\Debug\textures\assets\wave1.png
+D:\PrograOO\Game\bin\Debug\textures\assets\wave2.png
+D:\PrograOO\Game\bin\Debug\textures\assets\wave3.png

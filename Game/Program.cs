@@ -9,8 +9,8 @@ namespace Game
         public static float deltaTime;
         static DateTime startTime;
         public static float lastFrameTime;
-        public static int Width = 1600;
-        public static int Height = 900;
+        public static int Width = 1920;
+        public static int Height = 1080;
 
 
         static void Main(string[] args)
@@ -37,11 +37,6 @@ namespace Game
 
         private static void Update()
         {
-            /*if (GameManager.Instance.Enemies.Length == 0)
-            {
-                GameManager.Instance.NewWave();
-            }*/
-
             CalculateDeltaTime();
             Time.Update();
             GameManager.Instance.Update();
