@@ -44,8 +44,10 @@
     <Compile Include="scripts\CreditsWindow.cs" />
     <Compile Include="scripts\Enemy.cs" />
     <Compile Include="scripts\EnemyFactory.cs" />
+    <Compile Include="scripts\EnemySpawner.cs" />
     <Compile Include="scripts\GameManager.cs" />
     <Compile Include="scripts\GameObject.cs" />
+    <Compile Include="scripts\HealthIndicator.cs" />
     <Compile Include="scripts\Healthup.cs" />
     <Compile Include="scripts\HelpWindow.cs" />
     <Compile Include="scripts\IDamageable.cs" />
@@ -68,22 +70,6 @@
     <Compile Include="scripts\WaveIndicator.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="C:\Users\Admin\Desktop\IOO\finalwave.png">
-      <Link>textures\assets\finalwave.png</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="C:\Users\Admin\Desktop\IOO\wave1.png">
-      <Link>textures\assets\wave1.png</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="C:\Users\Admin\Desktop\IOO\wave2.png">
-      <Link>textures\assets\wave2.png</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="C:\Users\Admin\Desktop\IOO\wave3.png">
-      <Link>textures\assets\wave3.png</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Engine.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -97,6 +83,18 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="textures\assets\defeat.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\assets\finalwave.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\assets\Healthbar\1heart.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\assets\Healthbar\2hearts.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\assets\Healthbar\3hearts.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="textures\assets\Menu\credits.png">
@@ -142,6 +140,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="textures\assets\victory.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\assets\wave1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\assets\wave2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\assets\wave3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="textures\assets\wave4.png">

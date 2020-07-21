@@ -80,13 +80,12 @@ namespace Game.scripts
             get => _wave;
         }
         public List<Enemy> Enemies { get => _enemies; set => _enemies = value; }
-
-
+        public Random Random => _random;
 
         public void NewWave()
         {
             _wave++;
-            EnemyFactory.Spawn();
+            EnemySpawner.Spawn();
         }
 
         public void CheckEnemies()
@@ -94,7 +93,7 @@ namespace Game.scripts
             if (_enemies.Count == 0)
             {
                 _wave++;
-                EnemyFactory.Spawn();
+                EnemySpawner.Spawn();
             }
         }
 
@@ -123,7 +122,7 @@ namespace Game.scripts
                 default:
                     break;
             }
-            if (_wave == 5)
+            if (_wave == 6)
             {
                 currentState = State.Victory;
             }

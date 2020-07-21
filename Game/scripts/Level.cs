@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Game.scripts.Game.scripts;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -18,8 +19,10 @@ namespace Game.scripts
         private bool _started = false;
         private GameObject _background;
         private GameObject _waveIndicator;
+        private GameObject _healthbar;
         private List<Healthup> _heals;
         private List<Enemy> _enemies;
+        private float _spawningTimer;
         private List<Bullet> _bullets;
         private List<GameObject> _gameObjects;
         public List<GameObject> GameObjects { get => _gameObjects; set => _gameObjects = value; }
@@ -36,9 +39,11 @@ namespace Game.scripts
             player = new Player(_spawnPoint, "textures/assets/Player/player.png", 0, new Vector2(0.5f, 0.5f), 200f, 3);
             _background = new GameObject(new Vector2(_width / 2, _height / 2), "textures/assets/bkg.png", 0, new Vector2(1, 1));
             _waveIndicator = new WaveIndicator(new Vector2(_width - 175, _height - 90), "textures/assets/wave1.png", 0, new Vector2(1, 1));
+            _healthbar = new HealthIndicator(new Vector2(_width - 175, 90), "textures/assets/Healthbar/1heart.png", 0, new Vector2(0.35f, 0.35f));
             _gameObjects.Add(_background);
             _gameObjects.Add(player);
             _gameObjects.Add(_waveIndicator);
+            _gameObjects.Add(_healthbar);
         }
 
 
@@ -71,7 +76,6 @@ namespace Game.scripts
 
                 if (_enemies.Count() != 0)
                 {
-                    //Engine.Debug("Enemy killed");
                     GameManager.Instance.KillEnemy();
                 }
             }
@@ -113,6 +117,17 @@ namespace Game.scripts
                         if (i != _enemies.Count)
                         {
                             _enemies[i].PlayerFollow(player.Position);
+                            
+                           
+                            if (_spawningTimer >= 1.3f)
+                            {
+                                _enemies[i].BossBehaviour();
+                                _spawningTimer = 0;
+                            }
+                            else
+                            {
+                                _spawningTimer += Time.DeltaTime;
+                            }
                         }
                     }
                 }
@@ -132,7 +147,6 @@ namespace Game.scripts
                     CollisionPlayerHeal(_heals[x], 25, 35);
                     if (x != _heals.Count)
                     {
-
                         _heals[x].Update();
                     }
                 }
