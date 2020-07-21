@@ -20,7 +20,7 @@ namespace Game.scripts
         {
             if (_wave == 5)
             {
-                _enemySpawn = new Vector2(rnd.Next(1, Program.Width), 200); //
+                _enemySpawn = new Vector2(rnd.Next(180, Program.Width-180), 200);
                 _enemies.Add(EnemyFactory.Create(EnemyFactory.Enemies.boss, _enemySpawn, 0));
             }
             else

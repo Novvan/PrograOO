@@ -22,6 +22,7 @@ namespace Game.scripts
         private GameObject _healthbar;
         private List<Healthup> _heals;
         private List<Enemy> _enemies;
+        private float _spawningTimer;
         private List<Bullet> _bullets;
         private List<GameObject> _gameObjects;
         public List<GameObject> GameObjects { get => _gameObjects; set => _gameObjects = value; }
@@ -116,6 +117,17 @@ namespace Game.scripts
                         if (i != _enemies.Count)
                         {
                             _enemies[i].PlayerFollow(player.Position);
+                            
+                           
+                            if (_spawningTimer >= 1.3f)
+                            {
+                                _enemies[i].BossBehaviour();
+                                _spawningTimer = 0;
+                            }
+                            else
+                            {
+                                _spawningTimer += Time.DeltaTime;
+                            }
                         }
                     }
                 }
@@ -135,7 +147,6 @@ namespace Game.scripts
                     CollisionPlayerHeal(_heals[x], 25, 35);
                     if (x != _heals.Count)
                     {
-
                         _heals[x].Update();
                     }
                 }
