@@ -8,8 +8,14 @@ namespace Game.scripts
 {
     public class Button : GameObject
     {
+        
+
         private Texture nonHighlightTexture;
         private Texture highlightTexture;
+        private Button nextButton;
+        public Button NextButton => nextButton;
+        private Button previousButton;
+        public Button PreviousButton => previousButton;
         public event Action OnButtonSelected;
 
 
@@ -17,7 +23,12 @@ namespace Game.scripts
             string selectedTexturePath) : base(initialPosition, texturePath, angle, size)
         {
             nonHighlightTexture = Engine.GetTexture(texturePath);
-            highlightTexture = Engine.GetTexture(selectedTexturePath);
+            highlightTexture = Engine.GetTexture(selectedTexturePath);           
+        }
+        public void AssignButtons(Button previousButton, Button nextButton)
+        {
+            this.previousButton = previousButton;
+            this.nextButton = nextButton;
         }
 
         public override void Update()
@@ -30,11 +41,14 @@ namespace Game.scripts
         }
         public void OnHighlight()
         {
-            texture = highlightTexture;
+            
+            renderer.Texture = highlightTexture;
+            Engine.Debug("funciona");
         }
         public void OnUnHighlight()
         {
-            texture = nonHighlightTexture;
+
+            renderer.Texture = nonHighlightTexture;
         }
     }
 }

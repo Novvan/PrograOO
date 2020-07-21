@@ -41,10 +41,13 @@
     <Compile Include="Program.cs" />
     <Compile Include="scripts\Bullet.cs" />
     <Compile Include="scripts\Button.cs" />
+    <Compile Include="scripts\CreditsWindow.cs" />
     <Compile Include="scripts\Enemy.cs" />
     <Compile Include="scripts\EnemyFactory.cs" />
     <Compile Include="scripts\GameManager.cs" />
     <Compile Include="scripts\GameObject.cs" />
+    <Compile Include="scripts\Healthup.cs" />
+    <Compile Include="scripts\HelpWindow.cs" />
     <Compile Include="scripts\IDamageable.cs" />
     <Compile Include="scripts\IPooleable.cs" />
     <Compile Include="scripts\IWeapon.cs" />
@@ -53,7 +56,7 @@
     <Compile Include="scripts\LoseWindow.cs" />
     <Compile Include="scripts\Menu.cs" />
     <Compile Include="scripts\Player.cs" />
-    <Compile Include="scripts\PlayerAlt.cs" />
+    <Compile Include="scripts\Powerup.cs" />
     <Compile Include="scripts\PullGenerico.cs" />
     <Compile Include="scripts\Renderer.cs" />
     <Compile Include="scripts\SpawnPoint.cs" />
@@ -62,18 +65,44 @@
     <Compile Include="scripts\Transform.cs" />
     <Compile Include="scripts\Vector2.cs" />
     <Compile Include="scripts\VictoryWindow.cs" />
+    <Compile Include="scripts\WaveIndicator.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="C:\Users\Admin\Desktop\IOO\finalwave.png">
+      <Link>textures\assets\finalwave.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="C:\Users\Admin\Desktop\IOO\wave1.png">
+      <Link>textures\assets\wave1.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="C:\Users\Admin\Desktop\IOO\wave2.png">
+      <Link>textures\assets\wave2.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="C:\Users\Admin\Desktop\IOO\wave3.png">
+      <Link>textures\assets\wave3.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Engine.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="textures\assets\Map.png">
+    <Content Include="textures\assets\bkg.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="textures\assets\Menu\menubkg.png">
+    <Content Include="textures\assets\Boss\boss.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="textures\assets\Menu\menuscreen.png">
+    <Content Include="textures\assets\bullet.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\assets\defeat.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\assets\Menu\credits.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\assets\Menu\help.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="textures\assets\Menu\play.png">
@@ -82,16 +111,43 @@
     <Content Include="textures\assets\Menu\quit.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="textures\assets\Menu\yellowplay.png">
+    <Content Include="textures\assets\Menu\selectedcredits.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="textures\assets\Menu\yellowquit.png">
+    <Content Include="textures\assets\Menu\selectedhelp.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\assets\Menu\selectedplay.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\assets\Menu\selectedquit.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="textures\assets\Player\player.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="textures\assets\Zombie Light\attack01_0019.png">
+    <Content Include="textures\assets\Powerup\bulletspowerup.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\assets\Powerup\healthpowerup.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\assets\screencredits.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\assets\screenhelp.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\assets\screenmenu.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\assets\victory.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\assets\wave4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\assets\Zombie Light\lightzombie.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="textures\assets\Zombie Normal\zombie_normal.png">
@@ -100,30 +156,9 @@
     <Content Include="textures\assets\Zombie Tanque\skeleton-attack_0.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="textures\bkg.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="textures\bullet.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="textures\gameover.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="textures\spaceship.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="textures\ship.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="textures\victory.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="textures\assets\BoxHead-like.drawio" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

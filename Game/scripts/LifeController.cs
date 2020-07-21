@@ -23,12 +23,6 @@ namespace Game.scripts
         public void GetDamage(float damage)
         {
             currentLife -= damage;
-
-            if (currentLife <= 0)
-            {
-                GameManager.Instance.currentState = State.Lose;
-                Die();
-            }
         }
 
         public void Heal(float heal)
@@ -42,7 +36,8 @@ namespace Game.scripts
         }
 
         public virtual void Die()
-        {          
+        {
+
         }
     }
 }

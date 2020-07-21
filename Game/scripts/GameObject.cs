@@ -9,19 +9,13 @@ namespace Game.scripts
     public class GameObject
     {
         //Clase padre de todos los gameobjects
-        protected Vector2 position;
-        protected float angle;
-        protected float scaleX;
-        protected float scaleY;
-        protected Texture texture;
         protected Transform transform;
         protected Renderer renderer;
 
-
-        public float Width => texture.Width * scaleX;
-        public float Height => texture.Height * scaleY;
-        public float OffsetX => Width / 2;
-        public float OffsetY => Height / 2;
+        public Vector2 Position
+        {
+            get => transform.Position;
+        }
 
         public GameObject()
         {

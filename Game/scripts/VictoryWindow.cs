@@ -24,7 +24,6 @@ namespace Game.scripts
         public override void Render()
         {
             base.Render();
-            // Engine.Draw(texture, position.x, position.y, scaleX, scaleY, angle, OffsetX, OffsetY);
         }
     }
 }

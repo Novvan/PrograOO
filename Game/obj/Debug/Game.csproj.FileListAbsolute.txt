@@ -115,22 +115,32 @@ D:\PrograOO\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
 D:\PrograOO\Game\obj\Debug\Game.exe
 D:\PrograOO\Game\obj\Debug\Game.pdb
 D:\PrograOO\Game\bin\Debug\Engine.dll
-D:\PrograOO\Game\bin\Debug\textures\assets\Map.png
 D:\PrograOO\Game\bin\Debug\textures\assets\Zombie Tanque\skeleton-attack_0.png
-D:\PrograOO\Game\bin\Debug\textures\bkg.png
-D:\PrograOO\Game\bin\Debug\textures\spaceship.png
-D:\PrograOO\Game\bin\Debug\textures\ship.png
 D:\PrograOO\Game\bin\Debug\textures\assets\Player\player.png
 D:\PrograOO\Game\bin\Debug\Game.exe
 D:\PrograOO\Game\bin\Debug\Game.pdb
-D:\PrograOO\Game\bin\Debug\textures\assets\Menu\menuscreen.png
 D:\PrograOO\Game\bin\Debug\textures\assets\Menu\play.png
 D:\PrograOO\Game\bin\Debug\textures\assets\Menu\quit.png
-D:\PrograOO\Game\bin\Debug\textures\assets\Menu\yellowplay.png
-D:\PrograOO\Game\bin\Debug\textures\assets\Menu\yellowquit.png
-D:\PrograOO\Game\bin\Debug\textures\gameover.png
-D:\PrograOO\Game\bin\Debug\textures\assets\Menu\menubkg.png
-D:\PrograOO\Game\bin\Debug\textures\bullet.png
-D:\PrograOO\Game\bin\Debug\textures\victory.png
-D:\PrograOO\Game\bin\Debug\textures\assets\Zombie Light\attack01_0019.png
 D:\PrograOO\Game\bin\Debug\textures\assets\Zombie Normal\zombie_normal.png
+D:\PrograOO\Game\bin\Debug\textures\assets\Menu\credits.png
+D:\PrograOO\Game\bin\Debug\textures\assets\Menu\help.png
+D:\PrograOO\Game\bin\Debug\textures\assets\Menu\selectedcredits.png
+D:\PrograOO\Game\bin\Debug\textures\assets\Menu\selectedhelp.png
+D:\PrograOO\Game\bin\Debug\textures\assets\Menu\selectedplay.png
+D:\PrograOO\Game\bin\Debug\textures\assets\Menu\selectedquit.png
+D:\PrograOO\Game\bin\Debug\textures\assets\screencredits.png
+D:\PrograOO\Game\bin\Debug\textures\assets\screenmenu.png
+D:\PrograOO\Game\bin\Debug\textures\assets\bkg.png
+D:\PrograOO\Game\bin\Debug\textures\assets\Powerup\bulletspowerup.png
+D:\PrograOO\Game\bin\Debug\textures\assets\Zombie Light\lightzombie.png
+D:\PrograOO\Game\bin\Debug\textures\assets\bullet.png
+D:\PrograOO\Game\bin\Debug\textures\assets\Powerup\healthpowerup.png
+D:\PrograOO\Game\bin\Debug\textures\assets\Boss\boss.png
+D:\PrograOO\Game\bin\Debug\textures\assets\defeat.png
+D:\PrograOO\Game\bin\Debug\textures\assets\screenhelp.png
+D:\PrograOO\Game\bin\Debug\textures\assets\victory.png
+D:\PrograOO\Game\bin\Debug\textures\assets\finalwave.png
+D:\PrograOO\Game\bin\Debug\textures\assets\wave1.png
+D:\PrograOO\Game\bin\Debug\textures\assets\wave2.png
+D:\PrograOO\Game\bin\Debug\textures\assets\wave3.png
+D:\PrograOO\Game\bin\Debug\textures\assets\wave4.png
