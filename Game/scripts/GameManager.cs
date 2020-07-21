@@ -85,7 +85,7 @@ namespace Game.scripts
         public void NewWave()
         {
             _wave++;
-            EnemyFactory.Spawn();
+            EnemySpawner.Spawn();
         }
 
         public void CheckEnemies()
@@ -93,7 +93,7 @@ namespace Game.scripts
             if (_enemies.Count == 0)
             {
                 _wave++;
-                EnemyFactory.Spawn();
+                EnemySpawner.Spawn();
             }
         }
 

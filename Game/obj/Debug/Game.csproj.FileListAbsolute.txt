@@ -144,3 +144,6 @@ D:\PrograOO\Game\bin\Debug\textures\assets\wave1.png
 D:\PrograOO\Game\bin\Debug\textures\assets\wave2.png
 D:\PrograOO\Game\bin\Debug\textures\assets\wave3.png
 D:\PrograOO\Game\bin\Debug\textures\assets\wave4.png
+D:\PrograOO\Game\bin\Debug\textures\assets\Healthbar\1heart.png
+D:\PrograOO\Game\bin\Debug\textures\assets\Healthbar\2hearts.png
+D:\PrograOO\Game\bin\Debug\textures\assets\Healthbar\3hearts.png
