@@ -104,14 +104,14 @@ namespace Game.scripts
                 //Engine.Debug(lifecontroller.CurrentLife);
             }
 
-            if (Engine.GetKey(Keys.P) && !_pPressed)
+            if (Engine.GetKey(Keys.SPACE) && !_pPressed)
             {
                 _pPressed = true;
                 Shoot(transform.Rotation);
                 //Engine.Debug("Shot");
             }
 
-            if (!Engine.GetKey(Keys.P))
+            if (!Engine.GetKey(Keys.SPACE))
             {
                 _pPressed = false;
             }

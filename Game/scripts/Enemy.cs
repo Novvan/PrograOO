@@ -31,6 +31,7 @@ namespace Game.scripts
 
             if (_lifecontroller.CurrentLife <= 0)
             {
+                GameManager.Instance.LevelWindow.Heals.Add(new Healthup(transform.Position));
                 GameManager.Instance.Enemies.Remove(this);
             }
 

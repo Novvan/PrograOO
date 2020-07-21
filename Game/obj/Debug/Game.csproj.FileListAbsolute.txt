@@ -143,3 +143,4 @@ D:\PrograOO\Game\bin\Debug\textures\assets\finalwave.png
 D:\PrograOO\Game\bin\Debug\textures\assets\wave1.png
 D:\PrograOO\Game\bin\Debug\textures\assets\wave2.png
 D:\PrograOO\Game\bin\Debug\textures\assets\wave3.png
+D:\PrograOO\Game\bin\Debug\textures\assets\wave4.png

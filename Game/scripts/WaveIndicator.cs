@@ -36,6 +36,6 @@ namespace Game.scripts
                     renderer.Texture = new Texture("textures/assets/finalwave.png");
                     break;
             }
-        }
+        }   
     }
 }

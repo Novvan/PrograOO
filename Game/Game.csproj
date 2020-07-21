@@ -46,6 +46,7 @@
     <Compile Include="scripts\EnemyFactory.cs" />
     <Compile Include="scripts\GameManager.cs" />
     <Compile Include="scripts\GameObject.cs" />
+    <Compile Include="scripts\Healthup.cs" />
     <Compile Include="scripts\HelpWindow.cs" />
     <Compile Include="scripts\IDamageable.cs" />
     <Compile Include="scripts\IPooleable.cs" />
@@ -55,6 +56,7 @@
     <Compile Include="scripts\LoseWindow.cs" />
     <Compile Include="scripts\Menu.cs" />
     <Compile Include="scripts\Player.cs" />
+    <Compile Include="scripts\Powerup.cs" />
     <Compile Include="scripts\PullGenerico.cs" />
     <Compile Include="scripts\Renderer.cs" />
     <Compile Include="scripts\SpawnPoint.cs" />
@@ -140,6 +142,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="textures\assets\victory.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="textures\assets\wave4.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="textures\assets\Zombie Light\lightzombie.png">
